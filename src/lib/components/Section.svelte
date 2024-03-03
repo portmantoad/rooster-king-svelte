@@ -27,7 +27,8 @@
     }
 
     section :global(.fade){
-    	transition: opacity 200ms;
+      --fade-duration: 200ms;
+    	transition: opacity var(--fade-duration);
     }
 
     section:not(.isInView) :global(.fade){

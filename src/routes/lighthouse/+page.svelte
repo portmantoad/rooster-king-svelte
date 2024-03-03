@@ -166,9 +166,9 @@
       @keyframes flash {
               0% {transform: scale(0);}
               46% {transform: scale(0);}
-              50%{ transform: scale(20); opacity:1;}
-              70% {transform: scale(20); opacity:0;}
-              100% {transform: scale(20); opacity:0;}
+              50%{ transform: scale(2); opacity:1;}
+              70% {transform: scale(2); opacity:0;}
+              100% {transform: scale(2); opacity:0;}
             }
     </style>
       </div>
@@ -261,8 +261,8 @@
 
       --timeline: --section;
       --transform-y-end: -10lvh;
-      --transform-scale-end: 1.05;
-      --transform-rotate-end:10deg;
+      --transform-scale-end: 1.1;
+      --transform-rotate-end:4deg;
       --filter-start: brightness(0);
       --filter-end: brightness(1.5);
       --filter-ease: cubic-bezier(0.100, -0.005, 0.015, 0.985);
@@ -288,29 +288,16 @@
     <div class="gridlayout boys">
       <style type="text/css">
         .boys{margin-bottom: 50lvh;}
-        .boys__text{grid-column: 8 / 14}
+        .boys__text{grid-column: 9 / 14}
         .boys__image{
-          grid-column: 2 / 8; 
+          grid-column: 1 / 9; 
           width: 100%; 
           margin: auto; 
+          --parallax-speed:2;
+          --transform-scale-end:1.5;
+          mix-blend-mode: plus-lighter;
     }
 
-    @supports (animation-range: cover) {
-      .boys__image{
-        animation: linear boys__image both;
-        animation-timeline: view();
-        animation-range: cover 0% cover 100%;
-      }
-    }
-
-    @keyframes boys__image {
-      0% {
-        transform: translateY(calc(0% + 100%));
-      }
-      100% {
-        transform: translateY(calc(0% - 100%));
-      }
-    }
 
         @media only screen and (max-width: 600px) {
           .boys__text{grid-column: 2 / 14;}
@@ -318,7 +305,7 @@
         }
       </style>
 
-      <img class="boys__image" src="/img/lighthouse/boys.jpg" />
+      <img class="boys__image anim" src="/img/lighthouse/boys.jpg" />
 
       <div class="boys__text textblock">
         <span class="stroked medium-5">When I got up to use the bathroom</span>
@@ -341,19 +328,11 @@
           left: 0;
           right: 0;
           bottom: 0;
-          
-      animation: linear moonwhale__photo both;
-      animation-timeline: --section;
-      animation-range: cover 0% exit-crossing 50%;
+          --parallax-speed:1.5;
+          pointer-events: none;
     }
     .moonwhale__photo img{
       grid-column: 9 / 14; width: 100%;
-    }
-    @keyframes moonwhale__photo {
-      0% { transform: translateY(50%); opacity: 0;}
-      10%{ opacity: 1;}
-      90%{ opacity: 1;}
-      100% {transform: translateY(-50%); opacity: 0;}
     }
 
         @media only screen and (max-width: 600px) {
@@ -371,19 +350,11 @@
           height:100%;
           object-fit: cover;
           mix-blend-mode: screen;
-      animation: linear moonwhale__highway both;
-      animation-timeline: --section;
-      animation-range: cover 0% cover 100%;
+          pointer-events: none;
+          --fade-duration: 1000ms !important;
     }
     
 
-    @keyframes moonwhale__highway {
-      0% { opacity:0;}
-      50% { opacity:1;}
-      60% { opacity:1;}
-      80% {opacity:0;}
-      100% {opacity:0;}
-    }
 
         .moonwhale__whale{
           position: fixed;
@@ -394,24 +365,18 @@
           object-fit: cover;
           object-position: 30% 0%;
           mix-blend-mode: screen;
-      animation: linear moonwhale__whale both;
-      animation-timeline: --section;
-      animation-range: cover 0% exit-crossing 50%;
+      --transform-y-start:-100lvh;
+      --transform-y-end:-100lvh;
+      --parallax-speed:1.1;
+      pointer-events: none;
     }
     
-
-    @keyframes moonwhale__whale {
-      0% { opacity:0; transform: translateY(-100lvh);}
-      50% { opacity:1;}
-      80% {opacity:1;}
-      100% { opacity:0; transform: translateY(-120lvh);}
-    }
       </style>
-      <img class="moonwhale__highway" src="/img/lighthouse/highway.gif" />
-    <div class="moonwhale__photo gridlayout">
+      <img class="moonwhale__highway anim fade" src="/img/lighthouse/highway.gif" />
+    <div class="moonwhale__photo gridlayout anim fade">
       <img src="/img/lighthouse/family_photo.jpg" />
     </div>
-      <img class="moonwhale__whale" src="/img/lighthouse/moonwhale.jpg" />
+      <!-- <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" /> -->
     <div class="gridlayout" style="min-height: 100lvh;">
       <div class="moonwhale__text textblock">
         <span class="stroked large-9">It wasn't until the ride home that I heard the family dog had been run over.</span>
