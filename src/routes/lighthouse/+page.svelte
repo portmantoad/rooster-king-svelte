@@ -51,7 +51,7 @@
       right:0;
 /*      width: 100%; */
       --timeline:--section; 
-      --transform-x-end:4%;
+      --transform-x-end:4vh;
     }
 
 
@@ -59,15 +59,15 @@
       position:absolute;
       height: calc(50vh + 20vw);
       width: auto;
-      max-width: 100vw;
+      max-width: calc(100vw + 5vh);
       left:0;
       bottom:0;
       object-fit: cover;
       object-position: 5% 50%;
       mix-blend-mode: multiply;
       --timeline:--section; 
-      --transform-x-end:-5%;
-      --transform-y-end:2%;
+      --transform-x-end:-5vh;
+      --transform-y-end:2vh;
       --transform-scale-end:1.05;
     }
     
@@ -79,12 +79,12 @@
         <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" />  
       </div>
 
-      <img class="intro__glitch anim fade" src="/img/lighthouse/wavesglitch.jpg" />
+      
       <div class="spanheight autolayout" style="--left:9fr; --bottom: 9fr; mix-blend-mode: multiply;">   
         <video style="width: calc(55lvh * 800/496); max-width: 100%;" src="/img/lighthouse/title3.mp4" autoplay muted loop></video>
       </div> 
 
-      <div class="intro__glitchwrap" >
+      <div class="intro__glitchwrap fade" >
           <style type="text/css">
             .intro__glitchwrap{
               min-height: max(60lvh, 50vw);
@@ -95,14 +95,18 @@
               position:absolute;
               z-index: -1;
               width:80vw;
-              height: 100%;
+              height: calc(100% + 40vh);
               object-fit: cover;
               object-position: top left;
               right:0;
-              top:70vh;
+              top:-40vh;
               mix-blend-mode: multiply;
+            }
 
+            @supports (animation-range: cover) {
+            .intro__glitch{
               position:fixed;
+              top:70vh;
               height: 130lvh;
               --timeline: --section;
               --range: exit-crossing;
@@ -112,14 +116,14 @@
 
           </style>
             
-        
+        <img class="intro__glitch anim" src="/img/lighthouse/wavesglitch.jpg" />
       <div class="autolayout" style="--left:.6fr; margin-bottom: 25lvh;">
         <div class="textblock">
           <span class="stroked medium-11"> He told the seller he needed to "try it on for size"</span>
           <span class="stroked large-4 indented">He borrowed a boat and brought six middle school boys out to camp</span>
         </div>
       </div>
-      <div class="whalevid gridlayout">
+      <Section class="whalevid gridlayout">
       <style type="text/css">
 
         .whalevid{
@@ -131,6 +135,8 @@
         }
         .whalevid__video{
           grid-column: 7 / 14; width: 100%;
+          --parallax-speed:1.2;
+          --fade-duration:2s;
         }
 
         @media only screen and (max-width: 600px) {
@@ -144,9 +150,9 @@
           <span class="stroked small-12 indented">driving away the fish</span>
           <span class="stroked small-15">he must have been lonely.</span>
         </div>
-      <video class="whalevid__video" src="/img/lighthouse/luna.mp4" autoplay muted loop></video>
+      <video class="whalevid__video anim fade" src="/img/lighthouse/luna.mp4" autoplay muted loop></video>
 
- </div>
+ </Section>
      <div class="autolayout" style="--right:.6fr;">
         <div class="textblock">
           <span class="stroked medium-15">I resisted pressing my hand against his thick slick skin </span>
@@ -155,22 +161,6 @@
       </div>
       <div class="autolayout" style="--right:.3fr;">
         <img class="anim" style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;" src="/img/lighthouse/fujifilm.webp">
-        <img class="anim" style="mix-blend-mode: plus-lighter;
-    image-rendering: pixelated;
-    transform: translate(34%, -16%);
-    --timeline:view();
-    --bonus-animation: linear flash both;
-    opacity: 0;
-    " src="/img/lighthouse/flash.png">
-    <style type="text/css">
-      @keyframes flash {
-              0% {transform: scale(0);}
-              46% {transform: scale(0);}
-              50%{ transform: scale(2); opacity:1;}
-              70% {transform: scale(2); opacity:0;}
-              100% {transform: scale(2); opacity:0;}
-            }
-    </style>
       </div>
     </div>
 
@@ -192,10 +182,10 @@
       display: block;
       width:max(50lvh, 40vw);
       transform: translateY(calc(-50%)) translateX(calc(-50%));
-      --transform-x-start: -60%;
+      --transform-x-start: -30%;
       --transform-x-end: 30%;
       --parallax-speed: 1.05;
-      --transform-scale-end:2.5;
+      --transform-scale-end:1.25;
     }
 
 
@@ -285,27 +275,40 @@
         </div>
     </div>
 
-    <div class="gridlayout boys">
+    <Section class="gridlayout boys">
       <style type="text/css">
         .boys{margin-bottom: 50lvh;}
         .boys__text{grid-column: 9 / 14}
         .boys__image{
-          grid-column: 1 / 9; 
+          grid-column: 1 / 11; 
           width: 100%; 
           margin: auto; 
-          --parallax-speed:2;
+        }
+        .boys__image--wrap{
+          position: fixed;
+          top:0; left:0; bottom:0; right:0;
+          pointer-events: none;
+          --timeline:--section;
+          --parallax-speed:1.05;
           --transform-scale-end:1.5;
           mix-blend-mode: plus-lighter;
+          --fade-duration: 3000ms;
+          --transform-scale-end: 1.2;
+          --transform-ease: ease-out;
+          transform-origin: left;
     }
 
 
         @media only screen and (max-width: 600px) {
-          .boys__text{grid-column: 2 / 14;}
+          .boys__image--wrap{display:block; position: relative; grid-column: 1 / 15; --transform-scale-end:1; --parallax-speed:1.2;}
+          .boys__text{}
           .boys__image{grid-column: 2 / 14; margin-bottom: 4rem;}
         }
       </style>
 
-      <img class="boys__image anim" src="/img/lighthouse/boys.jpg" />
+      <div class="gridlayout boys__image--wrap anim fade">
+        <img class="boys__image" src="/img/lighthouse/boys.jpg" />
+      </div>
 
       <div class="boys__text textblock">
         <span class="stroked medium-5">When I got up to use the bathroom</span>
@@ -313,7 +316,7 @@
         <span class="stroked medium-3 indented">When I returned he was asleep.</span>
       </div>
       
-    </div>
+    </Section>
 
     <Section class="moonwhale">
 
@@ -351,7 +354,7 @@
           object-fit: cover;
           mix-blend-mode: screen;
           pointer-events: none;
-          --fade-duration: 1000ms !important;
+          --fade-duration: 1000ms;
     }
     
 
@@ -373,9 +376,7 @@
     
       </style>
       <img class="moonwhale__highway anim fade" src="/img/lighthouse/highway.gif" />
-    <div class="moonwhale__photo gridlayout anim fade">
-      <img src="/img/lighthouse/family_photo.jpg" />
-    </div>
+
       <!-- <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" /> -->
     <div class="gridlayout" style="min-height: 100lvh;">
       <div class="moonwhale__text textblock">
@@ -393,7 +394,7 @@
         position: relative;
       }
       .endvid__bg{
-        position: absolute;
+        position: fixed;
         top:50%;
         left:0;
         right:0; 
@@ -405,26 +406,11 @@
         object-fit: cover; 
         object-position: 40% top; 
         display: block;
+        --fade-duration:500ms;
 
-    }
-
-    @supports (animation-range: cover) {
-      .endvid__bg{
-        position:fixed;
-        animation: linear endvid__bg both;
-        animation-timeline: --section;
-        animation-range: entry-crossing 0% entry-crossing 100%;
-      }
-    }
-    
-
-    @keyframes endvid__bg {
-      0% { opacity:0; filter: hue-rotate(-15deg) brightness(.15);}
-      50% { opacity:1;}
-      100% {filter: hue-rotate(0);}
     }
     </style>
-    <video class="endvid__bg" src="/img/lighthouse/sunset-small.mp4" autoplay muted loop></video>
+    <video class="endvid__bg fade" src="/img/lighthouse/sunset-small.mp4" autoplay muted loop></video>
     <div class="gridlayout" style="min-height:100lvh; mix-blend-mode: screen;">
       <video use:inview
     on:inview_enter={() => audioRef.pause()}

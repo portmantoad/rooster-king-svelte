@@ -79,14 +79,14 @@
     will-change: transform;
    }
 
-    .title{
+/*    .title{
    	position: fixed;
    	top: 45%; left:55%;
    	   	width: 30vmax;
    	height: auto;
    	transform: translate(-50%, -50%);
    	    mix-blend-mode: difference;
-   }
+   }*/
 
 
        .scribble{
@@ -112,6 +112,9 @@
     
 /*    filter: blur(0.04em) contrast(2.5);*/
 /*    background: #000;*/
+}
+
+.title{
     mix-blend-mode: plus-lighter;
     animation: 10s linear 0s infinite alternate hueshift, 3s linear fadein both;
    }
@@ -145,29 +148,13 @@ text-align: center;
      100% {opacity:1;}
    }
 
-
-
-.autolayout{
-  --left: 1fr;
-  --right: 1fr;
-  --top: 1fr;
-  --bottom: 1fr;
-  display: grid;
-  grid-template-columns: var(--left) minmax(0,auto) var(--right); 
-  grid-template-rows: var(--top) minmax(0,auto) var(--bottom);
-  gap:0;
-
-   position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0; right:0
-}
-
-  .autolayout > *{
-    grid-column: 2 / span 1; 
-    grid-row: 2 / span 1;
-    margin:0;
-  }
+   .cover{
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+   }
 
 	</style>
   <div class="bg"></div>
@@ -175,10 +162,10 @@ text-align: center;
 	<!-- <img class="scribble" src="/img/title/scribble.png"> -->
 	<!-- <img class="eye" src="/img/title/eye.png"> -->
 	<div class="eye_anim"></div>
-	<div class="autolayout" style="--left:.5fr; right:calc(100% - 43% + 5vw); overflow: hidden;">
+	<div class="cover autolayout" style="--left:.5fr; width:calc(43% - 5vw); overflow: hidden;">
     <div class="eye_anim__2"></div>
   </div>
-  <div class="autolayout" style="--right:.2fr; --bottom:.2fr;">
+  <div class="cover autolayout title" style="--right:.2fr; --bottom:.2fr;">
   	<content>
   	<h1>Rooster <br />King</h1>
   	 <span>CLICK ANYWHERE TO BEGIN</span>

@@ -26,12 +26,12 @@
     	pointer-events: none;
     }
 
-    section :global(.fade){
+    :global(.fade){
       --fade-duration: 200ms;
     	transition: opacity var(--fade-duration);
     }
 
-    section:not(.isInView) :global(.fade){
+    section:not(.isInView) > :global(.fade){
     	opacity:0 !important;	
     	pointer-events: none;
     }
@@ -39,8 +39,7 @@
 </style>
 
 
-<section {...$$restProps} use:inview={options} on:inview_change={handlechange} class:isInView={isInView} class:animateFromBottom={scrollDirection === 'down'}
-      class:animateFromTop={scrollDirection === 'up'}>
+<section {...$$restProps} use:inview={options} on:inview_change={handlechange} class:isInView={isInView}>
 
 	<slot />
 </section>
