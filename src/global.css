@@ -6,6 +6,7 @@
       height: 100%;
       --line-height: 1.5;
       line-height: var(--line-height);
+      overflow-x: hidden;
     }
 
     html {
@@ -20,9 +21,6 @@
       font-size: calc(1rem / var(--line-height));
     }
 
-    section{
-      view-timeline-name: --section;
-    }
 
     img{
       max-width: 100%;
@@ -129,11 +127,15 @@
 
 .stroked{
   transform: translateX(var(--indent));
-  --animation-offset: 0%;
-  animation: linear stroked both;
-  animation-timeline: view();
-  animation-timing-function: ease-out;
-  animation-range: entry-crossing 100% cover calc(35% + var(--animation-offset));
+}
+@supports (animation-range: cover) {
+  .stroked{
+    --animation-offset: 0%;
+    animation: linear stroked both;
+    animation-timeline: view();
+    animation-timing-function: ease-out;
+    animation-range: entry-crossing 100% cover calc(35% + var(--animation-offset));
+  }
 }
     @keyframes stroked {
       0% {
@@ -191,69 +193,59 @@
   }
 
 
-.anim{
---range: cover;
---ease: linear;
---timeline: view(); /* --section */
---opacity-start: 1;
---opacity-end: 1;
---opacity-range: var(--range);
---opacity-ease: var(--ease);
---opacity-timeline: var(--timeline);
---transform-x-start: 0;
---transform-x-end: 0;
---transform-y-start: 0;
---transform-y-end: 0;
---transform-scale-start: 1;
---transform-scale-end: 1;
---transform-rotate-start: 0deg;
---transform-rotate-end: 0deg;
---transform-skew-start: 0deg;
---transform-skew-end: 0deg;
---transform-range: var(--range);
---transform-ease: var(--ease);
---transform-timeline: var(--timeline);
---filter-start: initial;
---filter-end: initial;
---filter-range: var(--range);
---filter-ease: var(--ease);
---filter-timeline: var(--timeline);
---parallax-speed: 1;
---parallax-timeline: var(--timeline);
+@supports (animation-range: cover) {
+  .anim{
+  --range: cover;
+  --ease: linear;
+  --timeline: view(); /* --section */
+  --transform-x-start: 0;
+  --transform-x-end: 0;
+  --transform-y-start: 0;
+  --transform-y-end: 0;
+  --transform-scale-start: 1;
+  --transform-scale-end: 1;
+  --transform-rotate-start: 0deg;
+  --transform-rotate-end: 0deg;
+  --transform-skew-start: 0deg;
+  --transform-skew-end: 0deg;
+  --transform-range: var(--range);
+  --transform-ease: var(--ease);
+  --transform-timeline: var(--timeline);
+  --filter-start: initial;
+  --filter-end: initial;
+  --filter-range: var(--range);
+  --filter-ease: var(--ease);
+  --filter-timeline: var(--timeline);
+  --parallax-speed: 1;
+  --parallax-timeline: var(--timeline);
 
---bonus-animation: thiscantbeempty;
---bonus-animation-range: var(--range);
---bonus-animation-timeline: var(--timeline);
+  --bonus-animation: thiscantbeempty;
+  --bonus-animation-range: var(--range);
+  --bonus-animation-timeline: var(--timeline);
 
+  animation: 
+    var(--transform-ease) anim_transform both, 
+    var(--filter-ease) anim_filter both,
+    linear anim_parallax both,
+    var(--bonus-animation);
 
+  animation-range:
+    var(--transform-range),
+    var(--filter-range),
+    cover,
+    var(--bonus-animation-range);
 
-animation: 
-  var(--opacity-ease) anim_opacity both, 
-  var(--transform-ease) anim_transform both, 
-  var(--filter-ease) anim_filter both,
-  linear anim_parallax both,
-  var(--bonus-animation);
+  animation-composition: add;
 
-animation-range:
-  var(--opacity-range),
-  var(--transform-range),
-  var(--filter-range),
-  cover,
-  var(--bonus-animation-range);
-
-animation-composition: replace, add, add, add, replace;
-
-animation-timeline:
-  var(--opacity-timeline),
-  var(--transform-timeline),
-  var(--filter-timeline),
-  var(--parallax-timeline),
-  var(--bonus-animation-timeline);
+  animation-timeline:
+    var(--transform-timeline),
+    var(--filter-timeline),
+    var(--parallax-timeline),
+    var(--bonus-animation-timeline);
+  }
 }
 
 
-
-@keyframes anim_opacity {0% {opacity: var(--opacity-start)} 100% { opacity: var(--opacity-end)}}
 @keyframes anim_transform {
   0% {
     transform:skew(var(--transform-skew-start)) 

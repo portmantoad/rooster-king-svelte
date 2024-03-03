@@ -1,6 +1,8 @@
 <script type="text/javascript">
   import { inview } from 'svelte-inview';
 
+  import Section from '$lib/components/Section.svelte';
+
   let audioRef;
 </script>
 
@@ -20,12 +22,16 @@
       background: #fff;
       overflow: hidden;
       --timeline:--section; 
-      --parallax-speed: 1.02;
-      --opacity-end:0; 
+/*      --opacity-end:0; 
       --opacity-range:exit; 
-      --opacity-ease: ease-out;
+      --opacity-ease: ease-out;*/
+
+      --filter-end: brightness(0.25) sepia(1) hue-rotate(180deg) saturate(4.5);
+      --filter-range:cover 65%; 
+      --filter-ease: ease-out;
       --bonus-animation: ease-out intro__panorama both;
       --bonus-animation-range: contain 0% contain 30%;
+
     }
 
     @keyframes intro__panorama {
@@ -67,21 +73,23 @@
     
   </style>
 
-  <section class="intro">
-      <div class="intro__panorama anim" style="" >
+  <Section class="intro">
+      <div class="intro__panorama anim fade" >
         <img class="intro__sky anim" src="/img/lighthouse/sky_dithering.png" />
         <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" />  
       </div>
+
+      <img class="intro__glitch anim fade" src="/img/lighthouse/wavesglitch.jpg" />
       <div class="spanheight autolayout" style="--left:9fr; --bottom: 9fr; mix-blend-mode: multiply;">   
         <video style="width: calc(55lvh * 800/496); max-width: 100%;" src="/img/lighthouse/title3.mp4" autoplay muted loop></video>
       </div> 
 
-      <div class="intro__glitchwrap">
+      <div class="intro__glitchwrap" >
           <style type="text/css">
             .intro__glitchwrap{
               min-height: max(60lvh, 50vw);
               position: relative;
-              padding-bottom: 50lvh;
+              padding-bottom: 20lvh;
             }
             .intro__glitch{
               position:absolute;
@@ -99,14 +107,11 @@
               --timeline: --section;
               --range: exit-crossing;
               --transform-y-end: -100%;
-              --opacity-end:0;
-              --opacity-range: exit-crossing 70%;
-              --opacity-ease: ease-in;
               }
             }
 
           </style>
-            <img class="intro__glitch anim" src="/img/lighthouse/wavesglitch.jpg" />
+            
         
       <div class="autolayout" style="--left:.6fr; margin-bottom: 25lvh;">
         <div class="textblock">
@@ -148,12 +153,32 @@
           <span class="stroked large-8 indented">as a boat full of sightseers snapped pictures of us on disposable cameras</span>
         </div>
       </div>
+      <div class="autolayout" style="--right:.3fr;">
+        <img class="anim" style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;" src="/img/lighthouse/fujifilm.webp">
+        <img class="anim" style="mix-blend-mode: plus-lighter;
+    image-rendering: pixelated;
+    transform: translate(34%, -16%);
+    --timeline:view();
+    --bonus-animation: linear flash both;
+    opacity: 0;
+    " src="/img/lighthouse/flash.png">
+    <style type="text/css">
+      @keyframes flash {
+              0% {transform: scale(0);}
+              46% {transform: scale(0);}
+              50%{ transform: scale(20); opacity:1;}
+              70% {transform: scale(20); opacity:0;}
+              100% {transform: scale(20); opacity:0;}
+            }
+    </style>
+      </div>
     </div>
-  </section>
+
+  </Section>
 
   <style type="text/css">
     .pixelwaves{
-      min-height: max(75lvh, 50vw); 
+      min-height: max(80lvh, 50vw); 
       background: url('/img/lighthouse/pixelsort_waves.png'); 
       background-size: cover;
       position: relative;
@@ -167,9 +192,10 @@
       display: block;
       width:max(50lvh, 40vw);
       transform: translateY(calc(-50%)) translateX(calc(-50%));
-      --transform-x-start: -30%;
+      --transform-x-start: -60%;
       --transform-x-end: 30%;
       --parallax-speed: 1.05;
+      --transform-scale-end:2.5;
     }
 
 
@@ -191,12 +217,15 @@
       display: block;
       transform: translateY(calc(50%));
       --parallax-speed:1.2;
+      --transform-skew-start:-2deg;
+      --transform-skew-end:2deg;
+
     }
 
   </style>
 
-  <section class="pixelwaves" >
-      <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.gif" />
+  <Section class="pixelwaves" >
+      <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" />
       <div class="gridlayout">
         <div class="pixelwaves__text textblock">
           <span class="stroked large-1">Only me and one other boy wanted to fish again the next day</span>
@@ -206,7 +235,7 @@
         </div>
         <img class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" />
       </div>
-  </section>
+  </Section>
 
 
  <style type="text/css">
@@ -233,16 +262,18 @@
       --timeline: --section;
       --transform-y-end: -10lvh;
       --transform-scale-end: 1.05;
-      --transform-skew-end:1deg;
-      --filter-end: brightness(.15);
+      --transform-rotate-end:10deg;
+      --filter-start: brightness(0);
+      --filter-end: brightness(1.5);
+      --filter-ease: cubic-bezier(0.100, -0.005, 0.015, 0.985);
     }
 
 
 
   </style>
 
-  <section class="darkroom">
-    <div class="darkroom__bg anim"></div>
+  <Section class="darkroom">
+      <div class="darkroom__bg anim fade"></div>
 
     <div class="autolayout" style="min-height: 100lvh; --right:2fr">
         <div class="textblock">
@@ -297,7 +328,7 @@
       
     </div>
 
-    <section class="moonwhale">
+    <Section class="moonwhale">
 
             <style type="text/css">
         .moonwhale{}
@@ -389,9 +420,9 @@
       </div>
     </div>
 
-    </section>
-  </section>
-  <section class="endvid">
+    </Section>
+  </Section>
+  <Section class="endvid">
     <style type="text/css">
       .endvid{
         position: relative;
@@ -434,6 +465,6 @@
     on:inview_enter={() => audioRef.pause()}
     on:inview_leave={() => audioRef.play()} class="video--withcontrols" style="grid-column: 2 / 14; max-width:100%; margin:auto;" src="/img/lighthouse/something_lyrics.mp4"></video>
     </div>
-  </section>
+  </Section>
 
 </div>
