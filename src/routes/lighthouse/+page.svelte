@@ -1,20 +1,37 @@
 <script type="text/javascript">
   import { inview } from 'svelte-inview';
+  import Textblock from '$lib/components/Textblock.svelte';
 
-  import Section from '$lib/components/Section.svelte';
+  let toggleVisClass = (event) => {
+      const { inView, node} = event.detail;
+      inView ? node.classList.add('isInView') : node.classList.remove('isInView')
+  }
 
   let audioRef;
 </script>
 
 
-  <audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="float:right; position: relative; z-index: 10000;" autoplay loop></audio>
+<style type="text/css">
 
-<div>
-  <style type="text/css">
+    section{
+      view-timeline-name: --section;
+    }
+
+    section.isInView{
+    }
+
+    .fade{
+      --fade-duration: 500ms;
+      transition: opacity var(--fade-duration);
+      opacity:0;
+    }
+
+    section.isInView > .fade, section.isInView .fade.fade--strong-inherit, .fade.isInView{
+      opacity:1;  
+    }
 
     .intro__panorama{
-/*      aspect-ratio: 6 / 3;*/
-      height:90vh;
+      height:80vh;
       position: fixed;
       top:0; left:0; bottom:0; right:0;
       margin: auto;
@@ -22,23 +39,22 @@
       background: #fff;
       overflow: hidden;
       --timeline:--section; 
-/*      --opacity-end:0; 
-      --opacity-range:exit; 
-      --opacity-ease: ease-out;*/
-
       --filter-end: brightness(0.25) sepia(1) hue-rotate(180deg) saturate(4.5);
       --filter-range:cover 65%; 
       --filter-ease: ease-out;
       --bonus-animation: ease-out intro__panorama both;
       --bonus-animation-range: contain 0% contain 30%;
+      --fade-duration: 1s;
 
     }
 
     @keyframes intro__panorama {
               0% {
+                height:90vh;
                 max-height: 90vh;
               }
               100% {
+                height:90vh;
                 max-height: 75vh;
               }
             }
@@ -70,23 +86,8 @@
       --transform-y-end:2vh;
       --transform-scale-end:1.05;
     }
-    
-  </style>
 
-  <Section class="intro">
-      <div class="intro__panorama anim fade" >
-        <img class="intro__sky anim" src="/img/lighthouse/sky_dithering.png" />
-        <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" />  
-      </div>
-
-      
-      <div class="spanheight autolayout" style="--left:9fr; --bottom: 9fr; mix-blend-mode: multiply;">   
-        <video style="width: calc(55lvh * 800/496); max-width: 100%;" src="/img/lighthouse/title3.mp4" autoplay muted loop></video>
-      </div> 
-
-      <div class="intro__glitchwrap fade" >
-          <style type="text/css">
-            .intro__glitchwrap{
+                .intro__glitchwrap{
               min-height: max(60lvh, 50vw);
               position: relative;
               padding-bottom: 20lvh;
@@ -103,6 +104,7 @@
               mix-blend-mode: multiply;
             }
 
+
             @supports (animation-range: cover) {
             .intro__glitch{
               position:fixed;
@@ -114,60 +116,22 @@
               }
             }
 
-          </style>
-            
-        <img class="intro__glitch anim" src="/img/lighthouse/wavesglitch.jpg" />
-      <div class="autolayout" style="--left:.6fr; margin-bottom: 25lvh;">
-        <div class="textblock">
-          <span class="stroked medium-11"> He told the seller he needed to "try it on for size"</span>
-          <span class="stroked large-4 indented">He borrowed a boat and brought six middle school boys out to camp</span>
-        </div>
-      </div>
-      <Section class="whalevid gridlayout">
-      <style type="text/css">
-
         .whalevid{
            margin-bottom: 25lvh;
         }
 
-        .whalevid__text{
-          grid-column: 2 / 7;
-        }
         .whalevid__video{
           grid-column: 7 / 14; width: 100%;
           --parallax-speed:1.2;
-          --fade-duration:2s;
+          --fade-duration:500ms;
         }
 
         @media only screen and (max-width: 600px) {
           .whalevid__text{grid-column: 2 / 14;}
           .whalevid__video{grid-column: 2 / 14; margin-top: 4rem;}
-        }
-      </style>
+        } 
 
-        <div class="textblock whalevid__text">
-          <span class="stroked medium-13">A killer whale named Luna kept swimming up to us</span>
-          <span class="stroked small-12 indented">driving away the fish</span>
-          <span class="stroked small-15">he must have been lonely.</span>
-        </div>
-      <video class="whalevid__video anim fade" src="/img/lighthouse/luna.mp4" autoplay muted loop></video>
-
- </Section>
-     <div class="autolayout" style="--right:.6fr;">
-        <div class="textblock">
-          <span class="stroked medium-15">I resisted pressing my hand against his thick slick skin </span>
-          <span class="stroked large-8 indented">as a boat full of sightseers snapped pictures of us on disposable cameras</span>
-        </div>
-      </div>
-      <div class="autolayout" style="--right:.3fr;">
-        <img class="anim" style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;" src="/img/lighthouse/fujifilm.webp">
-      </div>
-    </div>
-
-  </Section>
-
-  <style type="text/css">
-    .pixelwaves{
+   .pixelwaves{
       min-height: max(80lvh, 50vw); 
       background: url('/img/lighthouse/pixelsort_waves.png'); 
       background-size: cover;
@@ -187,7 +151,6 @@
       --parallax-speed: 1.05;
       --transform-scale-end:1.25;
     }
-
 
     .pixelwaves__text{
           grid-column: 2 / 7;
@@ -212,30 +175,8 @@
 
     }
 
-  </style>
-
-  <Section class="pixelwaves" >
-      <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" />
-      <div class="gridlayout">
-        <div class="pixelwaves__text textblock">
-          <span class="stroked large-1">Only me and one other boy wanted to fish again the next day</span>
-          <span class="stroked medium-12">The others planned to collect sticks and explore.</span>
-          <span class="stroked medium-2 indented">We left our friends in their tents </span>
-          <span class="stroked medium-6 indented">and set out towards the lighthouse.</span>
-        </div>
-        <img class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" />
-      </div>
-  </Section>
 
 
- <style type="text/css">
-    .darkroom{
-/*      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));*/
-      min-height: 100lvh;
-      padding-top: 30lvh;
-      margin-top: -10lvh;
-      position: relative;
-    }
 
     .darkroom__bg{
       position:fixed;
@@ -256,31 +197,15 @@
       --filter-start: brightness(0);
       --filter-end: brightness(1.5);
       --filter-ease: cubic-bezier(0.100, -0.005, 0.015, 0.985);
+
+      --fade-duration: 3s;
     }
 
 
-
-  </style>
-
-  <Section class="darkroom">
-      <div class="darkroom__bg anim fade"></div>
-
-    <div class="autolayout" style="min-height: 100lvh; --right:2fr">
-        <div class="textblock">
-          <span class="stroked medium-9">Our chaperone slept alone on the floor below</span>
-          <span class="stroked medium-7">as we laid in sleeping bags side by side</span>
-          <span class="stroked medium-4 indented">whispering, staring into each other</span>
-          <span class="spacer"></span>
-          <span class="stroked small-13">I wanted to kiss him.</span>
-        </div>
-    </div>
-
-    <Section class="gridlayout boys">
-      <style type="text/css">
-        .boys{margin-bottom: 50lvh;}
+        .boys{min-height: 100vh;}
         .boys__text{grid-column: 9 / 14}
         .boys__image{
-          grid-column: 1 / 11; 
+          grid-column: 2 / 10; 
           width: 100%; 
           margin: auto; 
         }
@@ -292,10 +217,10 @@
           --parallax-speed:1.05;
           --transform-scale-end:1.5;
           mix-blend-mode: plus-lighter;
-          --fade-duration: 3000ms;
+          --fade-duration: 1s;
           --transform-scale-end: 1.2;
           --transform-ease: ease-out;
-          transform-origin: left;
+/*          transform-origin: left;*/
     }
 
 
@@ -304,23 +229,7 @@
           .boys__text{}
           .boys__image{grid-column: 2 / 14; margin-bottom: 4rem;}
         }
-      </style>
-
-      <div class="gridlayout boys__image--wrap anim fade">
-        <img class="boys__image" src="/img/lighthouse/boys.jpg" />
-      </div>
-
-      <div class="boys__text textblock">
-        <span class="stroked medium-5">When I got up to use the bathroom</span>
-        <span class="stroked medium-10">I thought I saw a look flash across his face.</span>
-        <span class="stroked medium-3 indented">When I returned he was asleep.</span>
-      </div>
-      
-    </Section>
-
-    <Section class="moonwhale">
-
-            <style type="text/css">
+        
         .moonwhale{}
         .moonwhale__text{}
         .moonwhale__text{
@@ -355,6 +264,11 @@
           mix-blend-mode: screen;
           pointer-events: none;
           --fade-duration: 1000ms;
+          --timeline:--section;
+          --parallax-speed:1.05;
+          --filter-start:brightness(0);
+          --filter-range: entry;
+          --filter-ease: ease-in;
     }
     
 
@@ -373,23 +287,6 @@
       --parallax-speed:1.1;
       pointer-events: none;
     }
-    
-      </style>
-      <img class="moonwhale__highway anim fade" src="/img/lighthouse/highway.gif" />
-
-      <!-- <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" /> -->
-    <div class="gridlayout" style="min-height: 100lvh;">
-      <div class="moonwhale__text textblock">
-        <span class="stroked large-9">It wasn't until the ride home that I heard the family dog had been run over.</span>
-        <span class="stroked medium-14 indented">When I was in college I learned that Luna died too,</span>
-        <span class="stroked medium-8 indented">caught in the motor of some other boat.</span>
-      </div>
-    </div>
-
-    </Section>
-  </Section>
-  <Section class="endvid">
-    <style type="text/css">
       .endvid{
         position: relative;
       }
@@ -409,13 +306,110 @@
         --fade-duration:500ms;
 
     }
-    </style>
+  </style>
+
+
+  <audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="float:right; position: relative; z-index: 10000;" autoplay loop></audio>
+
+  {#if false}
+  <section class="isInView"><div class="fade fade--strong-inherit isInView"></div> </section>
+  {/if}
+
+  <section use:inview="{{ rootMargin: '-50%'}}" on:inview_change={toggleVisClass} class="intro">
+      <div class="intro__panorama anim fade" >
+        <img class="intro__sky anim" src="/img/lighthouse/sky_dithering.png" />
+        <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" />  
+      </div>
+      
+      <div class="spanheight autolayout" style="--left:9fr; --bottom: 9fr; mix-blend-mode: multiply;">   
+        <video style="width: calc(55lvh * 800/496); max-width: 100%;" src="/img/lighthouse/title3.mp4" autoplay muted loop></video>
+      </div> 
+
+      <div class="intro__glitchwrap" >
+        <img class="intro__glitch anim fade fade--strong-inherit" src="/img/lighthouse/wavesglitch.jpg" />
+      <div class="autolayout" style="--left:.6fr; margin-bottom: 25lvh;">
+        <Textblock lines="{[
+          {indent:0, text:`He told the seller he needed to \x22try it on for size\x22`},
+          {indent:1, text:`He borrowed a boat and brought six middle school boys out to camp`},
+        ]}" />
+      </div>
+      <div class="whalevid gridlayout">
+        <Textblock lines="{[
+          {indent:0, text:`A killer whale named Luna kept swimming up to us`},
+          {indent:1, text:`driving away the fish`},
+          {indent:0, text:`he must have been lonely.`},
+        ]}" />
+      <video use:inview="{{ rootMargin: '-30%'}}" on:inview_change={toggleVisClass} class="whalevid__video anim fade" src="/img/lighthouse/luna.mp4" autoplay muted loop></video>
+
+ </div>
+     <div class="autolayout" style="--right:.6fr;">
+        <Textblock lines="{[
+          {indent:0, text:`I resisted pressing my hand against his thick slick skin`},
+          {indent:1, text:`as a boat full of sightseers`},
+          {indent:-1, text:`snapped pictures of us on disposable cameras`},
+        ]}" />
+      </div>
+      <div class="autolayout" style="--right:.3fr;">
+        <img class="anim" style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;" src="/img/lighthouse/fujifilm.webp">
+      </div>
+    </div>
+
+  </section>
+  <section use:inview="{{ rootMargin: '-50%'}}" on:inview_change={toggleVisClass} class="pixelwaves" >
+      <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" />
+      <div class="gridlayout">
+        <Textblock lines="{[
+          {indent:0, text:`Only me and one other boy wanted to fish again the next day`},
+          {indent:0, text:`The others planned to collect sticks and explore.`},
+          {indent:1, text:`We left our friends in their tents `},
+          {indent:1, text:`and set out towards the lighthouse.`},
+        ]}" />
+        <img class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" />
+      </div>
+  </section>
+  <section use:inview="{{ rootMargin: '-30% 0% -50% 0%'}}" on:inview_change={toggleVisClass} class="darkroom">
+      <div class="darkroom__bg anim fade"></div>
+
+    <div class="autolayout" style="min-height: 100lvh; --right:2fr">
+        <Textblock lines="{[
+          {indent:0, text:`Our chaperone slept alone on the floor below`},
+          {indent:0, text:`as we laid in sleeping bags side by side`},
+          {indent:1, text:`whispering, staring into each other`},
+          {indent:0, text:``},
+          {indent:0, text:`I wanted to kiss him.`},
+        ]}" />
+    </div>
+
+    <section use:inview="{{ rootMargin: '-50%'}}" on:inview_change={toggleVisClass} class="gridlayout boys">
+      <div class="gridlayout boys__image--wrap anim fade">
+        <img class="boys__image" src="/img/lighthouse/boys.jpg" />
+      </div>
+
+        <Textblock class="boys__text" lines="{[
+          {indent:0, text:`When I got up to use the bathroom`},
+          {indent:0, text:`I thought I saw a look flash across his face.`},
+          {indent:1, text:`When I returned he was asleep.`},
+        ]}" />
+      
+    </section>
+
+    <section use:inview="{{ rootMargin: '-30% 0% -50% 0%'}}" on:inview_change={toggleVisClass} class="moonwhale">
+      <img class="moonwhale__highway anim fade" src="/img/lighthouse/highway.gif" />
+
+      <!-- <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" /> -->
+    <div class="autolayout" style="--right:5fr">
+        <Textblock lines="{[
+          {indent:0, text:`It wasn't until the ride home that I heard the family dog had been run over.`},
+          {indent:0, text:`When I was in college I learned that Luna died too,`},
+          {indent:1, text:`caught in the motor of some other boat.`},
+        ]}" />
+    </div>
+
+    </section>
+  </section>
+  <section use:inview="{{ rootMargin: '-50%'}}" on:inview_change={toggleVisClass} class="endvid">
     <video class="endvid__bg fade" src="/img/lighthouse/sunset-small.mp4" autoplay muted loop></video>
     <div class="gridlayout" style="min-height:100lvh; mix-blend-mode: screen;">
-      <video use:inview
-    on:inview_enter={() => audioRef.pause()}
-    on:inview_leave={() => audioRef.play()} class="video--withcontrols" style="grid-column: 2 / 14; max-width:100%; margin:auto;" src="/img/lighthouse/something_lyrics.mp4"></video>
+      <video use:inview on:inview_change={toggleVisClass} class="video--withcontrols" style="grid-column: 2 / 14; max-width:100%; margin:auto;" src="/img/lighthouse/something_lyrics.mp4"></video>
     </div>
-  </Section>
-
-</div>
+  </section>

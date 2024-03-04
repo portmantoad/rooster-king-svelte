@@ -3,7 +3,7 @@
 
 	let halfwayPoint;
 
-	let options = {rootMargin: '-50px'};
+	let options = {rootMargin: '-50%'};
 	let isInView;
 	let scrollDirection;
 	let handlechange = (event) => {
@@ -18,28 +18,29 @@
 
 
 <style type="text/css">
-	section{
+    .sectionne{
       view-timeline-name: --section;
     }
 
-    section:not(.isInView){
+    .sectionne.isInView{
     	pointer-events: none;
     }
 
     :global(.fade){
-      --fade-duration: 200ms;
+      --fade-duration: 500ms;
     	transition: opacity var(--fade-duration);
+      opacity:0;
+      pointer-events: none;
     }
 
-    section:not(.isInView) > :global(.fade){
-    	opacity:0 !important;	
-    	pointer-events: none;
+    .sectionne.isInView > :global(.fade), .sectionne.isInView :global(.fade.fade--strong-inherit), :global(.fade.isInView){
+    	opacity:1;	
     }
 
 </style>
 
 
-<section {...$$restProps} use:inview={options} on:inview_change={handlechange} class:isInView={isInView}>
+<section {...$$restProps} use:inview={options} on:inview_change={handlechange} class:sectionne={true} class:isInView={isInView}>
 
 	<slot />
 </section>
