@@ -144,7 +144,7 @@
 </style>
 
 
-<div class={`textblock ${className}`} {...$$restProps}>
+<div class={`textblock ${className ? className : ''}`} {...$$restProps}>
       {#each lines as { indent, text }}
             <span class={` ${0 === text.length ? 'spacer' : 'stroked'} ${selectLengthClass(text.length)}`} style={`--indent: calc(${indent} * 2em)`}>{text}</span>
       {/each}

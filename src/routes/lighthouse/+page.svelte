@@ -10,24 +10,26 @@
   let audioRef;
 </script>
 
-
+<div>
 <style type="text/css">
 
     section{
       view-timeline-name: --section;
+      --isInView: 0; /* this reflects the child elements opacity */
     }
 
     section.isInView{
+      --isInView: 1;
+    }
+
+    section:not(.isInView){
+      --isInView: 0;
     }
 
     .fade{
       --fade-duration: 500ms;
       transition: opacity var(--fade-duration);
-      opacity:0;
-    }
-
-    section.isInView > .fade, section.isInView .fade.fade--strong-inherit, .fade.isInView{
-      opacity:1;  
+      opacity: var(--isInView);
     }
 
     .intro__panorama{
@@ -120,16 +122,17 @@
            margin-bottom: 25lvh;
         }
 
+        .whalevid__text{
+          grid-column: 2 / 7;
+        }
         .whalevid__video{
           grid-column: 7 / 14; width: 100%;
-          --parallax-speed:1.2;
-          --fade-duration:500ms;
         }
 
         @media only screen and (max-width: 600px) {
           .whalevid__text{grid-column: 2 / 14;}
           .whalevid__video{grid-column: 2 / 14; margin-top: 4rem;}
-        } 
+        }
 
    .pixelwaves{
       min-height: max(80lvh, 50vw); 
@@ -202,7 +205,7 @@
     }
 
 
-        .boys{min-height: 100vh;}
+        .boys{min-height: 100vh; position: relative;}
         .boys__text{grid-column: 9 / 14}
         .boys__image{
           grid-column: 2 / 10; 
@@ -210,17 +213,15 @@
           margin: auto; 
         }
         .boys__image--wrap{
-          position: fixed;
+          position: absolute;
           top:0; left:0; bottom:0; right:0;
+          mix-blend-mode: plus-lighter;
           pointer-events: none;
           --timeline:--section;
-          --parallax-speed:1.05;
-          --transform-scale-end:1.5;
-          mix-blend-mode: plus-lighter;
-          --fade-duration: 1s;
-          --transform-scale-end: 1.2;
+          --transform-scale-end:1.1;
           --transform-ease: ease-out;
 /*          transform-origin: left;*/
+          --fade-duration: 1s;
     }
 
 
@@ -308,12 +309,10 @@
     }
   </style>
 
+</div>
+
 
   <audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="float:right; position: relative; z-index: 10000;" autoplay loop></audio>
-
-  {#if false}
-  <section class="isInView"><div class="fade fade--strong-inherit isInView"></div> </section>
-  {/if}
 
   <section use:inview="{{ rootMargin: '-50%'}}" on:inview_change={toggleVisClass} class="intro">
       <div class="intro__panorama anim fade" >
@@ -334,7 +333,7 @@
         ]}" />
       </div>
       <div class="whalevid gridlayout">
-        <Textblock lines="{[
+        <Textblock class="whalevid__text" lines="{[
           {indent:0, text:`A killer whale named Luna kept swimming up to us`},
           {indent:1, text:`driving away the fish`},
           {indent:0, text:`he must have been lonely.`},
@@ -358,7 +357,7 @@
   <section use:inview="{{ rootMargin: '-50%'}}" on:inview_change={toggleVisClass} class="pixelwaves" >
       <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" />
       <div class="gridlayout">
-        <Textblock lines="{[
+        <Textblock class="pixelwaves__text" lines="{[
           {indent:0, text:`Only me and one other boy wanted to fish again the next day`},
           {indent:0, text:`The others planned to collect sticks and explore.`},
           {indent:1, text:`We left our friends in their tents `},
@@ -398,7 +397,7 @@
 
       <!-- <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" /> -->
     <div class="autolayout" style="--right:5fr">
-        <Textblock lines="{[
+        <Textblock class="moonwhale__text" lines="{[
           {indent:0, text:`It wasn't until the ride home that I heard the family dog had been run over.`},
           {indent:0, text:`When I was in college I learned that Luna died too,`},
           {indent:1, text:`caught in the motor of some other boat.`},
