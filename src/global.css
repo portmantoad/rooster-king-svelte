@@ -28,143 +28,6 @@
       justify-self: stretch;
     }
 
-    .textblock{
-      font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-style: italic;
-      font-size: max(13px, calc(9px + .6vw));
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      margin: auto;
-      grid-column: 1 / 15;
-    }
-    .textblock span{
-      padding: .5em;
-      margin-bottom: 2px;
-      position: relative;
-      z-index: 1000;
-      max-width: calc(100vw - 4em);
-    }
-
-    .textblock span.indented{
-      --indent:2em;
-      max-width: calc(100vw - 8em);
-    }
-
-    .textblock span.spacer{
-      visibility: hidden;
-    }
-    .textblock span.spacer:before{
-      content: " ";
-    }
-
-
-@media only screen and (max-width: 600px) {
-  .gridlayout .textblock{
-    grid-column: 2 / 14 !important;
-  }
-}
-
-
-.stroked:before{
-  content:"";
-  display: block;
-  position: absolute;
-  top:0; left:0; bottom: 0; right:0;
-  border: 9px solid #fff;
-  border-image: url('/img/strokes/555.png') 20 18 fill;
-  border-image-outset: 2.5 1;
-  background-color: initial !important;
-  z-index: -1;
-  /*filter: invert();*/
-}
-
-.stroked.small-1:before{   border-image-source: url('/img/strokes/80.png');}
-.stroked.small-2:before{   border-image-source: url('/img/strokes/98.png');}
-.stroked.small-3:before{   border-image-source: url('/img/strokes/115.png');}
-.stroked.small-4:before{   border-image-source: url('/img/strokes/139.png');}
-.stroked.small-5:before{   border-image-source: url('/img/strokes/164.png');}
-.stroked.small-6:before{   border-image-source: url('/img/strokes/205.png');}
-.stroked.small-7:before{   border-image-source: url('/img/strokes/257.png');}
-.stroked.small-8:before{   border-image-source: url('/img/strokes/260.png');}
-.stroked.small-9:before{   border-image-source: url('/img/strokes/265.png');}
-.stroked.small-10:before{  border-image-source: url('/img/strokes/266.png');}
-.stroked.small-11:before{  border-image-source: url('/img/strokes/289.png');}
-.stroked.small-12:before{  border-image-source: url('/img/strokes/303.png');}
-.stroked.small-13:before{  border-image-source: url('/img/strokes/317.png');}
-.stroked.small-14:before{  border-image-source: url('/img/strokes/329.png');}
-.stroked.small-15:before{  border-image-source: url('/img/strokes/375.png');}
-.stroked.medium-1:before{  border-image-source: url('/img/strokes/377.png');}
-.stroked.medium-2:before{  border-image-source: url('/img/strokes/386.png');}
-.stroked.medium-3:before{  border-image-source: url('/img/strokes/400.png');}
-.stroked.medium-4:before{  border-image-source: url('/img/strokes/442.png');}
-.stroked.medium-5:before{  border-image-source: url('/img/strokes/461.png');}
-.stroked.medium-6:before{  border-image-source: url('/img/strokes/492.png');}
-.stroked.medium-7:before{  border-image-source: url('/img/strokes/501.png');}
-.stroked.medium-8:before{  border-image-source: url('/img/strokes/530.png');}
-.stroked.medium-9:before{  border-image-source: url('/img/strokes/545.png');}
-.stroked.medium-10:before{ border-image-source: url('/img/strokes/555.png');}
-.stroked.medium-11:before{ border-image-source: url('/img/strokes/578.png');}
-.stroked.medium-12:before{ border-image-source: url('/img/strokes/632.png');}
-.stroked.medium-13:before{ border-image-source: url('/img/strokes/675.png');}
-.stroked.medium-14:before{ border-image-source: url('/img/strokes/725.png');}
-.stroked.medium-15:before{ border-image-source: url('/img/strokes/818.png');}
-.stroked.large-1:before{   border-image-source: url('/img/strokes/830.png');}
-.stroked.large-2:before{   border-image-source: url('/img/strokes/850.png');}
-.stroked.large-3:before{   border-image-source: url('/img/strokes/860.png');}
-.stroked.large-4:before{   border-image-source: url('/img/strokes/908.png');}
-.stroked.large-5:before{   border-image-source: url('/img/strokes/929.png');}
-.stroked.large-6:before{   border-image-source: url('/img/strokes/935.png');}
-.stroked.large-7:before{   border-image-source: url('/img/strokes/958.png');}
-.stroked.large-8:before{   border-image-source: url('/img/strokes/977.png');}
-.stroked.large-9:before{   border-image-source: url('/img/strokes/983.png');}
-.stroked.large-10:before{  border-image-source: url('/img/strokes/990.png');}
-.stroked.large-11:before{  border-image-source: url('/img/strokes/1117.png');}
-.stroked.large-12:before{  border-image-source: url('/img/strokes/1196.png');}
-.stroked.large-13:before{  border-image-source: url('/img/strokes/1322.png');}
-.stroked.large-14:before{  border-image-source: url('/img/strokes/1378.png');}
-.stroked.large-15:before{  border-image-source: url('/img/strokes/1391.png');}
-.stroked.large-16:before{  border-image-source: url('/img/strokes/1430.png');}
-.stroked.large-17:before{  border-image-source: url('/img/strokes/1537.png');}
-
-.stroked{
-  transform: translateX(var(--indent));
-}
-@supports (animation-range: cover) {
-  .stroked{
-    --animation-offset: 0%;
-    animation: linear stroked both;
-    animation-timeline: view();
-    animation-timing-function: ease-out;
-    animation-range: entry-crossing 100% cover calc(35% + var(--animation-offset));
-  }
-}
-    @keyframes stroked {
-      0% {
-        opacity: 0;
-        filter: blur(3px);
-        transform: translateX(calc(var(--indent) - 2vw));
-      }
-      50%{
-        filter: blur(0px);
-      }
-      100% {
-        opacity:1;
-        transform: translateX(calc(var(--indent)));
-      }
-    }
-
-
-  .stroked:nth-of-type(2){--animation-offset: 20%;}
-  .stroked:nth-of-type(3){--animation-offset: 10%;}
-  .stroked:nth-of-type(4){--animation-offset: -20%;}
-  .stroked:nth-of-type(5){--animation-offset: 10%;}
-  .stroked:nth-of-type(6){--animation-offset: 20%;}
-  .stroked:nth-of-type(7){--animation-offset: 0%;}
-  .stroked:nth-of-type(8){--animation-offset: -10%;}
-  .stroked:nth-of-type(9){--animation-offset: 10%;}
-  .stroked:nth-of-type(10){--animation-offset: 20%;}
-
 
 .spanheight{
   min-height: 100lvh;
@@ -173,7 +36,7 @@
 .gridlayout{
   display: grid;
   grid-template-columns: calc((100vw - 50rem) / 2) repeat(12, 1fr) calc((100vw - 50rem) / 2); 
-  gap: 0px min(2rem, 7vw); 
+  gap: 0px min(1rem, 3.5vw); 
 }
 
 .autolayout{
@@ -224,6 +87,7 @@
   --bonus-animation: thiscantbeempty;
   --bonus-animation-range: var(--range);
   --bonus-animation-timeline: var(--timeline);
+  --bonus-animation-composition: replace;
 
   animation: 
     var(--transform-ease) anim_transform both, 
@@ -237,7 +101,7 @@
     cover,
     var(--bonus-animation-range);
 
-  animation-composition: add;
+  animation-composition: add, add, add, var(--bonus-animation-composition);
 
   animation-timeline:
     var(--transform-timeline),

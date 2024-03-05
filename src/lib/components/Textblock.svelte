@@ -1,6 +1,6 @@
 <script type="text/javascript">
       export let lines;
-      let className;
+      let className = '';
       export { className as class };
 
       let lengthClasses = ['small-1','small-2','small-3','small-4','small-5','small-6','small-7','small-8','small-9','small-10','small-11','small-12','small-13','small-14','small-15','medium-1','medium-2','medium-3','medium-4','medium-5','medium-6','medium-7','medium-8','medium-9','medium-10','medium-11','medium-12','medium-13','medium-14','medium-15','large-1','large-2','large-3','large-4','large-5','large-6','large-7','large-8','large-9','large-10','large-11','large-12','large-13'];

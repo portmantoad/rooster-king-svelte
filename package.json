@@ -16,6 +16,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"svelte-inview": "^4.0.2"
+		"svelte-inview": "^4.0.2",
+		"svelte-media-queries": "^1.6.2"
 	}
 }
