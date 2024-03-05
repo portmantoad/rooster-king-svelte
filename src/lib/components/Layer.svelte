@@ -23,7 +23,6 @@
     --right: ${1 - x}fr;
     --top: ${y}fr;
     --bottom: ${1 - y}fr;
-    position: ${fixed ? 'fixed' : (overlap ? 'absolute' : 'relative') };
 
     --colStart: ${isMobile ? mColStart : colStart};
     --colEnd: ${isMobile ? mColEnd : colEnd};
@@ -40,7 +39,7 @@
   --top: 1fr;
   --bottom: 1fr;
   display: grid;
-  top:0; bottom:0; left:0; right:0;
+  
   min-height: fit-content;
   --colStart:1;
   --colEnd:14;
@@ -96,6 +95,18 @@
   
 }
 
+.fixed{
+      position: fixed;
+      top:0; left:0; right:0;
+      height: 100lvh;
+      pointer-events: none;
+}
+
+.overlap{
+  position: absolute;
+      top:0; bottom:0; left:0; right:0;
+}
+
   .layer__inner{
     grid-column: 2 / span 1; 
     grid-row: 2 / span 1;
@@ -105,7 +116,7 @@
 
 <MediaQuery query='(max-width: 900px)' bind:matches={isMobile} />
 
-<div class={className} style={outerStyle} {...$$restProps}>
+<div class={className} class:fixed={fixed} class:overlap={overlap} style={outerStyle} {...$$restProps}>
   <div class="layer__inner" style={innerStyle}>
 	 <slot />
   </div>

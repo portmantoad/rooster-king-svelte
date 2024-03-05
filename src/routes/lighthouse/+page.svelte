@@ -28,54 +28,57 @@
   <audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 <SectionWrap class="intro">
-      <Layer fixed class="intro__panorama anim fade" style="
-        background: #fff;
-        overflow: hidden;
-        height: 90vh;
-        z-index: -10;
+      <Layer fixed>
+        <div class="intro__panorama anim fade" style="
+          width: 100vw;
+          background: #fff;
+          overflow: hidden;
+          height: 90lvh;
+          z-index: -10;
 
-        --timeline:--section; 
-        --filter-end: brightness(0.25) sepia(1) hue-rotate(180deg) saturate(4.5);
-        --filter-range:cover 65%; 
-        --filter-ease: ease-out;
-        --bonus-animation: ease-out intro__panorama both;
-        --bonus-animation-range: contain 0% contain 30%;
-        --fade-duration: 1s;
-      ">
-        <style type="text/css">
-          @keyframes intro__panorama {
-            0% {
-              max-height: 90vh;
-            }
-            100% {
-              max-height: 75vh;
-            }
-          }
-        </style>
-        <img class="intro__sky anim" src="/img/lighthouse/sky_dithering.png" style="
-          position:absolute;
-          image-rendering: pixelated; 
-          bottom:0; 
-          height:90vh;
-          right:0;
           --timeline:--section; 
-          --transform-x-end:4vh;
-        " />
-        <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" style="
-          position:absolute;
-          height: calc(50vh + 20vw);
-          width: auto;
-          max-width: calc(100vw + 5vh);
-          left:0;
-          bottom:0;
-          object-fit: cover;
-          object-position: 5% 50%;
-          mix-blend-mode: multiply;
-          --timeline:--section; 
-          --transform-x-end:-5vh;
-          --transform-y-end:2vh;
-          --transform-scale-end:1.05;
-        " />  
+          --filter-end: brightness(0.25) sepia(1) hue-rotate(180deg) saturate(4.5);
+          --filter-range:cover 65%; 
+          --filter-ease: ease-out;
+          --bonus-animation: ease-out intro__panorama both;
+          --bonus-animation-range: contain 0% contain 30%;
+          --fade-duration: 1s;
+        ">
+          <style type="text/css">
+            @keyframes intro__panorama {
+              0% {
+                max-height: 90lvh;
+              }
+              100% {
+                max-height: 75lvh;
+              }
+            }
+          </style>
+          <img class="intro__sky anim" src="/img/lighthouse/sky_dithering.png" style="
+            position:absolute;
+            image-rendering: pixelated; 
+            bottom:0; 
+            height:90lvh;
+            right:0;
+            --timeline:--section; 
+            --transform-x-end:4lvh;
+          " />
+          <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" style="
+            position:absolute;
+            height: calc(50lvh + 20vw);
+            width: auto;
+            max-width: calc(100vw + 5lvh);
+            left:0;
+            bottom:0;
+            object-fit: cover;
+            object-position: 5% 50%;
+            mix-blend-mode: multiply;
+            --timeline:--section; 
+            --transform-x-end:-5lvh;
+            --transform-y-end:2lvh;
+            --transform-scale-end:1.05;
+          " />  
+        </div>
       </Layer>
       
       <Layer minHeight='100vh' x='.8' y='.2' style="mix-blend-mode: multiply;">
@@ -87,18 +90,18 @@
           position:absolute;
           z-index: -1;
           width:80vw;
-          height: calc(100% + 40vh);
+          height: calc(100% + 40lvh);
           object-fit: cover;
           object-position: top left;
           right:0;
-          top:-40vh;
+          top:-40lvh;
           mix-blend-mode: multiply;
         " />
         <style type="text/css">
           @supports (animation-range: cover) {
             .intro__glitch{
               position:fixed;
-              top:70vh;
+              top:70lvh;
               height: 130lvh;
               --timeline: --section;
               --transform-y-end: -100%;
@@ -159,7 +162,7 @@
        --transform-scale-end:1.25;
       " />
       <LayerWrap>
-        <Layer minHeight="80vh" x=".3">
+        <Layer minHeight="80lvh" x=".3">
           <Textblock class="pixelwaves__text" lines="{[
             {indent:0, text:`Only me and one other boy wanted to fish again the next day`},
             {indent:0, text:`The others planned to collect sticks and explore.`},
@@ -181,14 +184,9 @@
   </SectionWrap>
 
   <SectionWrap rootMargin="-30% 0% -10% 0%" class="darkroom">
-      <div class="darkroom__bg anim fade" style="
-        position:fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom:-10lvh;
+    <Layer fixed class="darkroom__bg anim fade" style="
+        height: 110lvh;
         z-index: -1000;
-        display: block;  
         background-position: bottom left;
         background-image: url('/img/lighthouse/darktexture.jpg'); 
         background-size: 100% auto;
@@ -204,7 +202,7 @@
         --fade-duration: 3s;
       " />
 
-    <Layer minHeight="80vh" x=".3">
+    <Layer minHeight="80lvh" x=".3">
         <Textblock lines="{[
           {indent:0, text:`Our chaperone slept alone on the floor below`},
           {indent:0, text:`as we laid in sleeping bags side by side`},
@@ -225,7 +223,7 @@
 /*          --fade-duration: 1s;*/
         " />
       </Layer>
-      <Layer minHeight="80vh" x=".8">
+      <Layer minHeight="80lvh" x=".8">
         <Textblock class="boys__text" lines="{[
           {indent:0, text:`When I got up to use the bathroom`},
           {indent:0, text:`I thought I saw a look flash across his face.`},
@@ -246,13 +244,13 @@
       ">
         <img src="/img/lighthouse/highway.gif" style="
           width: 100vw;
-          height:100vh;
+          height:100lvh;
           object-fit: cover;
         " />
       </Layer>
 
       <!-- <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" /> -->
-      <Layer minHeight="100vh" x=".2">
+      <Layer minHeight="100lvh" x=".2">
           <Textblock class="moonwhale__text" lines="{[
             {indent:0, text:`It wasn't until the ride home that I heard the family dog had been run over.`},
             {indent:0, text:`When I was in college I learned that Luna died too,`},
@@ -267,12 +265,12 @@
     <Layer fixed class="endvid__bg fade" style="z-index: -500;">
       <video  src="/img/lighthouse/sunset-small.mp4" autoplay muted loop style="
           width: 100vw;
-          height:100vh;
+          height:100lvh;
           object-fit: cover; 
           display: block;
       "></video>
     </Layer>
-    <Layer minHeight="100vh" style="mix-blend-mode: plus-lighter; pointer-events: all;">
-      <video use:inview on:inview_change={toggleVisClass} class="video--withcontrols" style="width: calc(min(100vw, 100vh/480*757) *.75)" controls src="/img/lighthouse/something_lyrics.mp4"></video>
+    <Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter; pointer-events: all;">
+      <video use:inview on:inview_change={toggleVisClass} class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
     </Layer>
   </SectionWrap>
