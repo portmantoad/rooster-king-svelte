@@ -17,6 +17,7 @@
 <style type="text/css">
     .layerWrap{
       position: relative;
+      pointer-events: none;
       view-timeline-name: --section;
     }
     .toggleVis{

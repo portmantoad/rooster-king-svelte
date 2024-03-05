@@ -8,7 +8,6 @@
 	import LayerWrap from '$lib/components/LayerWrap.svelte';
 </script>
 
-
 <LayerWrap class={`sectionWrap ${className ? className : ''}`} toggleVis minHeight={minHeight} style={style} rootMargin={rootMargin} {...$$restProps}>
 	<slot />
 </LayerWrap>

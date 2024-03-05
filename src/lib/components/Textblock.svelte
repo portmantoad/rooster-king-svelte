@@ -21,6 +21,7 @@
       flex-direction: column;
       align-items: start;
       margin: auto;
+      pointer-events: all;
     }
     .textblock span{
       padding: .5em;

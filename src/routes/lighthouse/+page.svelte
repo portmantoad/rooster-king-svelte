@@ -15,203 +15,10 @@
 
 <div>
 <style type="text/css">
-
-    section{
-      position: relative;
-      view-timeline-name: --section;
-      --isInView: 0; /* this reflects the child elements opacity */
-    }
-
-    section.isInView, .fade.isInView{
-      --isInView: 1;
-    }
-
-    section:not(.isInView){
-      --isInView: 0;
-    }
-
     .fade{
       --fade-duration: 500ms;
       transition: opacity var(--fade-duration);
       opacity: var(--isInView);
-    }
-
-
-
-
-
-   .pixelwaves{
-      min-height: max(80lvh, 50vw); 
-      background: url('/img/lighthouse/pixelsort_waves.png'); 
-      background-size: cover;
-      position: relative;
-    }
-
-    .pixelwaves__orca{
-      position: absolute;
-      top: 0;
-      left: 50%;
-      image-rendering: pixelated; 
-      display: block;
-      width:max(50lvh, 40vw);
-      transform: translateY(calc(-50%)) translateX(calc(-50%));
-      --transform-x-start: -30%;
-      --transform-x-end: 30%;
-      --parallax-speed: 1.05;
-      --transform-scale-end:1.25;
-    }
-
-    .pixelwaves__text{
-          grid-column: 2 / 7;
-          margin-top: 30lvh;
-        }
-        .pixelwaves__rpgisland{
-          grid-column: 7 / 15; width: 100%;
-        }
-
-        @media only screen and (max-width: 600px) {
-          .pixelwaves__text{grid-column: 2 / 14;}
-          .pixelwaves__rpgisland{grid-column: 1 / 15; margin-top: 1rem;}
-        }
-
-    .pixelwaves__rpgisland{
-      image-rendering: pixelated; 
-      display: block;
-      transform: translateY(calc(50%));
-      --parallax-speed:1.2;
-      --transform-skew-start:-2deg;
-      --transform-skew-end:2deg;
-
-    }
-
-
-
-
-    .darkroom__bg{
-      position:fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom:-10lvh;
-      z-index: -1000;
-      display: block;  
-      background-position: bottom left;
-      background-image: url('/img/lighthouse/darktexture.jpg'); 
-      background-size: 100% auto;
-
-      --timeline: --section;
-      --transform-y-end: -10lvh;
-      --transform-scale-end: 1.1;
-      --transform-rotate-end:4deg;
-      --filter-start: brightness(0);
-      --filter-end: brightness(1.5);
-      --filter-ease: cubic-bezier(0.100, -0.005, 0.015, 0.985);
-
-      --fade-duration: 3s;
-    }
-
-
-        .boys{min-height: 100vh; position: relative;}
-        .boys__text{grid-column: 9 / 14}
-        .boys__image{
-          grid-column: 2 / 10; 
-          width: 100%; 
-          margin: auto; 
-        }
-        .boys__image--wrap{
-          position: absolute;
-          top:0; left:0; bottom:0; right:0;
-          mix-blend-mode: plus-lighter;
-          pointer-events: none;
-          --timeline:--section;
-          --transform-scale-end:1.1;
-          --transform-ease: ease-out;
-/*          transform-origin: left;*/
-          --fade-duration: 1s;
-    }
-
-
-        @media only screen and (max-width: 600px) {
-          .boys__image--wrap{display:block; position: relative; grid-column: 1 / 15; --transform-scale-end:1; --parallax-speed:1.2;}
-          .boys__text{}
-          .boys__image{grid-column: 2 / 14; margin-bottom: 4rem;}
-        }
-        
-        .moonwhale{}
-        .moonwhale__text{}
-        .moonwhale__text{
-          grid-column: 2 / 9;
-        }
-        .moonwhale__photo{
-          position: fixed;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          --parallax-speed:1.5;
-          pointer-events: none;
-    }
-    .moonwhale__photo img{
-      grid-column: 9 / 14; width: 100%;
-    }
-
-        @media only screen and (max-width: 600px) {
-          .moonwhale__text{grid-column: 2 / 14;}
-          .moonwhale__photo{display: none;}
-        }
-
-        .moonwhale__highway{
-          position: fixed;
-          top:0;
-          left:0;
-          bottom:0;
-          right:0;
-          width: 100%;
-          height:100%;
-          object-fit: cover;
-          mix-blend-mode: screen;
-          pointer-events: none;
-          --fade-duration: 1000ms;
-          --timeline:--section;
-          --parallax-speed:1.05;
-          --filter-start:brightness(0);
-          --filter-range: entry;
-          --filter-ease: ease-in;
-    }
-    
-
-
-        .moonwhale__whale{
-          position: fixed;
-          top:100%;
-          right: calc((100vw - min(120lvh, 100vw)) * .3);
-          height: 120lvh;
-          width: 120lvh;
-          object-fit: cover;
-          object-position: 30% 0%;
-          mix-blend-mode: screen;
-      --transform-y-start:-100lvh;
-      --transform-y-end:-100lvh;
-      --parallax-speed:1.1;
-      pointer-events: none;
-    }
-      .endvid{
-        position: relative;
-      }
-      .endvid__bg{
-        position: fixed;
-        top:50%;
-        left:0;
-        right:0; 
-        transform:translateY(-50%);
-        z-index: -500;
-        place-self:stretch; 
-        width:100%; 
-        height:100lvh; 
-        object-fit: cover; 
-        object-position: 40% top; 
-        display: block;
-        --fade-duration:500ms;
-
     }
   </style>
 
@@ -325,15 +132,32 @@
           ]}" />
         </Layer>
 
-        <Layer x=".9">
-          <img class="anim" style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;" src="/img/lighthouse/fujifilm.webp">
+        <Layer x=".9" class="anim" style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;">
+          <img src="/img/lighthouse/fujifilm.webp">
         </Layer>
 
       </LayerWrap>
   </SectionWrap>
 
-  <SectionWrap class="pixelwaves" >
-      <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" />
+  <SectionWrap class="pixelwaves" style="
+    min-height: max(80lvh, 50vw); 
+    background: url('/img/lighthouse/pixelsort_waves.png'); 
+    background-size: cover;
+    position: relative;
+  " >
+      <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" style="
+       position: absolute;
+       top: 0;
+       left: 50%;
+       image-rendering: pixelated; 
+       display: block;
+       width:max(50lvh, 40vw);
+       transform: translateY(calc(-50%)) translateX(calc(-50%));
+       --transform-x-start: -30%;
+       --transform-x-end: 30%;
+       --parallax-speed: 1.05;
+       --transform-scale-end:1.25;
+      " />
       <LayerWrap>
         <Layer minHeight="80vh" x=".3">
           <Textblock class="pixelwaves__text" lines="{[
@@ -344,15 +168,43 @@
           ]}" />
         </Layer>
         <Layer overlap colStart="5" colEnd="13">
-          <img class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" />
+          <img class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" style="
+            image-rendering: pixelated; 
+            display: block;
+            transform: translateY(calc(50%));
+            --parallax-speed:1.2;
+            --transform-skew-start:-2deg;
+            --transform-skew-end:2deg;
+          " />
         </Layer>
       </LayerWrap>
   </SectionWrap>
 
   <SectionWrap rootMargin="-30% 0% -10% 0%" class="darkroom">
-      <Layer class="darkroom__bg anim fade" />
+      <div class="darkroom__bg anim fade" style="
+        position:fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom:-10lvh;
+        z-index: -1000;
+        display: block;  
+        background-position: bottom left;
+        background-image: url('/img/lighthouse/darktexture.jpg'); 
+        background-size: 100% auto;
 
-    <Layer>
+        --timeline: --section;
+        --transform-y-end: -10lvh;
+        --transform-scale-end: 1.1;
+        --transform-rotate-end:4deg;
+        --filter-start: brightness(0);
+        --filter-end: brightness(1.5);
+        --filter-ease: cubic-bezier(0.100, -0.005, 0.015, 0.985);
+
+        --fade-duration: 3s;
+      " />
+
+    <Layer minHeight="80vh" x=".3">
         <Textblock lines="{[
           {indent:0, text:`Our chaperone slept alone on the floor below`},
           {indent:0, text:`as we laid in sleeping bags side by side`},
@@ -362,11 +214,18 @@
         ]}" />
     </Layer>
 
-    <LayerWrap toggleVis class="gridlayout boys">
-      <Layer>
-        <img class="boys__image" src="/img/lighthouse/boys.jpg" />
+    <LayerWrap toggleVis class="boys">
+      <Layer overlap colStart="1" colEnd="8">
+        <img class="boys__image anim" src="/img/lighthouse/boys.jpg" style="
+          mix-blend-mode: plus-lighter;
+          --timeline:--section;
+          --transform-scale-end:1.1;
+          --transform-ease: ease-out;
+          --parallax-speed: 1.5;
+/*          --fade-duration: 1s;*/
+        " />
       </Layer>
-      <Layer>
+      <Layer minHeight="80vh" x=".8">
         <Textblock class="boys__text" lines="{[
           {indent:0, text:`When I got up to use the bathroom`},
           {indent:0, text:`I thought I saw a look flash across his face.`},
@@ -376,12 +235,24 @@
     </LayerWrap>
 
     <LayerWrap toggleVis rootMargin="-30% 0% -10% 0%" class="moonwhale">
-      <Layer>
-        <img class="moonwhale__highway anim fade" src="/img/lighthouse/highway.gif" />
+      <Layer fixed class="moonwhale__highway anim fade" style="
+          mix-blend-mode: screen;
+          --fade-duration: 1000ms;
+          --timeline:--section;
+          --parallax-speed:1.05;
+          --filter-start:brightness(0);
+          --filter-range: entry;
+          --filter-ease: ease-in;
+      ">
+        <img src="/img/lighthouse/highway.gif" style="
+          width: 100vw;
+          height:100vh;
+          object-fit: cover;
+        " />
       </Layer>
 
       <!-- <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" /> -->
-      <Layer>
+      <Layer minHeight="100vh" x=".2">
           <Textblock class="moonwhale__text" lines="{[
             {indent:0, text:`It wasn't until the ride home that I heard the family dog had been run over.`},
             {indent:0, text:`When I was in college I learned that Luna died too,`},
@@ -393,10 +264,15 @@
   </SectionWrap>
 
   <SectionWrap class="endvid">
-    <Layer>
-      <video class="endvid__bg fade" src="/img/lighthouse/sunset-small.mp4" autoplay muted loop></video>
+    <Layer fixed class="endvid__bg fade" style="z-index: -500;">
+      <video  src="/img/lighthouse/sunset-small.mp4" autoplay muted loop style="
+          width: 100vw;
+          height:100vh;
+          object-fit: cover; 
+          display: block;
+      "></video>
     </Layer>
-    <div>
-      <video use:inview on:inview_change={toggleVisClass} class="video--withcontrols" style="grid-column: 2 / 14; max-width:100%; margin:auto;" src="/img/lighthouse/something_lyrics.mp4"></video>
-    </div>
+    <Layer minHeight="100vh" style="mix-blend-mode: plus-lighter; pointer-events: all;">
+      <video use:inview on:inview_change={toggleVisClass} class="video--withcontrols" style="width: calc(min(100vw, 100vh/480*757) *.75)" controls src="/img/lighthouse/something_lyrics.mp4"></video>
+    </Layer>
   </SectionWrap>
