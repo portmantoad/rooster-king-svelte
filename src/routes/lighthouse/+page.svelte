@@ -21,6 +21,7 @@
 
   <audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
+
 <SectionWrap class="intro">
       <Layer fixed class="fade" style="z-index: -10; background: black; --fade-duration: 1s;">
         <div class="intro__panorama anim" style="

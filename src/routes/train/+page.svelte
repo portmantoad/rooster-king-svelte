@@ -347,13 +347,17 @@ sunset.jpg
     padding: 1em;
     transform: skew(30deg, -8deg);
     font-size: min(1.1vw, calc(13px + .2vw));
-    animation: 1609ms steps(5) 0s infinite alternate none running traintitle, 2243ms steps(11) 0s infinite alternate none running traintitle;
+    --timeunit: 1.5ms;
+    --strength: .15em;
+    animation: calc(var(--timeunit) * 997) steps(3) infinite traintitle both, calc(var(--timeunit) * 1609) steps(5) infinite traintitle both, calc(var(--timeunit) * 2243) ease infinite traintitle both;
+    animation-composition: add;
+/*    animation-timing-function: ease;*/
 }
 
 @keyframes traintitle {
-  0% { filter: blur(.1em); }
-  50% { filter: blur(.15em); }
-  100%  { filter: blur(.1em); }
+  0% { filter: blur(var(--strength)); }
+  50% { filter: blur(0.01em); }
+  100%  { filter: blur(var(--strength)); }
 }
 
 </style>

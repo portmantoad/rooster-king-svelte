@@ -159,6 +159,14 @@ text-align: center;
 
 	</style>
   <div class="bg"></div>
+<!--   <div style="
+    mix-blend-mode: luminosity;
+    background: #a1a1a1;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+"></div> -->
 	<img class="face" src="/img/title/face_optim.jpg">
 	<!-- <img class="scribble" src="/img/title/scribble.png"> -->
 	<!-- <img class="eye" src="/img/title/eye.png"> -->
