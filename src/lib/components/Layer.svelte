@@ -40,7 +40,6 @@
   --bottom: 1fr;
   display: grid;
   
-  min-height: fit-content;
   --colStart:1;
   --colEnd:14;
 
@@ -100,6 +99,7 @@
       top:0; left:0; right:0;
       height: 100lvh;
       pointer-events: none;
+      --timeline: --section;
 }
 
 .overlap{

@@ -22,6 +22,7 @@
       align-items: start;
       margin: auto;
       pointer-events: all;
+      width: fit-content;
     }
     .textblock span{
       padding: .5em;

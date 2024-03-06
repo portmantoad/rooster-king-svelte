@@ -117,6 +117,7 @@
 .title{
     mix-blend-mode: plus-lighter;
     animation: 10s linear 0s infinite alternate hueshift, 3s linear fadein both;
+    animation-composition: add;
    }
 
    @keyframes hueshift {

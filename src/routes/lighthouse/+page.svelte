@@ -1,14 +1,8 @@
 <script type="text/javascript">
-  import { inview } from 'svelte-inview';
   import Textblock from '$lib/components/Textblock.svelte';
   import SectionWrap from '$lib/components/SectionWrap.svelte';
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
-
-  let toggleVisClass = (event) => {
-      const { inView, node} = event.detail;
-      inView ? node.classList.add('isInView') : node.classList.remove('isInView')
-  }
 
   let audioRef;
 </script>
@@ -28,21 +22,20 @@
   <audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 <SectionWrap class="intro">
-      <Layer fixed>
-        <div class="intro__panorama anim fade" style="
+      <Layer fixed class="fade" style="z-index: -10; background: black; --fade-duration: 1s;">
+        <div class="intro__panorama anim" style="
           width: 100vw;
           background: #fff;
           overflow: hidden;
           height: 90lvh;
-          z-index: -10;
-
-          --timeline:--section; 
+          position: relative;
+          
+          --timeline:--section;
           --filter-end: brightness(0.25) sepia(1) hue-rotate(180deg) saturate(4.5);
           --filter-range:cover 65%; 
           --filter-ease: ease-out;
           --bonus-animation: ease-out intro__panorama both;
           --bonus-animation-range: contain 0% contain 30%;
-          --fade-duration: 1s;
         ">
           <style type="text/css">
             @keyframes intro__panorama {
@@ -60,7 +53,7 @@
             bottom:0; 
             height:90lvh;
             right:0;
-            --timeline:--section; 
+            --timeline:--section;
             --transform-x-end:4lvh;
           " />
           <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" style="
@@ -73,7 +66,7 @@
             object-fit: cover;
             object-position: 5% 50%;
             mix-blend-mode: multiply;
-            --timeline:--section; 
+            --timeline:--section;
             --transform-x-end:-5lvh;
             --transform-y-end:2lvh;
             --transform-scale-end:1.05;
@@ -86,25 +79,26 @@
       </Layer> 
 
       <LayerWrap>
-        <img class="intro__glitch anim fade" src="/img/lighthouse/wavesglitch.jpg" style="
-          position:absolute;
-          z-index: -1;
-          width:80vw;
-          height: calc(100% + 40lvh);
-          object-fit: cover;
-          object-position: top left;
-          right:0;
-          top:-40lvh;
-          mix-blend-mode: multiply;
-        " />
+        <img class="intro__glitch anim fade" src="/img/lighthouse/wavesglitch.jpg" />
         <style type="text/css">
+          .intro__glitch{
+            position:absolute;
+            z-index: -1;
+            width:80vw;
+            height: calc(100% + 40lvh);
+            object-fit: cover;
+            object-position: top left;
+            right:0;
+            top:-40lvh;
+            mix-blend-mode: multiply;
+          }
           @supports (animation-range: cover) {
             .intro__glitch{
               position:fixed;
               top:70lvh;
               height: 130lvh;
               --timeline: --section;
-              --transform-y-end: -100%;
+              --transform-y-end: -100lvh;
             }
           }
         </style>
@@ -143,10 +137,8 @@
   </SectionWrap>
 
   <SectionWrap class="pixelwaves" style="
-    min-height: max(80lvh, 50vw); 
     background: url('/img/lighthouse/pixelsort_waves.png'); 
     background-size: cover;
-    position: relative;
   " >
       <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" style="
        position: absolute;
@@ -162,7 +154,7 @@
        --transform-scale-end:1.25;
       " />
       <LayerWrap>
-        <Layer minHeight="80lvh" x=".3">
+        <Layer minHeight="80lvh" x=".2">
           <Textblock class="pixelwaves__text" lines="{[
             {indent:0, text:`Only me and one other boy wanted to fish again the next day`},
             {indent:0, text:`The others planned to collect sticks and explore.`},
@@ -170,12 +162,13 @@
             {indent:1, text:`and set out towards the lighthouse.`},
           ]}" />
         </Layer>
-        <Layer overlap colStart="5" colEnd="13">
+        <Layer overlap colStart="6" colEnd="14">
           <img class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" style="
             image-rendering: pixelated; 
             display: block;
-            transform: translateY(calc(50%));
-            --parallax-speed:1.2;
+            transform: translateY(calc(40lvh - 18%));
+            width: 100vw;
+            --parallax-speed:1.1;
             --transform-skew-start:-2deg;
             --transform-skew-end:2deg;
           " />
@@ -183,10 +176,10 @@
       </LayerWrap>
   </SectionWrap>
 
-  <SectionWrap rootMargin="-30% 0% -10% 0%" class="darkroom">
+  <SectionWrap rootMargin="-50% 0% -10% 0%" class="darkroom">
     <Layer fixed class="darkroom__bg anim fade" style="
         height: 110lvh;
-        z-index: -1000;
+        z-index: -100;
         background-position: bottom left;
         background-image: url('/img/lighthouse/darktexture.jpg'); 
         background-size: 100% auto;
@@ -216,11 +209,9 @@
       <Layer overlap colStart="1" colEnd="8">
         <img class="boys__image anim" src="/img/lighthouse/boys.jpg" style="
           mix-blend-mode: plus-lighter;
-          --timeline:--section;
           --transform-scale-end:1.1;
           --transform-ease: ease-out;
           --parallax-speed: 1.5;
-/*          --fade-duration: 1s;*/
         " />
       </Layer>
       <Layer minHeight="80lvh" x=".8">
@@ -236,7 +227,6 @@
       <Layer fixed class="moonwhale__highway anim fade" style="
           mix-blend-mode: screen;
           --fade-duration: 1000ms;
-          --timeline:--section;
           --parallax-speed:1.05;
           --filter-start:brightness(0);
           --filter-range: entry;
@@ -249,7 +239,17 @@
         " />
       </Layer>
 
-      <!-- <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" /> -->
+      <Layer fixed class="anim fade" colStart="6" colEnd="14" style="
+        mix-blend-mode: screen;
+        --parallax-speed:1.2;
+          --filter-start:brightness(0);
+          --filter-range: entry;
+          --filter-ease: ease-in;
+      ">
+        <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" style="
+          width: 100vw;
+        " />
+      </Layer>
       <Layer minHeight="100lvh" x=".2">
           <Textblock class="moonwhale__text" lines="{[
             {indent:0, text:`It wasn't until the ride home that I heard the family dog had been run over.`},
@@ -261,7 +261,7 @@
     </LayerWrap>
   </SectionWrap>
 
-  <SectionWrap class="endvid">
+  <SectionWrap rootMargin="0%" class="endvid">
     <Layer fixed class="endvid__bg fade" style="z-index: -500;">
       <video  src="/img/lighthouse/sunset-small.mp4" autoplay muted loop style="
           width: 100vw;
@@ -270,7 +270,7 @@
           display: block;
       "></video>
     </Layer>
-    <Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter; pointer-events: all;">
-      <video use:inview on:inview_change={toggleVisClass} class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
+    <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
+      <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
     </Layer>
   </SectionWrap>
