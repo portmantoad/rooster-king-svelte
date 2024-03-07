@@ -7,19 +7,8 @@
   let audioRef;
 </script>
 
-<div>
-<style type="text/css">
-    .fade{
-      --fade-duration: 500ms;
-      transition: opacity var(--fade-duration);
-      opacity: var(--isInView);
-    }
-  </style>
 
-</div>
-
-
-  <audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 
 <SectionWrap class="intro">
@@ -105,7 +94,7 @@
         </style>
         <Layer minHeight="50lvh">
           <Textblock lines="{[
-            {indent:0, text:`He told the seller he needed to \x22try it on for size\x22`},
+            {indent:0, text:`He told the seller he needed to “try it on for size”`},
             {indent:1, text:`He borrowed a boat and brought six middle school boys out to camp`},
           ]}" />
         </Layer>

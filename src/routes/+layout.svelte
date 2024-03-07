@@ -10,7 +10,7 @@
 	</div>
 {/key}
 
-  <style type="text/css">
+<!--   <style type="text/css">
     .noizz{
       --fps:12;
       --width:64px;
@@ -30,7 +30,7 @@
       animation-composition: add;
       mix-blend-mode: color-dodge;
       background-size: var(--width) auto;
-      opacity:calc(var(--opacity) / 4);
+      opacity:calc(var(--opacity) / 3);
 }
 
 @keyframes noizz-x {
@@ -43,6 +43,8 @@
   100%  { transform: translateY(2.5lvh); }
 }
   </style>
-<div class="noizz" style="--fps:5; --width:64px; --opacity:.5; mix-blend-mode: color-dodge;"></div>
-<div class="noizz" style="--fps:7; --width:89px; --opacity:.3; mix-blend-mode: overlay;"></div>
-<div class="noizz" style="--fps:9; --width:121px; --opacity:.2; mix-blend-mode: color-dodge;"></div>
+<div class="noizz" style="--fps:5; --width:64px; --opacity:.5;"></div>
+<div class="noizz" style="--fps:7; --width:89px; --opacity:.3;"></div>
+<div class="noizz" style="--fps:9; --width:121px; --opacity:.2;"></div>
+
+ -->

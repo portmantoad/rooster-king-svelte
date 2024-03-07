@@ -116,7 +116,7 @@
 
 <MediaQuery query='(max-width: 900px)' bind:matches={isMobile} />
 
-<div class={className} class:fixed={fixed} class:overlap={overlap} style={outerStyle} {...$$restProps}>
+<div class:fixed={fixed} class:fade={fixed} class={className} class:overlap={overlap} style={outerStyle} {...$$restProps}>
   <div class="layer__inner" style={innerStyle}>
 	 <slot />
   </div>

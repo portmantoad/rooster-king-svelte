@@ -136,3 +136,9 @@
         translate: 0 calc(-100vh * (var(--parallax-speed) - 1));
       }
 }
+
+.fade{
+      --fade-duration: 500ms;
+      transition: opacity var(--fade-duration);
+      opacity: var(--isInView);
+    }
