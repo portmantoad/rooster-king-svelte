@@ -2,13 +2,61 @@
 	import '../global.css'
 	import { fade } from 'svelte/transition';
 	export let data;
+	// import { page } from '$app/stores';
+
+	// $: path = $page.url.pathname;
+
+	let pages = [
+		{route: '/lighthouse', name:'1. Lighthouse'},
+		{route: '/train', name:'2. Sky Train'},
+		{route: '/cherry-coke', name:'3. Cherry Coke'},
+		{route: '', name:'4. Dog Bed'},
+		{route: '', name:'5. Machine'},
+		{route: '', name:'6. The Factory That Produces Factories'},
+		{route: '', name:'7. Sky Writing'}
+	];
 </script>
+
+<style type="text/css">
+
+nav{
+	background: #000;
+	color:#fff;
+	position: fixed;
+	top:0;
+	left:0;
+	font-size: 12px;
+	padding:10px;
+	z-index: 20;
+}
+
+nav ul{display: inline-flex;}
+
+nav li{ display: block;margin-right: .5rem;}
+
+nav a{ color: #fff; text-decoration:none }
+
+nav a.active{ text-decoration:underline; }
+
+
+</style>
+
+<nav><a href="/">ROOSTER KING</a>
+	<ul>
+		{#each pages as page}
+	        <li><a class:active={data.pathname == page.route} href={page.route}>{page.name}</a></li>
+	    {/each}
+	</ul>
+</nav>
 
 {#key data.pathname}
 	<div in:fade={{ duration: 900, delay: 400 }} out:fade={{ duration: 200 }}>
 		<slot />
 	</div>
 {/key}
+
+
+		
 
 <!--   <style type="text/css">
     .noizz{

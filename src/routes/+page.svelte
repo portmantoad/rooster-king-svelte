@@ -1,4 +1,7 @@
-
+<script type="text/javascript">
+  import Layer from '$lib/components/Layer.svelte';
+  import NextPage from '$lib/components/NextPage.svelte';
+</script>
 	<style type="text/css">
 		
     body, html{
@@ -102,36 +105,32 @@
         max-width: calc(100vw - 5rem);
    }
 
-   h1{
-   	text-indent: -.7em;
-   	font-size: max(3.2vw, 22px);
+
+
+   h1.title{
+    text-indent: -.7em;
+    font-size: max(3.2vw, 22px);
     letter-spacing: 1em;
     font-family: american typewriter;
-    will-change: transform;
+    animation: 3s linear fadein both;
     color: #b7955f;
-    
-/*    filter: blur(0.04em) contrast(2.5);*/
-/*    background: #000;*/
-}
-
-.title{
-    mix-blend-mode: plus-lighter;
-    animation: 10s linear 0s infinite alternate hueshift, 3s linear fadein both;
-    animation-composition: add;
+    animation: 10s linear infinite alternate hueshift, 5s title__blurin both;
+    background: #000;
    }
 
    @keyframes hueshift {
-     0%  {color:oklch(0.6 0.17 0)}
-     25% {color:oklch(0.8 0.11 120)}
-     50% {color:oklch(0.6 0.11 240)}
+     0%  {color:oklch(0.8 0.17 0)}
+     25% {color:oklch(0.8 0.17 120)}
+     50% {color:oklch(0.8 0.17 240)}
      100%{color:oklch(0.8 0.17 360)}
    }
-   @keyframes fadein {
-     0%  {filter: blur(0.08em) brightness(0) contrast(2.5);}
-     100%  {filter: blur(0.03em) brightness(1) contrast(2.5);}
+   @keyframes title__blurin {
+     0%  {filter: blur(0.15em);}
+     100%  {filter: blur(0.03em);}
    }
 
-   content span{
+
+   span.subtitle{
    	color: #fff;
    	letter-spacing: .3em;
    	animation: 1.2s linear 3s infinite both blink;
@@ -158,6 +157,7 @@ text-align: center;
    }
 
 	</style>
+
   <div class="bg"></div>
 <!--   <div style="
     mix-blend-mode: luminosity;
@@ -174,9 +174,9 @@ text-align: center;
 	<div class="cover autolayout" style="--left:.5fr; width:calc(43% - 5vw); overflow: hidden;">
     <div class="eye_anim__2"></div>
   </div>
-  <div class="cover autolayout title" style="--right:.2fr; --bottom:.2fr;">
-  	<content>
-  	<h1>Rooster <br />King</h1>
-  	 <span>CLICK ANYWHERE TO BEGIN</span>
-  	</content>
-  </div>
+  <Layer overlap x=".9" y=".6" style="mix-blend-mode: hard-light;">
+  	<h1 class="title">Rooster <br />King</h1>
+  	<!-- <span class="subtitle">CLICK ANYWHERE TO BEGIN</span> -->
+  </Layer> 
+
+  <NextPage title="1. The Lighthouse" link="/lighthouse" />

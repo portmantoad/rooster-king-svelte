@@ -1,4 +1,5 @@
 <script type="text/javascript">
+  import NextPage from '$lib/components/NextPage.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
   import SectionWrap from '$lib/components/SectionWrap.svelte';
   import LayerWrap from '$lib/components/LayerWrap.svelte';
@@ -242,9 +243,8 @@
       </Layer>
       <Layer minHeight="100lvh" x=".2">
           <Textblock class="moonwhale__text" lines="{[
-            {indent:0, text:`It wasn't until the ride home that I heard the family dog had been run over.`},
-            {indent:0, text:`When I was in college I learned that Luna died too,`},
-            {indent:1, text:`caught in the motor of some other boat.`},
+            {indent:0, text:`It wasn't until the ride home`},
+            {indent:1, text:`that I heard the family dog had been run over.`},
           ]}" />
       </Layer>
 
@@ -260,7 +260,18 @@
           display: block;
       "></video>
     </Layer>
-    <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
-      <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
+
+    <Layer minHeight="100lvh" x=".5">
+        <Textblock class="moonwhale__text" lines="{[
+          {indent:0, text:`When I was in college I learned that Luna died too,`},
+          {indent:1, text:`caught in the motor of some other boat.`},
+        ]}" />
     </Layer>
+    <NextPage title="2. Train" link="/train" />
+
+
+
+<!--     <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
+      <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
+    </Layer> -->
   </SectionWrap>

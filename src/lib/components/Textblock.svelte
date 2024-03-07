@@ -29,7 +29,7 @@
       margin-bottom: 2px;
       position: relative;
       z-index: 1000;
-      max-width: calc(100vw - 8em);
+      max-width: calc(100vw - 6em);
     }
 
     .textblock span.spacer{

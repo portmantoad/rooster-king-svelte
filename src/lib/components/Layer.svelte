@@ -68,7 +68,7 @@
       )
     ) + (
       var(--columnWidth) 
-      * (var(--colStartClean) - 2)
+      * max((var(--colStartClean) - 2), 0)
     ) + (
       var(--colGap) 
       * (var(--colStartClean) - 1)
@@ -82,7 +82,7 @@
       )
     ) + (
       var(--columnWidth) 
-      * (var(--colEndClean) - 2)
+      * max((var(--colEndClean) - 2), 0)
     ) + (
       var(--colGap) 
       * (var(--colEndClean) - 1)
