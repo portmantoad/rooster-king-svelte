@@ -3,6 +3,7 @@
   import SectionWrap from '$lib/components/SectionWrap.svelte';
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
+  import NextPage from '$lib/components/NextPage.svelte';
 
   let audioRef;
 </script>
@@ -267,4 +268,5 @@
   <Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter;">
     <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" src="/img/train/bananabread_compressed.mp4" controls></video>
   </Layer>
+  <NextPage title="3. Cherry Coke" link="/cherry-coke" />
 </SectionWrap>

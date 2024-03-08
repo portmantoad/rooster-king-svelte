@@ -1,9 +1,10 @@
 <script type="text/javascript">
-  import NextPage from '$lib/components/NextPage.svelte';
-  import Textblock from '$lib/components/Textblock.svelte';
   import SectionWrap from '$lib/components/SectionWrap.svelte';
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
+  import Textblock from '$lib/components/Textblock.svelte';
+  import NextPage from '$lib/components/NextPage.svelte';
+  
 
   let audioRef;
 </script>
@@ -230,18 +231,7 @@
         " />
       </Layer>
 
-      <Layer fixed class="anim fade" colStart="6" colEnd="14" style="
-        mix-blend-mode: screen;
-        --parallax-speed:1.2;
-          --filter-start:brightness(0);
-          --filter-range: entry;
-          --filter-ease: ease-in;
-      ">
-        <img class="moonwhale__whale anim fade" src="/img/lighthouse/moonwhale.jpg" style="
-          width: 100vw;
-        " />
-      </Layer>
-      <Layer minHeight="100lvh" x=".2">
+      <Layer minHeight="100lvh" x=".5">
           <Textblock class="moonwhale__text" lines="{[
             {indent:0, text:`It wasn't until the ride home`},
             {indent:1, text:`that I heard the family dog had been run over.`},
@@ -261,17 +251,34 @@
       "></video>
     </Layer>
 
-    <Layer minHeight="100lvh" x=".5">
-        <Textblock class="moonwhale__text" lines="{[
-          {indent:0, text:`When I was in college I learned that Luna died too,`},
-          {indent:1, text:`caught in the motor of some other boat.`},
-        ]}" />
-    </Layer>
-    <NextPage title="2. Train" link="/train" />
+    <LayerWrap class="moonwhale">
+      <Layer fixed class="anim fade" colStart="3" style="
+          mix-blend-mode: plus-lighter;
+          --parallax-speed:1.2;
+            --filter-start:brightness(0.5);
+            --filter-end:brightness(0);
+            --filter-range: exit;
+            --filter-ease: ease-in;
+            --fade-duration: 1s;
+        ">
+          <img class="anim" src="/img/lighthouse/moonwhale.jpg" style="
+            width: 100vw;
+          " />
+      </Layer>
 
+      <Layer minHeight="100lvh" x=".2">
+          <Textblock class="moonwhale__text" lines="{[
+            {indent:0, text:`When I was in college I learned that Luna died too,`},
+            {indent:1, text:`caught in the motor of some other boat.`},
+          ]}" />
+      </Layer>
+    </LayerWrap>
+    
 
-
-<!--     <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
+    <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
       <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
-    </Layer> -->
+    </Layer>
+
+
+    <NextPage title="2. Train" link="/train" />
   </SectionWrap>

@@ -10,10 +10,10 @@
 		{route: '/lighthouse', name:'1. Lighthouse'},
 		{route: '/train', name:'2. Sky Train'},
 		{route: '/cherry-coke', name:'3. Cherry Coke'},
-		{route: '', name:'4. Dog Bed'},
-		{route: '', name:'5. Machine'},
-		{route: '', name:'6. The Factory That Produces Factories'},
-		{route: '', name:'7. Sky Writing'}
+		{route: '/dog-bed', name:'4. Dog Bed'},
+		{route: '/machine', name:'5. Machine'},
+		{route: '/factory', name:'6. The Factory That Produces Factories'},
+		{route: '/sky', name:'7. Sky Writing'}
 	];
 </script>
 

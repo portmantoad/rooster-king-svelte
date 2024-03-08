@@ -18,6 +18,8 @@
             padding: var(--padding-y) calc(var(--padding-x) + var(--padding-gutter) + var(--arrow-width)) var(--padding-y) var(--padding-x); 
             display:block;
             position: relative;
+            pointer-events: all;
+            margin:1rem;
       }
 
       .link:after{
@@ -37,6 +39,6 @@
       }
 </style>
 
-<Layer overlap x="1" y=".9">
+<Layer overlap x="1" y="1" style="pointer-events: none;">
       <a href={link} class="link">{title}</a>
 </Layer>
