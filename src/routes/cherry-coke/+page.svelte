@@ -157,6 +157,7 @@
 <Layer minHeight="80lvh" x=".3">
   <Textblock lines="{[
     {indent:0, text:`A few months later the circus was moving to Calgary,`},
+    {indent:1, text:`he decided to go with them.`},
   ]}" />
 </Layer>
 
