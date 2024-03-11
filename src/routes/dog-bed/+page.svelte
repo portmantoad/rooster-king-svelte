@@ -3,6 +3,7 @@
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
+  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
 </script>
 
@@ -88,4 +89,25 @@
     ]}" />
 </Layer>
 
+<Layer colStart="2" colEnd="13">
+
+      <Clowntales md="{`# Clown talez part four
+
+A troupe made up of former students were having their annual shareholders meeting, and the current students were invited to act as community representatives. We gathered around a couple of lukewarm pepperoni pizzas and listened as they added the sober details of their annual financials, projected revenue, and outstanding debts into their meeting minutes. It hadn’t really occurred to me that people actually make a living doing this stuff: they each seemed to be pulling in a respectable salary. 
+
+The reality of travelling from city to city doing the same few shows every night seemed a bit grim.
+
+One of my classmates said that it felt like his _mind was an open wound_, and I was starting to feel the same way. We had started a fairly physically intense daily regimen of what I can only describe as an intense meditation or trance, sculpted a series of six clay masks and turned each of them into a child, teen, and adult characters, completed jedi-like excercises of locating a ball in a room while blindfolded. I discovered all of my masks were basically different flavors of deep depression, then we learned to bend and twist each of the masks to be funny: _if you can't laugh at yourself then you're missing the biggest joke of your life._
+
+All the while I'd managed to ruin the experience for myself by pitching a memoir project to the national film board of canada, who at the time seemed interested, at least enough to grant me a few meetings. 
+
+I was observing myself. Everything i did was at the meta level. 
+
+I was having wild mood swings and crying all the time. I shaved off my beard, and I was standing noticably taller. I looked in the mirror and saw myself with kindness for the first time in my life. But it wasn't enough, I needed it to mean more. I needed everything to curve around in a perfect narrative arc. I could see the shape of it, i just needed to shape reality to fit the story. At some point they stopped returning my emails. 
+
+I went to a japanese stationary store to buy stickers for my niece and my account didn't have 50 cents in it.
+
+`}" />
+
+</Layer>
 <NextPage title="5. Machine" link="/machine" />

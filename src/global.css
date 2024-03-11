@@ -17,7 +17,7 @@
       overflow-x: hidden;
       overflow-y: scroll;
       box-sizing: border-box !important;
-      font-size: max(calc(13px * var(--line-height)), calc((9px + .6vw) * var(--line-height)));
+      font-size: max(calc(12px * var(--line-height)), calc((9px + .5vw) * var(--line-height)));
     }
     *, *:before, *:after {
       box-sizing: inherit;

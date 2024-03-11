@@ -3,6 +3,7 @@
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
+  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
 </script>
 
@@ -117,6 +118,10 @@
         {indent:0, text:`i`},
         {indent:0, text:`c`},
     ]}" />
+</Layer>
+
+<Layer minHeight="100lvh">
+    <iframe style="aspect-ratio: 560 / 315; width: min(100vw, calc(90lvh/315*560));" src="https://www.youtube.com/embed/RAfHYaXmZEs?si=BndGvzg0KqJvyr5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </Layer>
 
 <NextPage title="7. Sky Writing" link="/sky" />

@@ -17,6 +17,7 @@
 	"type": "module",
 	"dependencies": {
 		"svelte-inview": "^4.0.2",
+		"svelte-markdown": "^0.4.1",
 		"svelte-media-queries": "^1.6.2"
 	}
 }

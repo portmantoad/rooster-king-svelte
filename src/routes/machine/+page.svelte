@@ -3,6 +3,7 @@
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
+  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
 </script>
 
@@ -96,6 +97,38 @@
         {indent:1, text:`They emailed to let me know I had been let go`},
         {indent:0, text:`My mom fed me sleeping pills and drove me home`},
     ]}" />
+</Layer>
+
+<Layer colStart="2" colEnd="13">
+
+<Clowntales crazy md="{`# clown talez
+# clown talez
+# clown talez
+# clown talez
+
+In less than 10 seconds, 
+      
+a man who steps into 
+      
+flowing corn can 
+      
+sink up to 
+      
+his chest, becoming immobilized, 
+      
+said Robert Aherin, agriculture safety leader in the 
+      
+agricultural engineering 
+      
+department at the University of Illinois 
+      
+at Urbana-Champaign. Within another 10 seconds, 
+      
+he can be submerged and unable to breathe, 
+      
+essentially drowned in corn.
+`}" />
+
 </Layer>
 
 <NextPage title="6. The Factory That Produces Factories" link="/factory" />

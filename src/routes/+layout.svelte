@@ -28,7 +28,7 @@ nav{
 	left:0;
 	font-size: 12px;
 	padding:10px;
-	z-index: 20;
+	z-index: 2000;
 }
 
 nav ul{display: inline-flex;}

@@ -3,10 +3,14 @@
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
+  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
+
+  
   
 
   let audioRef;
+
 </script>
 
 
@@ -276,8 +280,61 @@
     
 
     <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
-      <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
+      <!-- <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video> -->
+
+      <iframe style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem)); aspect-ratio: 560 / 315;" src="https://www.youtube.com/embed/nW5cpSl4RAw?si=b30HirB6aVFIXxNL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
     </Layer>
+
+    <Layer colStart="2" colEnd="13">
+
+<!-- Well, here I am. Back in this town where I grew up. Where I can walk past the house that was reclaimed by the bank after my parent's startup failed, and complain about how the new owners cut down fruit bearing trees in the driveway to make room for more parking. 
+
+This town is kind of a shithole, but it's… pretty. To pass itself off as a quaint seaside village, the businesses along the town’s main commercial strip are forced to follow strict bylaws that mandate the materials of their signs: even international chains like subway and scotiabank are a pastiche of a mom and pop store, spelled out in driftwood.
+
+Nobody with any sense or any options chooses to stay here but, for whatever it says about me, I somewhat frequently find myself returning. After I came back from Seattle in the summer of 2019, I spent my days writing gut-wrenchingly pathetic songs, and languidly moping around in various states of despair. 
+
+--- -->
+
+      <Clowntales md="{`# Clown talez part one
+
+I ran out of money and had to move back in with my mom again. 
+
+After a full week of becoming familiar with the ceiling of my room, my high school friend Zander invited me out to karaoke with his older brother, Tyrell. 
+
+They pulled up to my house in a piece of shit car. I jammed my knees into the seat in front of me as I slid in next to a 12 pack of lucky brand beer and some discarded fast food wrappers.
+
+_Would you like some zucchini bread?_
+
+Tyrell was sporting a scruffy moustache, a wry grin, and what appeared to be a full-on devil costume—complete with horns, a red cape, and a pitchfork. I accepted his offering.
+
+ > _So what have you been up to Tyrell?_
+
+The tone in the car noticably shifted: I had unknowingly committed a grave faux pas. Zander, himself dressed as a unicorn, changed out the mixtape CD.
+
+_Well... I've been living on a small island in a house full of witches recently. But at the end of the week I'm moving to Vancouver to help teach a clown course..._
+
+---
+
+We arrived at the dive bar and took a table near the back. It didn't really seem like the kind of place that you'd wear a costume to. I was told we'd probably only get to sing once, so we had to make our song selection count. I wrote down “One Headlight” by the wallflowers, Zander selected a relatively obscure showtune deep-cut I was surprised was in the catalogue. Tyrell, for his part, chose “where have all the cowboys gone?” by Paula Cole. 
+
+ > _So clown school?_
+
+_Yeah. It's life changing._
+
+ > _Really? In what way._
+
+He took a swig from his beer
+
+_Well… you sculpt six masks out of clay, each corresponding to a different direction of the medicine wheel. But the masks are all you… like if you dumped a box of legos out onto the floor to take a look at all the pieces…_ 
+
+**_Thank you… Max, that was really something. Is there a_** **_“Drew”_** **_out there? Drew please come to the stage_**
+  
+Tyrell smirked. _You better get up there_
+
+`}" />
+
+</Layer>
 
 
     <NextPage title="2. Train" link="/train" />

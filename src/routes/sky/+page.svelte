@@ -3,6 +3,7 @@
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
+  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
 </script>
 

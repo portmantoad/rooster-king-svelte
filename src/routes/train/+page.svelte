@@ -3,6 +3,7 @@
   import SectionWrap from '$lib/components/SectionWrap.svelte';
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
+  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
 
   let audioRef;
@@ -211,11 +212,15 @@
 </SectionWrap>
 <SectionWrap rootMargin="0%">
 
-  <Layer fixed class="anim" style="z-index: -50; --transform-y-end:-100vw;">
+  <Layer fixed class="anim" style="
+    z-index: -50; 
+    --transform-y-end:-100lvh;
+    --range:cover 0% cover 60%;
+    ">
     <img src="/img/train/sunset.jpg" style="width: 100vw; height:175lvh; object-fit:cover;" />
   </Layer>
 
-  <Layer fixed class="anim" y="1" style="
+<!--   <Layer fixed class="anim" y="1" style="
     mix-blend-mode: multiply; 
 /*    --transform-y-start: 100%;*/
 /*  transform: scale(-1, 1);*/
@@ -226,7 +231,7 @@
     --fade-duration: 1s;
   ">
     <img src="/img/train/gantrain.jpg" style="width:100vw" />
-  </Layer>
+  </Layer> -->
 
   <Layer class="anim" style="
     mix-blend-mode: multiply; 
@@ -238,13 +243,13 @@
 
   <Layer fixed x="0" y=".8" class="anim" style="
     mix-blend-mode: multiply; 
-    --transform-x-start:-20vw;
+    --transform-x-start:-100%;
     --transform-x-end:150vw;
-    --transform-y-start: 50%;
-    --transform-y-end: -100%;
+    --transform-y-start: 50lvh;
+    --transform-y-end: -150lvh;
     --transform-scale-end: 1.75;
-    --ease: ease-in;
-    --fade-duration: 2s;
+/*    --ease: ease-in;*/
+    --fade-duration: 1s;
     --range: cover 0% cover 75%; 
   ">
     <img src="/img/train/ganbird.jpg" />
@@ -268,5 +273,48 @@
   <Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter;">
     <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" src="/img/train/bananabread_compressed.mp4" controls></video>
   </Layer>
+  <Layer colStart="2" colEnd="13">
+
+      <Clowntales md="{`# Clown talez part two
+
+On the boat ride over a random woman struck up a conversation with me. She asked my age, and with a sage look told me that I was in my _Saturn Return:_ as long as I stayed on the path of destiny, everything would work itself out. 
+
+There is, apparently, a two year wait list to get into clown school. But as luck would have it someone dropped out at the last second, leaving me with 24 hours notice to move myself to a new city without a place to stay lined up and basically no savings.
+
+Tyrell had vaguely agreed to let me sleep on his floor for the first few weeks, but he was at a music festival for the weekend with no cell service. I got his address from a mutual friend–a condemned building that was being turned into a temporary living space as an art project– and I knocked on the door and politely asked the stranger inside to let me in.
+
+The house next door, which was run by the same artists, was covered in rainbow murals, plants, and a series of charming whimsical sculptures. but this house was just derelict. The previous tenant had left rotting fish inside of the fridge, and there was no furniture to speak of. His roommate graciously helped me scavenge some foam and a dirt-caked sleeping bag, which I fashioned into a rock hard makeshift bed. 
+
+I tethered to my phone's internet and burned through my data for the month in a half hour: frantically emailing everyone I knew.
+
+---
+
+The next morning I arrived at the #55 Elk's lodge a half hour before classes started. The building was run down, with old tiles that reminded me of the church basement where I used to go to catechism: drinking watered down grape juice and memorizing prayers in exchange for oversized chocolate bars. 
+
+Everyone except for me and an old woman was incredibly athletic and flexible. The exercises pushed us to bend, fall to the floor, writhe, crawl. Up again, down again. I was determined not to fall behind. As we neared the end of the class I was exhausted, sweaty, and my knees were bruised.
+
+David, our instructor--who despite his misleadingly sober voice on the phone looked about as kooky as you might expect--called me over to demonstrate a concept: I lied on my back at the center of the circle as the rest of the class creeped in close. _Good, now i want you to breathe in and out normally. In and out. Just like that. Notice the pattern that your breath makes. In. Out. In. Out._ 
+
+_Now try interrupting that pattern._
+
+I started breathing chaotically, keenly aware of the eyes all around me: watching my heaving stomach, and the bottom of my belly poking out of my shirt. I started to laugh.
+
+_See, you’re doing it already_
+`}" />
+<!-- 
+---  
+
+There was no other furniture in the house, and after a few days of awkwardly leaning against walls and laying on the hard ground, I took to spending my time in the McDonalds down the road, nursing on small Diet Cokes next to a Ronald McDonald statue and using their wifi to reassure my mom that everything was going great. 
+
+I accompanied Tyrell on a scavenging expedition where we broke into an abandoned portable classroom outside of an elementary school and claimed a row of wooden cubbies for the entranceway. 
+
+Zander was in town for one week to sell all of his life posessions before flying out to Japan to teach english. He laid out his life collection of videogames and consoles, and sold them one by one at bargain prices on craigslist to make room on his maxed out credit cards for his journey.
+
+On his last day in town, Zander agreed to sell me one of his final possessions—an outdoor folding chair—for 5 dollars. 
+
+I sat in that chair as a throne; eating dry cereal and french fries in the height of luxury.
+`}" /> -->
+
+</Layer>
   <NextPage title="3. Cherry Coke" link="/cherry-coke" />
 </SectionWrap>
