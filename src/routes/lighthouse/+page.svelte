@@ -286,7 +286,7 @@
 
     </Layer>
 
-    <Layer colStart="2" colEnd="13">
+    <!-- <Layer colStart="2" colEnd="13"> -->
 
 <!-- Well, here I am. Back in this town where I grew up. Where I can walk past the house that was reclaimed by the bank after my parent's startup failed, and complain about how the new owners cut down fruit bearing trees in the driveway to make room for more parking. 
 
@@ -295,7 +295,7 @@ This town is kind of a shithole, but it's… pretty. To pass itself off as a qua
 Nobody with any sense or any options chooses to stay here but, for whatever it says about me, I somewhat frequently find myself returning. After I came back from Seattle in the summer of 2019, I spent my days writing gut-wrenchingly pathetic songs, and languidly moping around in various states of despair. 
 
 --- -->
-
+<!-- 
       <Clowntales md="{`# Clown talez part one
 
 I ran out of money and had to move back in with my mom again. 
@@ -335,7 +335,7 @@ Tyrell smirked. _You better get up there_
 `}" />
 
 </Layer>
-
+ -->
 
     <NextPage title="2. Train" link="/train" />
   </SectionWrap>

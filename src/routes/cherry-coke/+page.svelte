@@ -176,6 +176,8 @@
     mix-blend-mode: plus-lighter;
     --transform-y-start: 100vh;
     --transform-y-end: 0vh;
+    --filter-start: brightness(0) contrast(1.5);
+    --filter-range: cover 0% contain 100%;
     --range:entry;
     --ease:ease-out;
   ">
@@ -185,7 +187,7 @@
         object-position: 27% 50%;  
         object-fit: cover; 
          " src="/img/cherrycoke/plane_dark.jpg" /> -->
-      <video muted autoplay style="
+      <video muted autoplay loop style="
         width: 100vw;
         height: 100lvh;
         object-fit: cover;
@@ -200,10 +202,10 @@
   ]}" />
 </Layer>
 
-<Layer minHeight="100lvh">
-
-</Layer>
-<Layer colStart="2" colEnd="13">
+<Layer minHeight="100lvh" style="mix-blend-mode: color-dodge;">
+    <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757 - 2rem))" src="/img/cherrycoke/seaglass2.mp4" controls></video>
+  </Layer>
+<!-- <Layer colStart="2" colEnd="13">
 
       <Clowntales md="{`# Clown talez part three
 
@@ -240,6 +242,6 @@ When I opened my eyes, the clay face looked almost nothing like I had pictured. 
 I wasn’t the only one who felt this way: Lisa was nearly in tears with her shredded and mangled clay in front of her. _Can I try again?_
 `}" />
 
-</Layer>
+</Layer> -->
   <NextPage title="4. Dog Bed" link="/dog-bed" />
 </SectionWrap>

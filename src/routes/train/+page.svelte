@@ -272,7 +272,7 @@
 
   <Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter;">
     <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" src="/img/train/bananabread_compressed.mp4" controls></video>
-  </Layer>
+  </Layer><!-- 
   <Layer colStart="2" colEnd="13">
 
       <Clowntales md="{`# Clown talez part two
@@ -289,7 +289,7 @@ I tethered to my phone's internet and burned through my data for the month in a 
 
 ---
 
-The next morning I arrived at the #55 Elk's lodge a half hour before classes started. The building was run down, with old tiles that reminded me of the church basement where I used to go to catechism: drinking watered down grape juice and memorizing prayers in exchange for oversized chocolate bars. 
+The class took place at the #55 Elk's lodge: a run down old building with no heating and broken tiles that reminded me of the church basement where I used to go to catechism: drinking watered down grape juice and memorizing prayers in exchange for oversized chocolate bars. 
 
 Everyone except for me and an old woman was incredibly athletic and flexible. The exercises pushed us to bend, fall to the floor, writhe, crawl. Up again, down again. I was determined not to fall behind. As we neared the end of the class I was exhausted, sweaty, and my knees were bruised.
 
@@ -300,8 +300,6 @@ _Now try interrupting that pattern._
 I started breathing chaotically, keenly aware of the eyes all around me: watching my heaving stomach, and the bottom of my belly poking out of my shirt. I started to laugh.
 
 _See, you’re doing it already_
-`}" />
-<!-- 
 ---  
 
 There was no other furniture in the house, and after a few days of awkwardly leaning against walls and laying on the hard ground, I took to spending my time in the McDonalds down the road, nursing on small Diet Cokes next to a Ronald McDonald statue and using their wifi to reassure my mom that everything was going great. 
@@ -313,8 +311,8 @@ Zander was in town for one week to sell all of his life posessions before flying
 On his last day in town, Zander agreed to sell me one of his final possessions—an outdoor folding chair—for 5 dollars. 
 
 I sat in that chair as a throne; eating dry cereal and french fries in the height of luxury.
-`}" /> -->
+`}" />
 
-</Layer>
+</Layer> -->
   <NextPage title="3. Cherry Coke" link="/cherry-coke" />
 </SectionWrap>
