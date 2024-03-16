@@ -144,6 +144,10 @@
         </Layer>
     </LayerWrap>
 
+    <Layer minHeight="100lvh" style="mix-blend-mode: hard-light;">
+    <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757 - 2rem))" src="/img/dog-bed/candle_blurred.mp4" controls></video>
+  </Layer>
+
 <!-- <Layer colStart="2" colEnd="13">
 
       <Clowntales md="{`# Clown talez part four

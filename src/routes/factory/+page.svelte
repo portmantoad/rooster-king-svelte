@@ -1,11 +1,43 @@
 <script type="text/javascript">
+    import { onMount } from 'svelte';
   import SectionWrap from '$lib/components/SectionWrap.svelte';
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
+  let audioRef;
+
+
+  onMount(async () => {
+    audioRef.preservesPitch = false;
+  });
+
+    let speed = 1;
+    let noiseVol = 0;
+
+  let scrollY = 0;
+
+  $: {
+    const totalScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const progress = Math.min(Math.max(scrollY / totalScroll, 0),1);
+    speed = Math.max(1 - progress, 0.1);
+    noiseVol = Math.max((progress - .5) * 2, 0);
+  }
+
 </script>
+
+<svelte:window bind:scrollY />
+
+<!-- <div style="position: fixed; bottom:1rem; right:1rem; z-index:100000; color:#ff0">{speed}</div> -->
+
+<audio controls bind:this={audioRef} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+
+<audio controls src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+
+<audio controls bind:volume={noiseVol} src="/img/factory/static.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+
 
 <Layer minHeight="50lvh">
     <Textblock lines="{[

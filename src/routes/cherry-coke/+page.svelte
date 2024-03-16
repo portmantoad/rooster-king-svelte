@@ -187,7 +187,7 @@
         object-position: 27% 50%;  
         object-fit: cover; 
          " src="/img/cherrycoke/plane_dark.jpg" /> -->
-      <video muted autoplay loop style="
+      <video muted="muted" autoplay loop style="
         width: 100vw;
         height: 100lvh;
         object-fit: cover;
@@ -203,7 +203,7 @@
 </Layer>
 
 <Layer minHeight="100lvh" style="mix-blend-mode: color-dodge;">
-    <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757 - 2rem))" src="/img/cherrycoke/seaglass2.mp4" controls></video>
+    <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757 - 2rem))" src="/img/cherrycoke/seaglass3.mp4" controls></video>
   </Layer>
 <!-- <Layer colStart="2" colEnd="13">
 
