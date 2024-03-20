@@ -191,7 +191,7 @@
         width: 100vw;
         height: 100lvh;
         object-fit: cover;
-      "><source src="/img/cherrycoke/nightstreaks.mp4" type="video/mp4" /></video>
+      "><source src="/img/cherrycoke/nightstreaks_silent.mp4" type="video/mp4" /></video>
   </Layer>
 
 <Layer minHeight="100lvh" x=".7">
@@ -202,7 +202,7 @@
   ]}" />
 </Layer>
 
-<Layer minHeight="100lvh" style="mix-blend-mode: color-dodge;">
+<Layer minHeight="100lvh" style="mix-blend-mode: hard-light;">
     <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757 - 2rem))" src="/img/cherrycoke/seaglass3.mp4" controls></video>
   </Layer>
 <!-- <Layer colStart="2" colEnd="13">

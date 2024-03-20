@@ -38,75 +38,240 @@
 
 <audio controls bind:volume={noiseVol} src="/img/factory/static.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
+<!-- 
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`By keeping my playlist on shuffle,`},
-        {indent:2, text:`I reasoned,`},
-        {indent:1, text:`he would be able to hack the algorithm`},
-        {indent:0, text:`to present me with specific songs`},
-    ]}" />
+
+<img src="/img/factory/fambly.jpg"/>
+
+<img src="/img/factory/glitch.jpg"/>
+
+/>
+
+<img src="/img/factory/poem-2.jpg"/>
+<img src="/img/factory/poem-3.jpg"/>
+<img src="/img/factory/scribbles-2.jpg"/>
+
+
+-->
+
+    <style type="text/css">
+        .noizz{
+          --fps:12;
+          --width:64px;
+          position:fixed; 
+          top:calc(var(--width) * -1); 
+          left:calc(var(--width) * -1); 
+          right:calc(var(--width) * -1); 
+          height: calc(var(--width) * 2 + 100lvh); 
+          z-index: 100;
+          background-image: url("/img/bluenoise.png");
+          pointer-events: none;
+          animation: calc(1s/var(--fps)*3) steps(3, end) infinite alternate noizz-x both,     
+          calc(1s/var(--fps)*2) steps(2, end) infinite alternate noizz-x both,
+          calc(1s/var(--fps)*5) steps(5, end) infinite alternate noizz-x both,
+          calc(1s/var(--fps)*7) steps(7, end) infinite alternate noizz-x both,
+          calc(1s/var(--fps)*3) steps(3, end) infinite alternate noizz-y both,     
+          calc(1s/var(--fps)*2) steps(2, end) infinite alternate noizz-y both,
+          calc(1s/var(--fps)*5) steps(5, end) infinite alternate noizz-y both,
+          calc(1s/var(--fps)*7) steps(7, end) infinite alternate noizz-y both,
+          calc(1s/var(--fps)*2) steps(2, end) infinite alternate noizz-scalex both,
+          calc(1s/var(--fps)*3) steps(3, end) infinite alternate noizz-scalex both,
+          calc(1s/var(--fps)*5) steps(5, end) infinite alternate noizz-scalex both,
+          calc(1s/var(--fps)*7) steps(7, end) infinite alternate noizz-scalex both,
+          calc(1s/var(--fps)*2) steps(2, end) infinite alternate noizz-scaley both,
+          calc(1s/var(--fps)*3) steps(3, end) infinite alternate noizz-scaley both
+          ;
+          animation-composition: add;
+          mix-blend-mode: overlay;
+          background-size: calc(var(--width)) auto;
+          transform-origin: top left;
+    }
+
+    @keyframes noizz-x {
+      0% { transform: translateX(calc(var(--width)/4 * -1)); }
+      100%  { transform: translateX(calc(var(--width)/4)); }
+    }
+
+    @keyframes noizz-y {
+      0% { transform: translateY(calc(var(--width)/4 * -1)); }
+      100%  { transform: translateY(calc(var(--width)/4)); }
+    }
+
+    @keyframes noizz-scalex {
+      0% { transform: scaleX(1); }
+      100% { transform: scaleX(1.5); }
+    }
+    @keyframes noizz-scaley {
+      0% { transform: scaleY(1); }
+      100% { transform: scaleY(1.1); }
+    }
+  </style>
+<div class="noizz" style={`--fps:20; --width:32px; opacity:calc( 0.4 + 0.6 * ${noiseVol})`}></div>
+<div class="noizz" style={`--fps:24; --width:47px; opacity:calc( 0.4 + 0.6 * ${noiseVol})`}></div>
+<div class="noizz" style={`--fps:36; --width:121px; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseVol}`}></div>
+
+<SectionWrap>
+    <Layer fixed class="anim" style="
+        --transform-y-end: -15lvh;
+        --transform-range: exit-crossing;
+        --filter-end: brightness(0) contrast(2);
+        --filter-range: exit;
+        z-index: -100;
+    ">
+        <img src="/img/factory/cowboy.jpg" style="
+            width: 100vw;
+            height:75lvh;
+            object-fit: cover;
+        "/>
+    </Layer>
+
+    <Layer fixed colStart="6" colEnd="9" class="anim" style="
+        mix-blend-mode: plus-lighter;
+        --range: exit-crossing;
+        --transform-y-end: -75lvh;
+        --transform-skew-end: 45deg;
+    ">
+        <img src="/img/factory/netflix.jpg" style="
+        width:100vw
+        "/>
+    </Layer>
+
+    <Layer minHeight="50lvh" x=".2" y=".6">
+        <Textblock lines="{[
+            {indent:0, text:`By keeping my playlist on shuffle,`},
+            {indent:2, text:`I reasoned,`},
+            {indent:0, text:""},
+            {indent:1, text:`he would be able to hack the algorithm`},
+            {indent:0, text:`to present me with specific songs`},
+        ]}" />
+    </Layer>
+
+    <LayerWrap>
+        <Layer overlap colStart="4" colEnd="9" class="anim" style="
+            --parallax-speed:1.1; 
+            z-index: -10; 
+            mix-blend-mode: hard-light;
+        ">
+            <img src="/img/factory/meatplate.jpg" style="width: 100vw;"/>
+        </Layer>
+        <Layer minHeight="100lvh" x=".8">
+            <Textblock lines="{[
+                {indent:0, text:`Through the music he told me`},
+                {indent:1, text:`the government, `},
+                {indent:0, text:""},
+                {indent:2, text:`a cabal of my old employers,`},
+                {indent:0, text:`and an underground army of internet trolls`},
+                {indent:0, text:""},
+                {indent:3, text:`were conspiring to kill me `},
+                {indent:0, text:""},
+                {indent:0, text:`and make it look like a suicide`},
+                {indent:0, text:""},
+                {indent:1, text:`unless I did everything exactly right.`},
+            ]}" />
+        </Layer>
+    </LayerWrap>
+
+    <LayerWrap>
+        <Layer overlap colStart="6" colEnd="14" class="anim" style="--parallax-speed:1.2; z-index: -10; mix-blend-mode: plus-lighter;">
+            <img src="/img/factory/facebook.png" style="width: 100vw;"/>
+        </Layer>
+        <Layer minHeight="100lvh" x=".1">
+            <Textblock lines="{[
+                {indent:0, text:`I joyfully gave away my prized possessions `},
+                {indent:1, text:`to loved ones around me.`},
+            ]}" />
+        </Layer>
+    </LayerWrap>
+</SectionWrap>
+
+
+<SectionWrap>
+    <Layer fixed colEnd="10">
+        <img src="/img/factory/streetend.jpg" style="width:100vw; height:100lvh; object-fit:cover;"/> 
+    </Layer>
+
+    <LayerWrap>
+        <Layer overlap y="1" colStart="9" colEnd="13" class="anim" style="--parallax-speed:1.2; mix-blend-mode: hard-light;">
+            <img src="/img/factory/bloodegg2.jpg" style="width:100vw;"/>
+        </Layer>
+
+        <Layer overlap y="0" colStart="6" colEnd="10" class="anim" style="--parallax-speed:1.6">
+            <img src="/img/factory/bloodegg.jpg" style="width:100vw;"/>
+        </Layer>
+
+        <Layer minHeight="50lvh" x=".3">
+            <Textblock lines="{[
+                {indent:0, text:`I realized love is a precious thing`},
+                {indent:1, text:`It is simple and good`},
+                {indent:0, text:`and even if unreturned`},
+                {indent:0, text:""},
+                {indent:2, text:`even if unwanted`},
+                {indent:1, text:`it has dignity all its own`},
+            ]}" />
+        </Layer>
+    </LayerWrap>
+    <LayerWrap>
+        <Layer colEnd="11" overlap class="anim" style="--parallax-speed:1.2; mix-blend-mode: multiply;">
+            <img src="/img/factory/bird.jpg" style="width:100vw"/>
+        </Layer>
+        <Layer minHeight="50lvh" x=".8">
+            <Textblock lines="{[
+                {indent:1, text:`I cried over a coffee mug `},
+                {indent:1, text:`with a bird on it`},
+                {indent:0, text:`that I’d never quite noticed before`},
+            ]}" />
+        </Layer>
+    </LayerWrap>
+    <LayerWrap>
+        <Layer colStart="5" colEnd="14" class="anim" style="--parallax-speed:1.2; mix-blend-mode: hard-light;">
+            <img src="/img/factory/scribbles.jpg" style="width:100vw; min-height:100lvh; object-fit:cover; object-position: top;"/>
+        </Layer>
+        <Layer overlap colStart="0" colEnd="8" class="anim" style="--parallax-speed:1.6; mix-blend-mode: hard-light;">
+            <img src="/img/factory/scribbles-2.jpg" style="width:100vw; min-height:50lvh; object-fit:cover; object-position: top;"/>
+        </Layer>
+    </LayerWrap>
+<LayerWrap toggleVis style="margin-top:-50lvh;">
+    <Layer fixed colStart="2" colEnd="10" class="anim" style="--parallax-speed:1.5; --fade-duration:2s;">
+        <img src="/img/factory/messbed.jpg" style="width:100vw; height:80lvh; object-fit:cover;"/> 
+    </Layer>
+    <Layer overlap colStart="7" colEnd="14" class="anim" style="--parallax-speed:1.5; mix-blend-mode: hard-light;">
+        <img src="/img/factory/poem-1.jpg" style="width:100vw"/>
+    </Layer>
+    <Layer minHeight="100lvh" x=".2">
+        <Textblock lines="{[
+            {indent:0, text:`I wrote poems on my phone`},
+            {indent:0, text:`with deeply encrypted meanings`},
+            {indent:0, text:`and a defiant stance`},
+            {indent:0, text:`for the world to see:`},
+        ]}" />
+    </Layer>
+</LayerWrap>
+</SectionWrap>
+
+<SectionWrap>
+<Layer fixed colStart="1" colEnd="10" class="anim" style="--transform-y-end:-50lvh; --fade-duration:2s; mix-blend-mode: screen;">
+    <img src="/img/factory/spin.gif" style="width:100vw; height: 150lvh; object-fit:cover;"/>
 </Layer>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`Through the music he told me`},
-        {indent:1, text:`the government, `},
-        {indent:2, text:`a cabal of my old employers,`},
-        {indent:0, text:`and an underground army of internet trolls`},
-        {indent:0, text:`were conspiring to kill me `},
-        {indent:1, text:`and make it look like a suicide`},
-        {indent:0, text:`unless I did everything exactly right.`},
-    ]}" />
-</Layer>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`I joyfully gave away my prized possessions `},
-        {indent:1, text:`to loved ones around me.`},
-    ]}" />
-</Layer>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`I realized love is a precious thing`},
-        {indent:1, text:`It is simple and good`},
-        {indent:0, text:`and even if unreturned`},
-    ]}" />
-</Layer>
+<LayerWrap>
+    <Layer overlap colStart="3" colEnd="6">
+        <img src="/img/factory/bunny.gif" style="width:100vw;"/>
+    </Layer>
+    <Layer minHeight="50lvh">
+        <Textblock lines="{[
+            {indent:0, text:`He began to grow furious that I kept contacting him,`},
+            {indent:1, text:`and I danced in staccato rhythms to cast a spell`},
+            {indent:0, text:`to keep his soul trapped in my phone.`},
+        ]}" />
+    </Layer>
+</LayerWrap>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:1, text:`even if unwanted`},
-        {indent:0, text:`it has dignity all its own`},
-    ]}" />
+<LayerWrap>
+<Layer overlap colStart="5" colEnd="14" class="anim" style="--parallax-speed:1.25; --fade-duration:2s; mix-blend-mode: screen;">
+    <img src="/img/factory/Family Photos.jpg" style="width:100vw; height: 80lvh; object-fit:cover;"/>
 </Layer>
-
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:1, text:`I cried over a coffee mug `},
-        {indent:1, text:`with a bird on it`},
-        {indent:0, text:`that I’d never quite noticed before`},
-    ]}" />
-</Layer>
-
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`I wrote poems on my phone`},
-        {indent:0, text:`with deeply encrypted meanings`},
-        {indent:0, text:`and a defiant stance`},
-        {indent:0, text:`for the world to see:`},
-    ]}" />
-</Layer>
-
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`He began to grow furious that I kept contacting him,`},
-        {indent:1, text:`and I danced in staccato rhythms to cast a spell`},
-        {indent:0, text:`to keep his soul trapped in my phone.`},
-    ]}" />
-</Layer>
-
 <Layer minHeight="50lvh">
     <Textblock lines="{[
         {indent:0, text:`I came to realize that I was a god,`},
@@ -115,45 +280,76 @@
         {indent:1, text:`To represent the intuitive knowledge granted to each class in a perfect system:`},
     ]}" />
 </Layer>
+</LayerWrap>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`Gods`},
-        {indent:0, text:`Elite`},
-        {indent:0, text:`Merchant`},
-        {indent:0, text:`Proletariat`},
-        {indent:0, text:`Insane`},
-    ]}" />
-</Layer>
+<LayerWrap>
+    <Layer overlap colStart="5" colEnd="10">
+        <img src="/img/factory/bookshelf.jpg" style="width:100vw;"/>
+    </Layer>
+    <Layer minHeight="50lvh">
+        <Textblock lines="{[
+            {indent:0, text:`Gods`},
+            {indent:0, text:`Elite`},
+            {indent:0, text:`Merchant`},
+            {indent:0, text:`Proletariat`},
+            {indent:0, text:`Insane`},
+        ]}" />
+    </Layer>
+</LayerWrap>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`I was trapped in a time loop`},
-        {indent:1, text:`where the universe repeated over and over again`},
-        {indent:0, text:`and only I was aware.`},
-    ]}" />
-</Layer>
+<LayerWrap toggleVis>
+    <Layer fixed style="mix-blend-mode: difference;">
+        <img src="/img/factory/time.jpg" style="width:100vw; height:100lvh; object-fit:cover;"/>
+    </Layer>
+    <Layer minHeight="50lvh">
+        <Textblock lines="{[
+            {indent:0, text:`I was trapped in a time loop`},
+            {indent:1, text:`where the universe repeated over and over again`},
+            {indent:0, text:`and only I was aware.`},
+        ]}" />
+    </Layer>
+<LayerWrap>
+<!--     <Layer overlap colStart="9" colEnd="14" style="mix-blend-mode: difference;">
+        <img src="/img/factory/spinboy.gif" style="width:100vw;"/>
+    </Layer> -->
+    <Layer minHeight="100lvh">
+        <Textblock lines="{[
+            {indent:0, text:`He begged me to let the universe end.`},
+        ]}" />
+    </Layer>
+</LayerWrap>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`He begged me to let the universe end.`},
-    ]}" />
-</Layer>
+<LayerWrap toggleVis rootMargin="100%">
+    <Layer fixed class="anim" style="
+        z-index:9; 
+        background: #fff; 
+        --filter-start:brightness(0); 
+        --range:entry-crossing; 
+        mix-blend-mode: screen;
+    "></Layer>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`As the world collapsed around`},
-        {indent:0, text:`me, I was trapped in`},
-        {indent:0, text:`an eternal`},
-        {indent:0, text:`sta`},
-        {indent:0, text:`t`},
-        {indent:0, text:`i`},
-        {indent:0, text:`c`},
-    ]}" />
-</Layer>
+    <Layer minHeight="100lvh">
+        <Textblock lines="{[
+            {indent:0, text:`As the world collapsed around`},
+            {indent:0, text:`me, I was trapped in`},
+            {indent:0, text:`an eternal`},
+            {indent:0, text:`sta`},
+            {indent:0, text:`t`},
+            {indent:0, text:`i`},
+            {indent:0, text:`c`},
+        ]}" />
+    </Layer>
 
-<Layer minHeight="100lvh">
-    <iframe style="aspect-ratio: 560 / 315; width: min(100vw, calc(90lvh/315*560));" src="https://www.youtube.com/embed/RAfHYaXmZEs?si=BndGvzg0KqJvyr5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</Layer>
+<LayerWrap>
+    
+    <Layer minHeight="100lvh">
+        <iframe style="aspect-ratio: 560 / 315; width: min(100vw, calc(90lvh/315*560));" src="https://www.youtube.com/embed/RAfHYaXmZEs?si=BndGvzg0KqJvyr5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </Layer>
 
-<NextPage title="7. Sky Writing" link="/sky" />
+    <NextPage title="7. Sky Writing" link="/sky" />
+</LayerWrap>
+
+</LayerWrap>
+</LayerWrap>
+</SectionWrap>
+
