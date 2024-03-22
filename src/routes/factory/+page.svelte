@@ -15,15 +15,17 @@
 
     let speed = 1;
     let noiseVol = 0;
+    let laughVol = 0;
+    let paused = true;
 
   let scrollY = 0;
 
   $: {
-    const totalScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
+    const totalScroll =document.documentElement.scrollHeight - window.innerHeight;
     const progress = Math.min(Math.max(scrollY / totalScroll, 0),1);
     speed = Math.max(1 - progress, 0.1);
-    noiseVol = Math.max((progress - .5) * 2, 0);
+    noiseVol = paused ? (Math.min(Math.max((progress - .5) * 2, 0), 1)) : 0;
+    laughVol = paused ? (1 - noiseVol) : 0;
   }
 
 </script>
@@ -32,27 +34,14 @@
 
 <!-- <div style="position: fixed; bottom:1rem; right:1rem; z-index:100000; color:#ff0">{speed}</div> -->
 
-<audio controls bind:this={audioRef} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio controls bind:volume={laughVol} bind:this={audioRef} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
-<audio controls src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<!-- <audio controls bind:volume={laughVol} src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
+
+<audio controls bind:volume={laughVol} src="/img/factory/clownlodge.m4a" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 <audio controls bind:volume={noiseVol} src="/img/factory/static.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
-<!-- 
-
-
-<img src="/img/factory/fambly.jpg"/>
-
-<img src="/img/factory/glitch.jpg"/>
-
-/>
-
-<img src="/img/factory/poem-2.jpg"/>
-<img src="/img/factory/poem-3.jpg"/>
-<img src="/img/factory/scribbles-2.jpg"/>
-
-
--->
 
     <style type="text/css">
         .noizz{
@@ -66,14 +55,7 @@
           z-index: 100;
           background-image: url("/img/bluenoise.png");
           pointer-events: none;
-          animation: calc(1s/var(--fps)*3) steps(3, end) infinite alternate noizz-x both,     
-          calc(1s/var(--fps)*2) steps(2, end) infinite alternate noizz-x both,
-          calc(1s/var(--fps)*5) steps(5, end) infinite alternate noizz-x both,
-          calc(1s/var(--fps)*7) steps(7, end) infinite alternate noizz-x both,
-          calc(1s/var(--fps)*3) steps(3, end) infinite alternate noizz-y both,     
-          calc(1s/var(--fps)*2) steps(2, end) infinite alternate noizz-y both,
-          calc(1s/var(--fps)*5) steps(5, end) infinite alternate noizz-y both,
-          calc(1s/var(--fps)*7) steps(7, end) infinite alternate noizz-y both,
+          animation: 
           calc(1s/var(--fps)*2) steps(2, end) infinite alternate noizz-scalex both,
           calc(1s/var(--fps)*3) steps(3, end) infinite alternate noizz-scalex both,
           calc(1s/var(--fps)*5) steps(5, end) infinite alternate noizz-scalex both,
@@ -106,23 +88,46 @@
       100% { transform: scaleY(1.1); }
     }
   </style>
-<div class="noizz" style={`--fps:20; --width:32px; opacity:calc( 0.4 + 0.6 * ${noiseVol})`}></div>
-<div class="noizz" style={`--fps:24; --width:47px; opacity:calc( 0.4 + 0.6 * ${noiseVol})`}></div>
-<div class="noizz" style={`--fps:36; --width:121px; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseVol}`}></div>
+<div class="noizz" style={`--fps:20; --width:2rem; opacity:calc( 0.75 + 0.5 * ${noiseVol})`}></div>
+<!-- <div class="noizz" style={`--fps:24; --width:47px; opacity:calc( 0.5 + 0.5 * ${noiseVol})`}></div> -->
+<div class="noizz" style={`--fps:36; --width:6rem; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseVol}`}></div>
 
 <SectionWrap>
     <Layer fixed class="anim" style="
-        --transform-y-end: -15lvh;
-        --transform-range: exit-crossing;
-        --filter-end: brightness(0) contrast(2);
-        --filter-range: exit;
         z-index: -100;
+        background: #000;
     ">
-        <img src="/img/factory/cowboy.jpg" style="
-            width: 100vw;
-            height:75lvh;
-            object-fit: cover;
-        "/>
+        <style type="text/css">
+            @keyframes factory__cowboy {
+              0% {
+                max-height: 85lvh;
+              }
+              100% {
+                max-height: 0lvh;
+              }
+            }
+          </style>
+
+        <div class="anim" style="
+            position: relative;
+            width: calc(100vw + 6lvh);
+            height:85lvh;
+            overflow: hidden;
+/*            --transform-y-end: -15lvh;*/
+            --transform-range: contain 0% cover 100%;
+            --transform-x-end: -6lvh;
+            --bonus-animation: ease-out factory__cowboy both;
+            --bonus-animation-range: contain 0% cover 100%;
+            --timeline:--section;
+        ">
+            <img src="/img/factory/cowboy.jpg" style="
+                width: 100%;
+                position: absolute;
+                top:50%;
+                left:0;
+                transform:translateY(-50%);
+            "/>
+        </div>
     </Layer>
 
     <Layer fixed colStart="6" colEnd="9" class="anim" style="
@@ -136,7 +141,7 @@
         "/>
     </Layer>
 
-    <Layer minHeight="50lvh" x=".2" y=".6">
+    <Layer minHeight="75lvh" x=".2" y=".6">
         <Textblock lines="{[
             {indent:0, text:`By keeping my playlist on shuffle,`},
             {indent:2, text:`I reasoned,`},
@@ -182,16 +187,15 @@
             ]}" />
         </Layer>
     </LayerWrap>
-</SectionWrap>
 
 
-<SectionWrap>
-    <Layer fixed colEnd="10">
-        <img src="/img/factory/streetend.jpg" style="width:100vw; height:100lvh; object-fit:cover;"/> 
+<LayerWrap toggleVis>
+    <Layer overlap colEnd="10" y="0">
+        <img src="/img/factory/streetend.jpg" style="width:100vw; height:140lvh; object-fit:cover;"/> 
     </Layer>
 
     <LayerWrap>
-        <Layer overlap y="1" colStart="9" colEnd="13" class="anim" style="--parallax-speed:1.2; mix-blend-mode: hard-light;">
+        <Layer overlap y="1" colStart="9" colEnd="13" class="anim" style="--parallax-speed:1.2; mix-blend-mode: exclusion;">
             <img src="/img/factory/bloodegg2.jpg" style="width:100vw;"/>
         </Layer>
 
@@ -211,7 +215,7 @@
         </Layer>
     </LayerWrap>
     <LayerWrap>
-        <Layer colEnd="11" overlap class="anim" style="--parallax-speed:1.2; mix-blend-mode: multiply;">
+        <Layer colEnd="11" overlap style=" mix-blend-mode: multiply; z-index: 10;">
             <img src="/img/factory/bird.jpg" style="width:100vw"/>
         </Layer>
         <Layer minHeight="50lvh" x=".8">
@@ -223,7 +227,7 @@
         </Layer>
     </LayerWrap>
     <LayerWrap>
-        <Layer colStart="5" colEnd="14" class="anim" style="--parallax-speed:1.2; mix-blend-mode: hard-light;">
+        <Layer colStart="5" colEnd="14">
             <img src="/img/factory/scribbles.jpg" style="width:100vw; min-height:100lvh; object-fit:cover; object-position: top;"/>
         </Layer>
         <Layer overlap colStart="0" colEnd="8" class="anim" style="--parallax-speed:1.6; mix-blend-mode: hard-light;">
@@ -231,10 +235,16 @@
         </Layer>
     </LayerWrap>
 <LayerWrap toggleVis style="margin-top:-50lvh;">
-    <Layer fixed colStart="2" colEnd="10" class="anim" style="--parallax-speed:1.5; --fade-duration:2s;">
+    <Layer overlap colStart="2" colEnd="10" class="anim" style="
+        --parallax-speed:1.25;
+        --transform-skew-start:-40deg;
+/*        --transform-skew-end:180deg;*/
+        --transform-scale-start: 4, 1;
+        mix-blend-mode: exclusion;
+    ">
         <img src="/img/factory/messbed.jpg" style="width:100vw; height:80lvh; object-fit:cover;"/> 
     </Layer>
-    <Layer overlap colStart="7" colEnd="14" class="anim" style="--parallax-speed:1.5; mix-blend-mode: hard-light;">
+    <Layer overlap colStart="7" colEnd="14" style=" mix-blend-mode: hard-light;">
         <img src="/img/factory/poem-1.jpg" style="width:100vw"/>
     </Layer>
     <Layer minHeight="100lvh" x=".2">
@@ -246,10 +256,11 @@
         ]}" />
     </Layer>
 </LayerWrap>
+</LayerWrap>
 </SectionWrap>
 
 <SectionWrap>
-<Layer fixed colStart="1" colEnd="10" class="anim" style="--transform-y-end:-50lvh; --fade-duration:2s; mix-blend-mode: screen;">
+<Layer fixed colStart="1" colEnd="10" class="fade anim" style="--transform-y-end:-50lvh; --fade-duration:2s; mix-blend-mode: screen;">
     <img src="/img/factory/spin.gif" style="width:100vw; height: 150lvh; object-fit:cover;"/>
 </Layer>
 
@@ -269,8 +280,12 @@
 </LayerWrap>
 
 <LayerWrap>
-<Layer overlap colStart="5" colEnd="14" class="anim" style="--parallax-speed:1.25; --fade-duration:2s; mix-blend-mode: screen;">
+<Layer overlap colStart="5" colEnd="14" class="anim" style="--parallax-speed:1.25; mix-blend-mode: screen;">
     <img src="/img/factory/Family Photos.jpg" style="width:100vw; height: 80lvh; object-fit:cover;"/>
+</Layer>
+
+<Layer overlap colStart="0" colEnd="7">
+    <img src="/img/factory/poem-2.jpg" style="width:100vw; object-fit:cover;"/>
 </Layer>
 <Layer minHeight="50lvh">
     <Textblock lines="{[
@@ -283,15 +298,19 @@
 </LayerWrap>
 
 <LayerWrap>
-    <Layer overlap colStart="5" colEnd="10">
-        <img src="/img/factory/bookshelf.jpg" style="width:100vw;"/>
+    <Layer overlap colStart="5" colEnd="10" class="anim" style="--filter-end:hue-rotate(1000deg);">
+        <img src="/img/factory/bookshelf.jpg" style="width:100vw; height: 27rem;"/>
     </Layer>
-    <Layer minHeight="50lvh">
+    <Layer minHeight="75lvh">
         <Textblock lines="{[
             {indent:0, text:`Gods`},
+            {indent:0, text:""},
             {indent:0, text:`Elite`},
+            {indent:0, text:""},
             {indent:0, text:`Merchant`},
+            {indent:0, text:""},
             {indent:0, text:`Proletariat`},
+            {indent:0, text:""},
             {indent:0, text:`Insane`},
         ]}" />
     </Layer>
@@ -309,10 +328,10 @@
         ]}" />
     </Layer>
 <LayerWrap>
-<!--     <Layer overlap colStart="9" colEnd="14" style="mix-blend-mode: difference;">
-        <img src="/img/factory/spinboy.gif" style="width:100vw;"/>
-    </Layer> -->
-    <Layer minHeight="100lvh">
+    <Layer overlap colStart="7" colEnd="14" style="mix-blend-mode: difference;">
+        <img src="/img/factory/poem-3.jpg" style="width:100vw;"/>
+    </Layer>
+    <Layer minHeight="100lvh" x=".2">
         <Textblock lines="{[
             {indent:0, text:`He begged me to let the universe end.`},
         ]}" />
@@ -324,8 +343,16 @@
         z-index:9; 
         background: #fff; 
         --filter-start:brightness(0); 
-        --range:entry-crossing; 
+        --range:entry; 
         mix-blend-mode: screen;
+    "></Layer>
+    <Layer fixed class="anim" style="
+        z-index:9; 
+        background: #fff; 
+        --filter-end:brightness(0); 
+        --range:entry; 
+        mix-blend-mode: multiply;
+        opacity: .5;
     "></Layer>
 
     <Layer minHeight="100lvh">
@@ -342,7 +369,12 @@
 
 <LayerWrap>
     
-    <Layer minHeight="100lvh">
+<!--     <Layer minHeight="100lvh" style="position:relative; z-index:900; mix-blend-mode: hard-light;">
+    <video class="video--withcontrols" bind:paused style="width: calc(min(80vw, 100lvh/480*757 - 2rem))" src="/img/dog-bed/candle.mp4" controls></video>
+  </Layer> -->
+
+
+    <Layer minHeight="100lvh" style="position:relative; z-index:900; mix-blend-mode: hard-light;">
         <iframe style="aspect-ratio: 560 / 315; width: min(100vw, calc(90lvh/315*560));" src="https://www.youtube.com/embed/RAfHYaXmZEs?si=BndGvzg0KqJvyr5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </Layer>
 

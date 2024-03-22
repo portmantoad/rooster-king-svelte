@@ -119,11 +119,7 @@
     @keyframes stroked {
       0% {
         opacity: 0;
-        filter: blur(3px);
         transform: translateX(calc(var(--indent) - 2vw));
-      }
-      50%{
-        filter: blur(0px);
       }
       100% {
         opacity:1;

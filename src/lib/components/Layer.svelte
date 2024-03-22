@@ -112,11 +112,24 @@
     grid-row: 2 / span 1;
     margin:0;
   }
+
+  .vis{
+      opacity: var(--isInView);
+  }
+
+@supports (not (animation-range: cover)) {
+    .vis{
+      --fade-duration: 500ms;
+      transition: opacity var(--fade-duration);
+    }
+  }
+
+
 </style>
 
 <MediaQuery query='(max-width: 900px)' bind:matches={isMobile} />
 
-<div class:fixed={fixed} class:fade={fixed} class={className} class:overlap={overlap} style={outerStyle} {...$$restProps}>
+<div class:fixed={fixed} class:vis={fixed} class={className} class:overlap={overlap} style={outerStyle} {...$$restProps}>
   <div class="layer__inner" style={innerStyle}>
 	 <slot />
   </div>

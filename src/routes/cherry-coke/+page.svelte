@@ -7,10 +7,16 @@
   import NextPage from '$lib/components/NextPage.svelte';
   
 
-  let audioRef;
+  let paused = true;
+  let bgTrackVolume = 1;
+  $ : { 
+    bgTrackVolume = paused ? 1 : 0;
+  }
 </script>
 
-<audio controls bind:this={audioRef} src="/img/cherrycoke/hastings.mp3" style="position: fixed; right: 0; z-index: 10000; width:7rem;" autoplay loop></audio>
+<audio controls bind:volume={bgTrackVolume} src="/img/cherrycoke/hastings.mp3" style="position: fixed; right: 0; z-index: 10000; width:7rem;" autoplay loop></audio>
+
+<audio controls src="/img/cherrycoke/comfort.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 <SectionWrap rootMargin="0%">
 
@@ -202,8 +208,8 @@
   ]}" />
 </Layer>
 
-<Layer minHeight="100lvh" style="mix-blend-mode: hard-light;">
-    <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757 - 2rem))" src="/img/cherrycoke/seaglass3.mp4" controls></video>
+<Layer minHeight="100lvh" style="mix-blend-mode: color-dodge;">
+    <video class="video--withcontrols" bind:paused style="width: calc(min(80vw, 100lvh/480*757 - 2rem))" src="/img/cherrycoke/seaglass.mp4" controls></video>
   </Layer>
 <!-- <Layer colStart="2" colEnd="13">
 

@@ -6,15 +6,18 @@
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
 
-  
-  
-
-  let audioRef;
+  let paused = true;
+  let bgTrackVolume = 1;
+  $ : { 
+    bgTrackVolume = paused ? 1 : 0;
+  }
 
 </script>
 
 
-<audio controls bind:this={audioRef} src="/img/lighthouse/luna.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio controls src="/img/lighthouse/luna.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+
+<!-- <audio controls src="/img/lighthouse/wander.wav" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
 
 
 <SectionWrap class="intro">
@@ -112,8 +115,8 @@
               {indent:0, text:`he must have been lonely.`},
             ]}" />
           </Layer>
-          <Layer overlap colStart="5" colEnd="13" mColStart="1" mColEnd="14">
-            <video class="whalevid__video anim fade" style="width: 100vw; max-width: 100%; --parallax-speed:1.5;" src="/img/lighthouse/luna.mp4" autoplay muted loop></video>
+          <Layer overlap colStart="5" colEnd="13" mColStart="1" mColEnd="14" class="anim fade" style="--parallax-speed:1.5;">
+            <video class="whalevid__video" style="width: 100vw; max-width: 100%;" src="/img/lighthouse/luna.mp4" autoplay muted loop></video>
           </Layer>
         </LayerWrap>
 
@@ -280,7 +283,7 @@
     
 
     <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
-      <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
+      <video class="video--withcontrols" bind:paused style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
 
       <!-- <iframe style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem)); aspect-ratio: 560 / 315;" src="https://www.youtube.com/embed/nW5cpSl4RAw?si=b30HirB6aVFIXxNL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 

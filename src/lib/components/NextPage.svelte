@@ -39,6 +39,6 @@
       }
 </style>
 
-<Layer overlap x="1" y="1" style="pointer-events: none;">
+<Layer overlap x="1" y="1" style="pointer-events: none; z-index: 1000;">
       <a href={link} class="link">{title}</a>
 </Layer>

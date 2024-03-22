@@ -6,7 +6,12 @@
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
 
-  let audioRef;
+  // let audioRef;
+  let paused = true;
+  let bgTrackVolume = 1;
+  $ : { 
+    bgTrackVolume = paused ? 1 : 0;
+  }
 </script>
 
 <style type="text/css">
@@ -33,7 +38,9 @@
 
 
 
-<audio controls bind:this={audioRef} src="/img/train/skytrain.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio controls bind:volume={bgTrackVolume} src="/img/train/skytrain.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+
+<audio controls src="/img/train/forwardmarch.m4a" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 
 <SectionWrap class="intro" rootMargin="0%">
@@ -52,7 +59,8 @@
     background:#000;
     mix-blend-mode: color-dodge; 
     --parallax-speed:1.3;
-    --fade-duration:2s;
+    --filter-end: brightness(0);
+    --filter-range: contain 0% cover 100%;
     z-index: 6;
   ">
 
@@ -271,7 +279,7 @@
   </Layer>
 
   <Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter;">
-    <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" src="/img/train/bananabread_compressed.mp4" controls></video>
+    <video class="video--withcontrols" bind:paused style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" src="/img/train/bananabread_compressed.mp4" controls></video>
   </Layer><!-- 
   <Layer colStart="2" colEnd="13">
 

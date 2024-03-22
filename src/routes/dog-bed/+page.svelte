@@ -5,8 +5,17 @@
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
+
+    let paused = true;
+  let bgTrackVolume = 1;
+  $ : { 
+    bgTrackVolume = paused ? 1 : 0;
+  }
+
+
 </script>
 
+  <audio controls src="/img/dog-bed/ruinedideals.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 <SectionWrap>
     <Layer fixed style="mix-blend-mode: screen; --fade-duration: 2s;">
         <img src="/img/dog-bed/morning.gif" style="
@@ -109,12 +118,17 @@
     </LayerWrap>
 </SectionWrap>
 <SectionWrap>
-    <Layer fixed style="
-        --fade-duration: 2s;
+    <Layer fixed class="anim" style="
+        --transform-y-end: -10lvh;
+        --transform-range: entry-crossing;
+        --transform-ease: ease-out;
+        --filter-end: brightness(.3) contrast(1.5);
+        --filter-range: entry-crossing;
+        mix-blend-mode: screen;
     ">
         <img src="/img/dog-bed/plane.jpg" style="
             width: 100vw; 
-            height: 100lvh; 
+            height: 110lvh; 
             object-fit: cover;
         " />
     </Layer>
@@ -126,15 +140,24 @@
         ]}" />
     </Layer>
 
-    <LayerWrap toggleVis>
-        <Layer overlap class="fade" style="mix-blend-mode: plus-lighter;">
+    <LayerWrap toggleVis rootMargin="0%">
+        <Layer fixed class="anim" style="
+            mix-blend-mode: plus-lighter;
+            
+            --transform-y-start: 20lvh;
+            --transform-range: entry-crossing;
+            --transform-ease: ease-out;
+            --filter-start: brightness(0) sepia(1) hue-rotate(-55deg) saturate(3.5);
+            --filter-end: brightness(0.4) sepia(1) hue-rotate(-55deg) saturate(3.5);
+            --filter-range: entry-crossing;
+        ">
             <img src="/img/dog-bed/hand.jpg" style="
                 width: 100vw; 
                 height: 100lvh; 
                 object-fit: cover;
             " />
         </Layer>
-        <Layer minHeight="50lvh">
+        <Layer minHeight="120lvh" x=".9">
             <Textblock lines="{[
                 {indent:0, text:`I spent my last 2 weeks in the city`},
                 {indent:0, text:`on a blow-up mattress on the floor of my apartment`},
@@ -142,11 +165,12 @@
                 {indent:1, text:`watching the headlights passing by.`},
             ]}" />
         </Layer>
-    </LayerWrap>
+    
 
-    <Layer minHeight="100lvh" style="mix-blend-mode: hard-light;">
-    <video class="video--withcontrols" style="width: calc(min(100vw, 100lvh/480*757 - 2rem))" src="/img/dog-bed/candle_blurred.mp4" controls></video>
+    <Layer minHeight="100lvh" style="mix-blend-mode: exclusion;">
+    <video class="video--withcontrols" bind:paused style="width:calc(min(100vw - 2rem, 100lvh/202*360*.75 - 4rem)) " src="/img/dog-bed/candle.mp4" controls></video>
   </Layer>
+  </LayerWrap>
 
 <!-- <Layer colStart="2" colEnd="13">
 
@@ -171,7 +195,5 @@ I went to a japanese stationary store to buy stickers for my niece and my accoun
 </Layer>
  -->
 
-
-<Layer minHeight="100lvh"></Layer>
     <NextPage title="5. Machine" link="/machine" />
 </SectionWrap>
