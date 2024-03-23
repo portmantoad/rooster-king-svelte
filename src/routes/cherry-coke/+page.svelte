@@ -43,7 +43,7 @@
 <Layer y="1" colEnd="7" fixed class="anim" style="
 /*  --parallax-speed: 1.25;*/
   --fade-duration:2s;
-  mix-blend-mode: color-burn;
+  mix-blend-mode: hard-light;
 ">
       <img style="
         width:100vw;

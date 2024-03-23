@@ -36,9 +36,9 @@
 
 <audio controls bind:volume={laughVol} bind:this={audioRef} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
-<!-- <audio controls bind:volume={laughVol} src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
+<audio controls bind:volume={laughVol} src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
-<audio controls bind:volume={laughVol} src="/img/factory/clownlodge.m4a" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<!-- <audio controls bind:volume={laughVol} src="/img/factory/clownlodge.m4a" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
 
 <audio controls bind:volume={noiseVol} src="/img/factory/static.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
@@ -374,7 +374,7 @@
   </Layer> -->
 
 
-    <Layer minHeight="100lvh" style="position:relative; z-index:900; mix-blend-mode: hard-light;">
+    <Layer minHeight="100lvh" style="position:relative; z-index:900;">
         <iframe style="aspect-ratio: 560 / 315; width: min(100vw, calc(90lvh/315*560));" src="https://www.youtube.com/embed/RAfHYaXmZEs?si=BndGvzg0KqJvyr5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </Layer>
 
