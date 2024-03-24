@@ -11,7 +11,7 @@
 		{route: '/train', name:'2. Sky Train'},
 		{route: '/cherry-coke', name:'3. Cherry Coke'},
 		{route: '/dog-bed', name:'4. Dog Bed'},
-		{route: '/machine', name:'5. Machine'},
+		{route: '/funnel', name:'5. Funnel'},
 		{route: '/factory', name:'6. The Factory That Produces Factories'},
 		{route: '/sky', name:'7. Sky Writing'}
 	];

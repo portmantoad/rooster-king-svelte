@@ -15,46 +15,40 @@
 
 </script>
 
-  <audio controls src="/img/machine/liquiddreams.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+  <audio controls src="/img/funnel/liquiddreams.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 <SectionWrap rootMargin="20%">
 
-    <Layer fixed class="anim" style="--transform-y-end:-40lvh; z-index:-200;">
-        <img src="/img/machine/spaceneedle.jpg" style="width:100vw; height:140lvh; object-fit:cover; object-position: top right;" />
+    <Layer fixed class="anim" style="--transform-y-end:-20lvh; z-index:-200;">
+        <img src="/img/funnel/spaceneedle.jpg" style="width:100vw; height:120lvh; object-fit:cover; object-position: top right;" />
     </Layer>
 
-    <Layer fixed x=".8" y=".6" class="anim" style="--parallax-speed:1.1">
-        <img src="/img/machine/dollar.gif" style="width:5rem; image-rendering: pixelated; object-fit:cover;" />
+    <Layer fixed x=".95" y=".66" class="anim" style="--parallax-speed:1.1; z-index:500;">
+        <img src="/img/funnel/dollar.gif" style="width:5rem; image-rendering: pixelated; object-fit:cover; translate: -94% -46%;" />
     </Layer>
 
-    <Layer fixed x=".1" y=".2" class="anim" style="--parallax-speed:1.3; mix-blend-mode: multiply;">
-        <img src="/img/machine/funnel.png" style="width:80lvh;" />
+    <Layer fixed x=".4" y=".2" class="anim" style="--parallax-speed:1.1; mix-blend-mode: multiply;">
+        <img src="/img/funnel/funnel.png" style="width:80lvh;" />
     </Layer>
 
-    <Layer fixed class="anim" style="
-        --transform-y-end:-20lvh;
-        --fade-duration: 1s;
-    " x="1" y="1">
-        <img src="/img/machine/desktop_image.jpg" style="
+    <Layer fixed x="1" y="1" class="fade" style="--fade-duration:1s;">
+        <img src="/img/funnel/desktop.webp" style="
             width: 100vw;
-            height:120vh;
-            mask-image: url('/img/machine/desktop_mask.jpg'); 
-            mask-mode: luminance;
-            mask-size: cover;
-            mask-position: bottom right;
+            height:100lvh;
             object-fit: cover;
-            object-position: bottom right;
+            object-position: 95% 66%;
         " />
     </Layer>
 
-    <Layer minHeight="100lvh" x=".3" y=".3">
-        <Textblock lines="{[
+    <Layer minHeight="100lvh" colStart="3" colEnd="8" y=".2">
+        <img src="/img/funnel/text.webp" style="width:100vw; position:relative;" />
+        <!-- <Textblock lines="{[
             {indent:0, text:`We were trying to build an engine`},
             {indent:0, text:`I applied the same logic to my life.`},
             {indent:1, text:`I carefully selected every piece of furniture,`},
             {indent:0, text:`A/B tested my tinder sales funnel,`},
             {indent:1, text:`and waited for my life to begin`},
-        ]}" />
+        ]}" /> -->
     </Layer>
 
     <Layer minHeight="50lvh" x=".75">
@@ -62,14 +56,15 @@
             {indent:1, text:`We saw a movie about a pair of arms dealers`},
             {indent:0, text:`He told me that had been his childhood dream`},
             {indent:0, text:`I told him I would sell guns with him`},
+            {indent:1, text:`if he asked me to`},
         ]}" />
     </Layer>
 
 </SectionWrap>
 
-<SectionWrap>
+<SectionWrap style="padding-bottom: 50lvh;">
     <Layer fixed class="anim" style="--transform-y-end:-20lvh; z-index: -100;">
-        <img src="/img/machine/cars.jpg" style="width:100vw; height:120lvh; object-fit:cover;" />
+        <img src="/img/funnel/cars.jpg" style="width:100vw; height:120lvh; object-fit:cover;" />
     </Layer>
 
     <Layer minHeight="50lvh" x=".25">
@@ -92,11 +87,11 @@
 </SectionWrap>
 
 <SectionWrap>
-    <Layer fixed class="anim" style="--transform-y-end:-20lvh; z-index: -100;">
-        <img src="/img/machine/livingroom.jpg" style="width:100vw; height:120lvh; object-fit:cover;" />
+    <Layer fixed class="anim fade" style="--transform-y-end:-20lvh; z-index: -100; --fade-duration:1s;">
+        <img src="/img/funnel/livingroom.jpg" style="width:100vw; height:120lvh; object-fit:cover;" />
     </Layer>
 
-    <Layer minHeight="50lvh">
+    <Layer minHeight="50lvh" x=".7">
         <Textblock lines="{[
             {indent:0, text:`He came back to my apartment`},
             {indent:0, text:`and passed out on my expensive sofa`},
@@ -105,7 +100,7 @@
         ]}" />
     </Layer>
 
-    <Layer minHeight="50lvh">
+    <Layer minHeight="50lvh" x=".3">
         <Textblock lines="{[
             {indent:0, text:`In the morning he called his wife `},
             {indent:0, text:`and told her I was quitting.`},
@@ -117,12 +112,12 @@
 </SectionWrap>
 
 <SectionWrap>
-    <Layer fixed class="anim" style="--transform-y-end:-20lvh; z-index: -100;">
-        <img src="/img/machine/nipples.jpg" style="width:100vw; height:120lvh; object-fit:cover;" />
+    <Layer fixed class="anim" style="--transform-y-end:-20lvh; z-index: -200;">
+        <img src="/img/funnel/nipples.jpg" style="width:100vw; height:120lvh; object-fit:cover;" />
     </Layer>
 
     <Layer fixed class="anim" style="--transform-y-start:-20lvh; mix-blend-mode: color-burn;">
-        <img src="/img/machine/skin.jpeg" style="width:100vw; height:120lvh; object-fit:cover;" />
+        <img src="/img/funnel/skin.jpeg" style="width:100vw; height:120lvh; object-fit:cover;" />
     </Layer>
 
     <Layer minHeight="100lvh">
@@ -141,19 +136,19 @@
 
 <SectionWrap rootMargin="">
     <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 0)); mix-blend-mode: difference;">
-        <img src="/img/machine/lobby.jpg" style="width:100vw; height:100lvh; object-fit:cover;" />
+        <img src="/img/funnel/lobby.jpg" style="width:100vw; height:100lvh; object-fit:cover;" />
     </Layer>
     <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 1)); mix-blend-mode: difference;">
-        <img src="/img/machine/lobby.jpg" style="width:80vw; height:80lvh; object-fit:cover;" />
+        <img src="/img/funnel/lobby.jpg" style="width:80vw; height:80lvh; object-fit:cover;" />
     </Layer>
     <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 2)); mix-blend-mode: difference;">
-        <img src="/img/machine/lobby.jpg" style="width:60vw; height:60lvh; object-fit:cover;" />
+        <img src="/img/funnel/lobby.jpg" style="width:60vw; height:60lvh; object-fit:cover;" />
     </Layer>
     <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 3)); mix-blend-mode: difference;">
-        <img src="/img/machine/lobby.jpg" style="width:40vw; height:40lvh; object-fit:cover;" />
+        <img src="/img/funnel/lobby.jpg" style="width:40vw; height:40lvh; object-fit:cover;" />
     </Layer>
     <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 4)); mix-blend-mode: difference;">
-        <img src="/img/machine/lobby.jpg" style="width:20vw; height:20lvh; object-fit:cover;" />
+        <img src="/img/funnel/lobby.jpg" style="width:20vw; height:20lvh; object-fit:cover;" />
     </Layer>
 <Layer minHeight="50lvh">
     <Textblock lines="{[
@@ -167,7 +162,7 @@
     ]}" />
 </Layer>
 
-<Layer minHeight="50lvh">
+<Layer minHeight="50lvh" x=".7">
     <Textblock lines="{[
         {indent:0, text:`I began to lose track of time`},
         {indent:1, text:`I messaged him again and again deep into the night `},
@@ -182,9 +177,9 @@
         width: 100vw;
         height: 100lvh;
         object-fit: cover;
-      "><source src="/img/machine/rain2.mp4" type="video/mp4" /></video>
+      "><source src="/img/funnel/rain2.mp4" type="video/mp4" /></video>
   </Layer>
-<Layer minHeight="50lvh">
+<Layer minHeight="50lvh" x=".9">
     <Textblock lines="{[
         {indent:0, text:`My mother came to town to get me`},
         {indent:1, text:`They emailed to let me know I had been let go`},

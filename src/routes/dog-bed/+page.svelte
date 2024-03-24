@@ -234,5 +234,5 @@ I went to a japanese stationary store to buy stickers for my niece and my accoun
 </Layer>
  -->
 
-    <NextPage title="5. Machine" link="/machine" />
+    <NextPage title="5. Machine" link="/funnel" />
 </SectionWrap>

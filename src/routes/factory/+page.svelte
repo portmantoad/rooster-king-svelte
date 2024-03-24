@@ -88,7 +88,7 @@
       100% { transform: scaleY(1.1); }
     }
   </style>
-<div class="noizz" style={`--fps:20; --width:2rem; opacity:calc( 0.75 + 0.5 * ${noiseVol})`}></div>
+<!-- <div class="noizz" style={`--fps:20; --width:2rem; opacity:calc( 0.75 + 0.5 * ${noiseVol})`}></div> -->
 <!-- <div class="noizz" style={`--fps:24; --width:47px; opacity:calc( 0.5 + 0.5 * ${noiseVol})`}></div> -->
 <div class="noizz" style={`--fps:36; --width:6rem; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseVol}`}></div>
 
