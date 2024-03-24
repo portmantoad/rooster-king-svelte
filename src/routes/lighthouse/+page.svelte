@@ -285,8 +285,6 @@
     <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
       <video class="video--withcontrols" bind:paused style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
 
-      <!-- <iframe style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem)); aspect-ratio: 560 / 315;" src="https://www.youtube.com/embed/nW5cpSl4RAw?si=b30HirB6aVFIXxNL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-
     </Layer>
 
     <!-- <Layer colStart="2" colEnd="13"> -->

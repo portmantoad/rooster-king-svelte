@@ -187,7 +187,10 @@
     ]}" />
 </Layer>
 
-<Layer minHeight="100lvh">
+<Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter; pointer-events: all;">
+      <video class="video--withcontrols" bind:paused style="width: calc(min(80vw, 100lvh/480*860 - 2rem))" controls src="/img/funnel/VHS.mp4"></video>
+
+
 </Layer>
 
 </SectionWrap>
