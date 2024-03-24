@@ -66,12 +66,13 @@
 <SectionWrap rootMargin="0%">
 
 <Layer fixed class="anim" style="
-  --transform-y-end: -100lvh;
+  --transform-y-end: -10lvh;
   z-index: -100;
 ">
   <img src="/img/cherrycoke/treea.jpg" style="
     width: 100vw;
-    height: 200lvh;
+    height: 110lvh;
+    object-fit: cover;
   " />
 </Layer>
 
@@ -148,14 +149,15 @@
 </SectionWrap>
    
 <SectionWrap rootMargin="0%">   
-<Layer fixed class="anim" style="
-  --transform-y-end: -100lvh;
+<Layer fixed class="anim fade" style="
+  --transform-y-end: -20lvh;
   z-index: -100;
+  --fade-duration: 1s;
 
   ">    
       <img style="
         width: 100vw; 
-        height: 200lvh;
+        height: 120lvh;
         object-position: 40% 50%;  
         object-fit: cover; 
          " src="/img/cherrycoke/orpheum.jpg" />
@@ -178,14 +180,9 @@
 
 </SectionWrap>
 <SectionWrap>
-  <Layer fixed class="anim" style="
+  <Layer fixed class="fade" style="
     mix-blend-mode: plus-lighter;
-    --transform-y-start: 100vh;
-    --transform-y-end: 0vh;
-    --filter-start: brightness(0) contrast(1.5);
-    --filter-range: cover 0% contain 100%;
-    --range:entry;
-    --ease:ease-out;
+    --fade-duration:1s;
   ">
       <!-- <img style="
         width:100vw; 

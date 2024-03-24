@@ -17,11 +17,39 @@
 
   <audio controls src="/img/dog-bed/ruinedideals.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 <SectionWrap>
-    <Layer fixed style="mix-blend-mode: screen; --fade-duration: 2s;">
+    <Layer fixed class="fade" style=" --fade-duration: 1s;">
         <img src="/img/dog-bed/morning.gif" style="
             width: 100vw; 
             height: 100lvh; 
             object-fit: cover;
+        " />
+    </Layer>
+
+    <Layer fixed class="anim" style="--parallax-speed:1.05; mix-blend-mode: hard-light;" x="1">
+        <img src="/img/dog-bed/collage-1.webp" style="
+            min-width: 100vw;  
+            height:120lvh;
+            object-fit: cover;
+        " />
+    </Layer>
+    
+    <Layer overlap colStart="11" colEnd="13" style="rotate: 9deg;">
+        <img src="/img/dog-bed/swatch.jpg" style="
+            width: 100vw;
+        " />
+    </Layer>
+
+    <Layer fixed class="anim fade" style="--transform-y-start: 75lvh; --parallax-speed:1.5" x="1">
+        <img src="/img/dog-bed/collage-4.webp" style="
+            height:100lvh;
+            object-fit: cover;
+        " />
+    </Layer>
+
+<LayerWrap>
+    <Layer overlap colStart="2" colEnd="7">
+        <img src="/img/dog-bed/collage-2.webp" style="
+            width: 100vw;
         " />
     </Layer>
 
@@ -33,7 +61,14 @@
             {indent:0, text:`Walls painted the particular color of his choosing`},
         ]}" />
     </Layer>
+</LayerWrap>
 
+<LayerWrap>
+    <Layer overlap colStart="2" colEnd="13" style="mix-blend-mode: hard-light;">
+        <img src="/img/dog-bed/collage-3.webp" style="
+            width: 100vw;
+        " />
+    </Layer>
     <Layer minHeight="50lvh">
         <Textblock lines="{[
             {indent:0, text:`My boyfriend's mother offered to buy us a bedroom set`},
@@ -42,18 +77,22 @@
             {indent:2, text:`we had gone with as cheap an option as Ikea`},
         ]}" />
     </Layer>
+</LayerWrap>
 </SectionWrap>
-<SectionWrap>
-    <Layer fixed style="z-index: -100;">
+<SectionWrap style="margin-bottom: 20lvh;" rootMargin="0px">
+    <Layer fixed class="anim" colEnd="13" style="--transform-y-end:-10lvh; z-index: -100;">
         <img src="/img/dog-bed/noir.jpg" style="
             width: 100vw; 
-            height: 100lvh; 
+            height: 110lvh; 
             object-fit: cover;
         " />
     </Layer>
     <LayerWrap>
-        <Layer overlap colStart="2" colEnd="7" class="anim" style="--parallax-speed: 1.25">
+        <Layer overlap colStart="1" colEnd="7" class="anim" style="--parallax-speed: 1.25; rotate:2deg;">
             <img src="/img/dog-bed/painting_crop.jpg" style="width:100vw" />
+        </Layer>
+        <Layer overlap colStart="5" colEnd="9" class="anim" style="--parallax-speed: 1.5;" y=".8">
+            <img src="/img/dog-bed/book.gif" style="width:100vw; image-rendering:pixelated;" />
         </Layer>
         <Layer minHeight="50lvh" x=".7">
             <Textblock lines="{[
@@ -64,14 +103,14 @@
         </Layer>
     </LayerWrap>
 
-    <Layer minHeight="50lvh" x=".9">
+    <Layer minHeight="40lvh" x=".9">
         <Textblock lines="{[
             {indent:0, text:`After we broke up, he left me the furniture`},
         ]}" />
     </Layer>
 
     <LayerWrap>
-        <Layer minHeight="100lvh" x=".3">
+        <Layer minHeight="40lvh" x=".3">
             <Textblock lines="{[
                 {indent:0, text:`My job moved me from a “nice cubicle”,`},
                 {indent:1, text:`to a cubicle with a pillar through it,`},
@@ -81,48 +120,48 @@
                 {indent:0, text:`I took the hint`},
             ]}" />
         </Layer>
-        <Layer overlap colStart="7" colEnd="14" class="anim" style="--parallax-speed: 1.25">
-            <img src="/img/dog-bed/pitbull.webp" style="width:100vw" />
+        <Layer overlap colStart="5" colEnd="14" class="anim" style="--parallax-speed: 1.25; z-index:10;">
+            <img src="/img/dog-bed/pitbull2.webp" style="width:100vw" />
         </Layer>
     </LayerWrap>
-    <LayerWrap toggleVis>
-        <Layer fixed style="mix-blend-mode: hard-light;">
+</SectionWrap>
+<SectionWrap style="padding:10lvh 0">
+        <Layer overlap>
             <img src="/img/dog-bed/meatmarket_processed.jpg" style="
                 width: 100vw; 
-                height: 100lvh; 
+                height: 120lvh; 
                 object-fit: cover;
             " />
         </Layer>
-        <LayerWrap>
-            <Layer overlap colStart="2" colEnd="7" class="anim" style="--parallax-speed: 1.25">
-                <img src="/img/dog-bed/doggy.jpg" style="width:100vw" />
-            </Layer>
-            <Layer minHeight="50lvh">
-                <Textblock lines="{[
-                    {indent:0, text:`I decided to adopt a dog`},
-                    {indent:1, text:`When I brought him home his eye was infected`},
-                    {indent:1, text:`He lunged towards chicken bones in the street`},
-                ]}" />
-            </Layer>
-        </LayerWrap>
+        <Layer overlap colStart="2" colEnd="7" class="anim" style="--parallax-speed: 1.25">
+            <img src="/img/dog-bed/doggy.jpg" style="width:100vw" />
+        </Layer>
+        <Layer minHeight="50lvh" x=".5">
+            <Textblock lines="{[
+                {indent:0, text:`I decided to adopt a dog`},
+                {indent:1, text:`When I brought him home his eye was infected`},
+                {indent:1, text:`He lunged towards chicken bones in the street`},
+            ]}" />
+        </Layer>
 
-        <Layer minHeight="50lvh">
+        <Layer minHeight="50lvh" x=".8">
             <Textblock lines="{[
                 {indent:0, text:`When I didn't let him in the bathroom with me,`},
                 {indent:1, text:`he shivered in fear and pissed on the floor.`},
                 {indent:0, text:`He wedged himself between my thighs to sleep.`},
+                {indent:0, text:""},
                 {indent:0, text:`The next day I lied to the animal shelter `},
                 {indent:1, text:`and told them I was allergic.`},
             ]}" />
         </Layer>
-    </LayerWrap>
 </SectionWrap>
 <SectionWrap>
-    <Layer fixed class="anim" style="
+    <Layer fixed class="fade anim" style="
         --transform-y-end: -10lvh;
         --transform-range: entry-crossing;
         --transform-ease: ease-out;
         --filter-end: brightness(.3) contrast(1.5);
+        --fade-duration: 1s;
         --filter-range: entry-crossing;
         mix-blend-mode: screen;
     ">
