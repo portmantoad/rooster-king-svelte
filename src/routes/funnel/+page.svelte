@@ -23,11 +23,11 @@
         <img src="/img/funnel/spaceneedle.jpg" style="width:100vw; height:120lvh; object-fit:cover; object-position: top right;" />
     </Layer>
 
-    <Layer fixed x=".95" y=".66" class="anim" style="--parallax-speed:1.1; z-index:500;">
+    <Layer fixed x=".95" y=".66" class="anim" style="--parallax-speed:1.05; z-index:500;">
         <img src="/img/funnel/dollar.gif" style="width:5rem; image-rendering: pixelated; object-fit:cover; translate: -94% -46%;" />
     </Layer>
 
-    <Layer fixed x=".4" y=".2" class="anim" style="--parallax-speed:1.1; mix-blend-mode: multiply;">
+    <Layer fixed x=".4" y=".2" class="anim" style="--parallax-speed:1.05; mix-blend-mode: multiply;">
         <img src="/img/funnel/funnel.png" style="width:80lvh;" />
     </Layer>
 
@@ -51,14 +51,20 @@
         ]}" /> -->
     </Layer>
 
-    <Layer minHeight="50lvh" x=".75">
-        <Textblock lines="{[
-            {indent:1, text:`We saw a movie about a pair of arms dealers`},
-            {indent:0, text:`He told me that had been his childhood dream`},
-            {indent:0, text:`I told him I would sell guns with him`},
-            {indent:1, text:`if he asked me to`},
-        ]}" />
-    </Layer>
+    <LayerWrap toggleVis rootMargin="0% 0% -20% 0%">
+        <Layer fixed class="anim" style="--transform-y-end:-20lvh; z-index:-100;">
+            <!-- <img src="/img/funnel/guns.jpg" style="width:100vw; height:100lvh; image-rendering:pixelated;"> -->
+            <img src="/img/funnel/street.jpg" style="width:100vw; height:120lvh; z-index:-150; object-fit: cover;">
+        </Layer>
+        <Layer minHeight="100lvh" x=".75">
+            <Textblock lines="{[
+                {indent:1, text:`We saw a movie about a pair of arms dealers`},
+                {indent:0, text:`He told me that had been his childhood dream`},
+                {indent:0, text:`I told him I would sell guns with him`},
+                {indent:1, text:`if he asked me to`},
+            ]}" />
+        </Layer>
+    </LayerWrap>
 
 </SectionWrap>
 
@@ -100,14 +106,20 @@
         ]}" />
     </Layer>
 
-    <Layer minHeight="50lvh" x=".3">
-        <Textblock lines="{[
-            {indent:0, text:`In the morning he called his wife `},
-            {indent:0, text:`and told her I was quitting.`},
-            {indent:1, text:`was that what I was doing?`},
-            {indent:1, text:`my hand was swelling`},
-        ]}" />
-    </Layer>
+    <LayerWrap>
+        <Layer overlap colStart="8" colEnd="13" class="anim" style="--parallax-speed: 1.2;">
+            <img src="/img/funnel/hand.jpg" style="width:100vw;">
+        </Layer>
+        <Layer minHeight="50lvh" x=".3">
+            <Textblock lines="{[
+                {indent:0, text:`In the morning he called his wife `},
+                {indent:0, text:`and told her I was quitting.`},
+                {indent:1, text:`was that what I was doing?`},
+                {indent:0, text:""},
+                {indent:1, text:`my hand was swelling`},
+            ]}" />
+        </Layer>
+    </LayerWrap>
 
 </SectionWrap>
 
@@ -134,21 +146,18 @@
 
 </SectionWrap>
 
-<SectionWrap rootMargin="">
-    <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 0)); mix-blend-mode: difference;">
+<SectionWrap rootMargin="-25%">
+    <Layer fixed class="anim" style="--transform-rotate-end: calc(1deg * pow(3, 0)); mix-blend-mode: difference;">
         <img src="/img/funnel/lobby.jpg" style="width:100vw; height:100lvh; object-fit:cover;" />
     </Layer>
-    <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 1)); mix-blend-mode: difference;">
+    <Layer fixed class="anim" style="--transform-rotate-end: calc(1deg * pow(3, 1)); mix-blend-mode: difference;">
         <img src="/img/funnel/lobby.jpg" style="width:80vw; height:80lvh; object-fit:cover;" />
     </Layer>
-    <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 2)); mix-blend-mode: difference;">
+    <Layer fixed class="anim" style="--transform-rotate-end: calc(1deg * pow(3, 2)); mix-blend-mode: difference;">
         <img src="/img/funnel/lobby.jpg" style="width:60vw; height:60lvh; object-fit:cover;" />
     </Layer>
-    <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 3)); mix-blend-mode: difference;">
+    <Layer fixed class="anim" style="--transform-rotate-end: calc(1deg * pow(3, 3)); mix-blend-mode: difference;">
         <img src="/img/funnel/lobby.jpg" style="width:40vw; height:40lvh; object-fit:cover;" />
-    </Layer>
-    <Layer fixed class="anim" style="--transform-rotate-end: calc(3deg * pow(3, 4)); mix-blend-mode: difference;">
-        <img src="/img/funnel/lobby.jpg" style="width:20vw; height:20lvh; object-fit:cover;" />
     </Layer>
 <Layer minHeight="50lvh">
     <Textblock lines="{[
@@ -179,7 +188,7 @@
         object-fit: cover;
       "><source src="/img/funnel/rain2.mp4" type="video/mp4" /></video>
   </Layer>
-<Layer minHeight="50lvh" x=".9">
+<Layer minHeight="100lvh" x=".9">
     <Textblock lines="{[
         {indent:0, text:`My mother came to town to get me`},
         {indent:1, text:`They emailed to let me know I had been let go`},
@@ -187,22 +196,9 @@
     ]}" />
 </Layer>
 
-<Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter; pointer-events: all;">
-      <video class="video--withcontrols" bind:paused style="width: calc(min(80vw, 100lvh/480*860 - 2rem))" controls src="/img/funnel/VHS.mp4"></video>
+<Layer style="mix-blend-mode: hard-light;">
 
-
-</Layer>
-
-</SectionWrap>
-
-<SectionWrap>
-<Layer colStart="2" colEnd="13">
-
-<Clowntales crazy md="{`# clown talez
-# clown talez
-# clown talez
-# clown talez
-
+<Clowntales crazy md="{`
 In less than 10 seconds, 
       
 a man who steps into 
@@ -225,7 +221,10 @@ he can be submerged and unable to breathe,
       
 essentially drowned in corn.
 `}" />
+</Layer>
 
+<Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter; pointer-events: all;">
+      <video class="video--withcontrols" bind:paused style="width: calc(min(80vw, 100lvh/480*860 - 2rem))" controls src="/img/funnel/VHS.mp4"></video>
 </Layer>
 
 <NextPage title="6. The Factory That Produces Factories" link="/factory" />

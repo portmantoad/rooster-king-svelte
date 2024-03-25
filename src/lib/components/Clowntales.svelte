@@ -7,7 +7,8 @@
 
 <style type="text/css">
   .clowntext{
-    max-width: 40rem; 
+/*    max-width: 40rem; */
+    width: 100vw;
     background:#fff; 
     padding: 2rem; 
     font-family: 'ibm plex mono', 'american typewriter', monospace;
@@ -17,8 +18,6 @@
     position: relative;
     columns: 15rem auto;
     column-gap: 1rem;
-    margin-bottom: 5rem;
-
   }
 
   .clowntext.crazy{

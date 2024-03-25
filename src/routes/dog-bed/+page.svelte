@@ -25,7 +25,7 @@
         " />
     </Layer>
 
-    <Layer fixed class="anim" style="--parallax-speed:1.05; mix-blend-mode: hard-light;" x="1">
+    <Layer fixed style="mix-blend-mode: color-burn;" x="1">
         <img src="/img/dog-bed/collage-1.webp" style="
             min-width: 100vw;  
             height:120lvh;
@@ -38,14 +38,6 @@
             width: 100vw;
         " />
     </Layer>
-
-    <Layer fixed class="anim fade" style="--transform-y-start: 75lvh; --parallax-speed:1.5" x="1">
-        <img src="/img/dog-bed/collage-4.webp" style="
-            height:100lvh;
-            object-fit: cover;
-        " />
-    </Layer>
-
 <LayerWrap>
     <Layer overlap colStart="2" colEnd="7">
         <img src="/img/dog-bed/collage-2.webp" style="
@@ -64,7 +56,13 @@
 </LayerWrap>
 
 <LayerWrap>
-    <Layer overlap colStart="2" colEnd="13" style="mix-blend-mode: hard-light;">
+    <Layer overlap class="anim fade" style="--parallax-speed:1.25; margin-top: -50lvh;" x="1">
+        <img src="/img/dog-bed/collage-4.webp" style="
+            height:100lvh;
+            object-fit: cover;
+        " />
+    </Layer>
+    <Layer overlap colStart="2" colEnd="13">
         <img src="/img/dog-bed/collage-3.webp" style="
             width: 100vw;
         " />
