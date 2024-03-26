@@ -77,9 +77,10 @@
 </Layer>
 
 <LayerWrap toggleVis rootMargin="0%">
-  <Layer fixed colEnd="10" class="anim" style="
+  <Layer fixed colEnd="10" class="fade anim" style="
     --transform-y-end: -50lvh;
     z-index: -80;
+    --fade-duration:1s;
   ">
         <img style="
           width: 100vw;
@@ -108,7 +109,7 @@
     " src="/img/cherrycoke/clubhouse_masked.jpg" />
 </Layer>
 
-<Layer minHeight="80lvh">
+<Layer minHeight="170lvh" y=".4">
   <Textblock lines="{[
     {indent:0, text:`He was a new transplant from a town of less than 100`},
     {indent:1, text:`somewhere in Quebec, I think.`},

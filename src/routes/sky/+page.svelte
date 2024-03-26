@@ -85,12 +85,12 @@ let paused = true;
         {indent:0, text:`Eventually I convinced myself to go out just a little further`},
     ]}" />
 </Layer>
-<Layer fixed colStart="11" colEnd="13" y=".2" class="fade anim" style="--parallax-speed:1.05; z-index: 5;"><video autoplay muted loop src="/img/sky/fasttrail.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
+<Layer fixed colStart="11" colEnd="13" y=".2" class="fade anim" style="--parallax-speed:1.05; z-index: 5;"><video autoplay muted volume="0" loop src="/img/sky/fasttrail.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
 
 
 <LayerWrap toggleVis>
 <Layer minHeight="100lvh"></Layer>
-<Layer fixed colStart="2" colEnd="10" y="0.1" class="fade anim" style="--parallax-speed:1.025;"><video autoplay muted loop src="/img/sky/biketire.mp4" style="width:100vw; max-width:100%; height:50lvh; object-fit:cover;"/></Layer>
+<Layer fixed colStart="2" colEnd="10" y="0.1" class="fade anim" style="--parallax-speed:1.025;"><video autoplay muted volume="0" loop src="/img/sky/biketire.mp4" style="width:100vw; max-width:100%; height:50lvh; object-fit:cover;"/></Layer>
 
 <LayerWrap toggleVis>
 <Layer minHeight="100lvh">
@@ -100,16 +100,16 @@ let paused = true;
         {indent:0, text:`slowly being reclaimed by moss`},
     ]}" />
 </Layer>
-<Layer fixed colStart="5" colEnd="12" y="1" class="fade anim" style="--parallax-speed:1.05;"><video autoplay muted loop src="/img/sky/cartire.mp4" style="width:100vw; max-width:100%; height:40lvh; object-fit:cover;"/></Layer>
+<Layer fixed colStart="5" colEnd="12" y="1" class="fade anim" style="--parallax-speed:1.05;"><video autoplay muted volume="0" loop src="/img/sky/cartire.mp4" style="width:100vw; max-width:100%; height:40lvh; object-fit:cover;"/></Layer>
 
 
 <LayerWrap toggleVis>
 <Layer minHeight="100lvh"></Layer>
-<Layer fixed colStart="8" colEnd="14" y=".7" class="fade anim" style="--parallax-speed:1.1; z-index: 10;"><video autoplay muted loop src="/img/sky/clownfoliage.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
+<Layer fixed colStart="8" colEnd="14" y=".7" class="fade anim" style="--parallax-speed:1.1; z-index: 10;"><video autoplay muted volume="0" loop src="/img/sky/clownfoliage.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
 
 <LayerWrap toggleVis>
 <Layer minHeight="100lvh"></Layer>
-<Layer fixed colStart="0" colEnd="4" y=".8" class="fade anim" style="--parallax-speed:1.2;"><video autoplay muted loop src="/img/sky/backtrail.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
+<Layer fixed colStart="0" colEnd="4" y=".8" class="fade anim" style="--parallax-speed:1.2;"><video autoplay muted volume="0" loop src="/img/sky/backtrail.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
 
 
 
@@ -124,6 +124,10 @@ let paused = true;
             {indent:1, text:`stewing in the heat of the summer`},
             {indent:2, text:`staring at the sky`},
         ]}" />
+    </Layer>
+
+    <Layer minHeight="100lvh" style="position:relative; z-index: 999;">
+        <audio controls src="/img/sky/greatunknown.m4a" bind:paused ></audio>
     </Layer>
 </LayerWrap>
 </LayerWrap>
