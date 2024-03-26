@@ -9,8 +9,10 @@
   // let audioRef;
   let paused = true;
   let bgTrackVolume = 1;
+  let trainVolume = .25;
   $ : { 
     bgTrackVolume = paused ? 1 : 0;
+    trainVolume = bgTrackVolume * .25;
   }
 </script>
 
@@ -38,9 +40,11 @@
 
 
 
-<audio controls bind:volume={bgTrackVolume} src="/img/train/skytrain.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+
 
 <audio controls src="/img/train/forwardmarch.m4a" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+
+<audio controls bind:volume={trainVolume} src="/img/train/skytrain.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 
 <SectionWrap class="intro" rootMargin="0%">
