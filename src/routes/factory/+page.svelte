@@ -6,7 +6,6 @@
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  let audioRef;
 
 
   onMount(async () => {
@@ -40,7 +39,7 @@
 
 <!-- <div style="position: fixed; bottom:1rem; right:1rem; z-index:100000; color:#ff0">{speed}</div> -->
 
-<audio controls bind:volume={laughVol} bind:this={audioRef} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio controls bind:volume={laughVol} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 <audio controls bind:volume={laughVol} src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
@@ -96,7 +95,7 @@
   </style>
 <!-- <div class="noizz" style={`--fps:20; --width:2rem; opacity:calc( 0.75 + 0.5 * ${noiseVol})`}></div> -->
 <!-- <div class="noizz" style={`--fps:24; --width:47px; opacity:calc( 0.5 + 0.5 * ${noiseVol})`}></div> -->
-<div class="noizz" style={`--fps:36; --width:6rem; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseVol}`}></div>
+<div class="noizz" style={`--fps:36; --width:6rem; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseVol}; ${!noiseVol ? 'display:none;' : ''}`}></div>
 
 <SectionWrap>
     <Layer fixed class="anim" style="
@@ -120,10 +119,10 @@
             height:85lvh;
             overflow: hidden;
 /*            --transform-y-end: -15lvh;*/
-            --transform-range: contain 0% cover 100%;
+            --transform-range: contain 0% cover 50%;
             --transform-x-end: -6lvh;
             --bonus-animation: ease-out factory__cowboy both;
-            --bonus-animation-range: contain 0% cover 100%;
+            --bonus-animation-range: contain 0% cover 50%;
             --timeline:--section;
         ">
             <img src="/img/factory/cowboy.jpg" style="
@@ -138,9 +137,10 @@
 
     <Layer fixed colStart="6" colEnd="9" class="anim" style="
         mix-blend-mode: plus-lighter;
-        --range: exit-crossing;
+        --range: contain 0% cover 50%;
         --transform-y-end: -75lvh;
         --transform-skew-end: 45deg;
+        --filter-end: brightness(0) sepia(5) saturate(5);
     ">
         <img src="/img/factory/netflix.jpg" style="
         width:100vw
@@ -165,6 +165,13 @@
         ">
             <img src="/img/factory/meatplate.jpg" style="width: 100vw;"/>
         </Layer>
+
+        <Layer overlap colStart="3" colEnd="7" class="anim" style="
+            --parallax-speed:1.6; 
+            z-index: -9; 
+        ">
+            <div style="color: #fff; letter-spacing: .2em; font-family: monospace;">Ingredients: Farm fresh arugula lettuce, organic whipping cream, ethically sourced corn flakes, hormone free human meat</div>
+        </Layer>
         <Layer minHeight="100lvh" x=".8">
             <Textblock lines="{[
                 {indent:0, text:`Through the music he told me`},
@@ -183,7 +190,7 @@
     </LayerWrap>
 
     <LayerWrap>
-        <Layer overlap colStart="6" colEnd="14" class="anim" style="--parallax-speed:1.2; z-index: -10; mix-blend-mode: plus-lighter;">
+        <Layer overlap colStart="6" colEnd="14" style=" mix-blend-mode: plus-lighter;">
             <img src="/img/factory/facebook.png" style="width: 100vw;"/>
         </Layer>
         <Layer minHeight="100lvh" x=".1">
@@ -201,11 +208,11 @@
     </Layer>
 
     <LayerWrap>
-        <Layer overlap y="1" colStart="9" colEnd="13" class="anim" style="--parallax-speed:1.2; mix-blend-mode: exclusion;">
+        <Layer overlap y="1" colStart="9" colEnd="13" style=" mix-blend-mode: exclusion;">
             <img src="/img/factory/bloodegg2.jpg" style="width:100vw;"/>
         </Layer>
 
-        <Layer overlap y="0" colStart="6" colEnd="10" class="anim" style="--parallax-speed:1.6">
+        <Layer overlap y="0.3" colStart="6" colEnd="10" class="anim" style="--parallax-speed:1.2">
             <img src="/img/factory/bloodegg.jpg" style="width:100vw;"/>
         </Layer>
 
@@ -236,16 +243,16 @@
         <Layer colStart="5" colEnd="14">
             <img src="/img/factory/scribbles.jpg" style="width:100vw; min-height:100lvh; object-fit:cover; object-position: top;"/>
         </Layer>
-        <Layer overlap colStart="0" colEnd="8" class="anim" style="--parallax-speed:1.6; mix-blend-mode: hard-light;">
+        <Layer overlap colStart="0" colEnd="8" class="anim" style="--parallax-speed:1.2; mix-blend-mode: hard-light;">
             <img src="/img/factory/scribbles-2.jpg" style="width:100vw; min-height:50lvh; object-fit:cover; object-position: top;"/>
+        </Layer>
+        <Layer overlap x=".5" style=" mix-blend-mode:difference;">
+            <audio controls src="/img/factory/trump.wav" ></audio>
         </Layer>
     </LayerWrap>
 <LayerWrap toggleVis style="margin-top:-50lvh;">
     <Layer overlap colStart="2" colEnd="10" class="anim" style="
         --parallax-speed:1.25;
-        --transform-skew-start:-40deg;
-/*        --transform-skew-end:180deg;*/
-        --transform-scale-start: 4, 1;
         mix-blend-mode: exclusion;
     ">
         <img src="/img/factory/messbed.jpg" style="width:100vw; height:80lvh; object-fit:cover;"/> 
@@ -266,8 +273,8 @@
 </SectionWrap>
 
 <SectionWrap>
-<Layer fixed colStart="1" colEnd="10" class="fade anim" style="--transform-y-end:-50lvh; --fade-duration:2s; mix-blend-mode: screen;">
-    <img src="/img/factory/spin.gif" style="width:100vw; height: 150lvh; object-fit:cover;"/>
+<Layer fixed colStart="1" colEnd="10" class="fade" style=" --fade-duration:2s; mix-blend-mode: screen;">
+    <img src="/img/factory/spin.gif" style="width:100vw; height: 100lvh; object-fit:cover;"/>
 </Layer>
 
 
@@ -286,7 +293,7 @@
 </LayerWrap>
 
 <LayerWrap>
-<Layer overlap colStart="5" colEnd="14" class="anim" style="--parallax-speed:1.25; mix-blend-mode: screen;">
+<Layer overlap colStart="5" colEnd="14" style=" mix-blend-mode: screen;">
     <img src="/img/factory/Family Photos.jpg" style="width:100vw; height: 80lvh; object-fit:cover;"/>
 </Layer>
 

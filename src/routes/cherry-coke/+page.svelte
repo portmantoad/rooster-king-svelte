@@ -207,8 +207,8 @@
 </Layer>
 
 <Layer minHeight="100lvh" style="mix-blend-mode: color-dodge;">
-    <video class="video--withcontrols" bind:paused style="width: calc(min(80vw, 100lvh/480*757 - 2rem))" src="/img/cherrycoke/seaglass.mp4" controls></video>
-  </Layer>
+  <audio controls src="/img/cherrycoke/seaglass.m4a" bind:paused ></audio>  
+</Layer>
 <!-- <Layer colStart="2" colEnd="13">
 
       <Clowntales md="{`# Clown talez part three
