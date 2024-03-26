@@ -24,8 +24,14 @@
     const totalScroll =document.documentElement.scrollHeight - window.innerHeight;
     const progress = Math.min(Math.max(scrollY / totalScroll, 0),1);
     speed = Math.max(1 - progress, 0.1);
-    noiseVol = paused ? (Math.min(Math.max((progress - .5) * 2, 0), 1)) : 0;
-    laughVol = paused ? (1 - noiseVol) : 0;
+    if (progress === 1) {
+        noiseVol = 0;
+        laughVol = 0;
+    } else{
+        noiseVol = paused ? (Math.min(Math.max((progress - .5) * 2, 0), 1)) : 0;
+        laughVol = paused ? (1 - noiseVol) : 0;
+    }
+    
   }
 
 </script>
