@@ -47,7 +47,7 @@ let paused = true;
 </Layer>
 
 <LayerWrap toggleVis>
-    <Layer fixed class="anim fade" colStart="2" colEnd="10" y=".7" style="--parallax-speed:1.1; --fade-duration:2s;">
+    <Layer fixed class="anim fade" colStart="2" colEnd="10" y=".4" style="--parallax-speed:1.1; --fade-duration:2s; mix-blend-mode: lighten;">
         <img src="/img/sky/fog.jpg" style="width:100vw; ">
     </Layer>
     <Layer minHeight="150lvh">
@@ -58,33 +58,79 @@ let paused = true;
     </Layer>
 
 <LayerWrap toggleVis>
-    <Layer fixed class="anim fade" style="--transform-y-end:-5lvh; --fade-duration:2s; z-index: -99;">
+    <Layer fixed class="anim fade" style="
+    --transform-y-end:-5lvh; 
+    --filter-end:brightness(1.3) contrast(1.5) saturate(1.5);
+    --filter-range: cover 0% contain 100%;
+    --fade-duration:2s; 
+    z-index: -99;
+    ">
         <img src="/img/sky/sunrise.jpg" style="width:100vw; height:105lvh;">
     </Layer>
+<!--      <Layer fixed class="anim fade" style="
+     background: rgb(205 233 233);
+     mix-blend-mode: color-burn;
+    --filter-start:brightness(2);
+    --filter-range: cover 0% contain 50%;
+    --filter-ease: ease-out;
+    --fade-duration: 2s; 
+    z-index: -99;
+    ">
+    </Layer>-->
     <Layer minHeight="150lvh"></Layer>
 
-
-<Layer minHeight="50lvh">
+<LayerWrap toggleVis>
+<Layer minHeight="100lvh">
     <Textblock lines="{[
         {indent:0, text:`Eventually I convinced myself to go out just a little further`},
     ]}" />
 </Layer>
+<Layer fixed colStart="11" colEnd="13" y=".2" class="fade anim" style="--parallax-speed:1.05; z-index: 5;"><video autoplay muted loop src="/img/sky/fasttrail.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
 
-<Layer minHeight="50lvh">
+
+<LayerWrap toggleVis>
+<Layer minHeight="100lvh"></Layer>
+<Layer fixed colStart="2" colEnd="10" y="0.1" class="fade anim" style="--parallax-speed:1.025;"><video autoplay muted loop src="/img/sky/biketire.mp4" style="width:100vw; max-width:100%; height:50lvh; object-fit:cover;"/></Layer>
+
+<LayerWrap toggleVis>
+<Layer minHeight="100lvh">
     <Textblock lines="{[
         {indent:0, text:`To map the network of strange unpaved footpaths`},
         {indent:1, text:`filled with piles of trash and debris`},
         {indent:0, text:`slowly being reclaimed by moss`},
     ]}" />
 </Layer>
+<Layer fixed colStart="5" colEnd="12" y="1" class="fade anim" style="--parallax-speed:1.05;"><video autoplay muted loop src="/img/sky/cartire.mp4" style="width:100vw; max-width:100%; height:40lvh; object-fit:cover;"/></Layer>
 
-<Layer minHeight="50lvh">
-    <Textblock lines="{[
-        {indent:0, text:`I listened to audiobooks`},
-        {indent:1, text:`stewing in the heat of the summer`},
-        {indent:2, text:`staring at the sky`},
-    ]}" />
-</Layer>
+
+<LayerWrap toggleVis>
+<Layer minHeight="100lvh"></Layer>
+<Layer fixed colStart="8" colEnd="14" y=".7" class="fade anim" style="--parallax-speed:1.1; z-index: 10;"><video autoplay muted loop src="/img/sky/clownfoliage.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
+
+<LayerWrap toggleVis>
+<Layer minHeight="100lvh"></Layer>
+<Layer fixed colStart="0" colEnd="4" y=".8" class="fade anim" style="--parallax-speed:1.2;"><video autoplay muted loop src="/img/sky/backtrail.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
+
+
+
+
+<LayerWrap toggleVis>
+    <Layer fixed class="fade" style=" --fade-duration:2s; z-index:100">
+        <img src="/img/sky/sky.jpg" style="width:calc(100vw - 20vmin); height:calc(100lvh - 20vmin); object-fit: cover;">
+    </Layer>
+    <Layer minHeight="100lvh">
+        <Textblock lines="{[
+            {indent:0, text:`I listened to audiobooks`},
+            {indent:1, text:`stewing in the heat of the summer`},
+            {indent:2, text:`staring at the sky`},
+        ]}" />
+    </Layer>
+</LayerWrap>
+</LayerWrap>
+</LayerWrap>
+</LayerWrap>
+</LayerWrap>
+</LayerWrap>
 </LayerWrap>
 </LayerWrap>
 </LayerWrap>
