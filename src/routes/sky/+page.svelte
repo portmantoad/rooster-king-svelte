@@ -5,16 +5,17 @@
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-
-let paused = true;
+  import { isMuted } from '$lib/stores.js';
+  
+  let paused = true;
   let bgTrackVolume = 1;
   $ : { 
-    bgTrackVolume = paused ? 1 : 0;
+    bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
   }
 
 </script>
 
-  <audio controls src="/img/sky/shuffle.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+  <audio hidden src="/img/sky/shuffle.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 <SectionWrap>
 

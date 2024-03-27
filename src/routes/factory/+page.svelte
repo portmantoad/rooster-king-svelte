@@ -6,7 +6,8 @@
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-    let audioRef
+  import { isMuted } from '$lib/stores.js';
+  let audioRef
 
   onMount(async () => {
     audioRef.preservesPitch = false;
@@ -27,8 +28,8 @@
         noiseVol = 0;
         laughVol = 0;
     } else{
-        noiseVol = paused ? (Math.min(Math.max((progress - .5) * 2, 0), 1)) : 0;
-        laughVol = paused ? (1 - noiseVol) : 0;
+        noiseVol = (!$isMuted && paused) ? (Math.min(Math.max((progress - .5) * 2, 0), 1)) : 0;
+        laughVol = (!$isMuted && paused) ? (1 - noiseVol) : 0;
     }
     
   }
@@ -37,15 +38,9 @@
 
 <svelte:window bind:scrollY />
 
-<!-- <div style="position: fixed; bottom:1rem; right:1rem; z-index:100000; color:#ff0">{speed}</div> -->
-
-<audio controls bind:volume={laughVol} bind:this={audioRef} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
-
-<audio controls bind:volume={laughVol} src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
-
-<!-- <audio controls bind:volume={laughVol} src="/img/factory/clownlodge.m4a" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
-
-<audio controls bind:volume={noiseVol} src="/img/factory/static.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio hidden bind:volume={laughVol} bind:this={audioRef} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio hidden bind:volume={laughVol} src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio hidden bind:volume={noiseVol} src="/img/factory/static.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
 
 
     <style type="text/css">
