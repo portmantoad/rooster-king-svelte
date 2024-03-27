@@ -147,7 +147,7 @@
         "/>
     </Layer>
 
-    <Layer minHeight="75lvh" x=".2" y=".6">
+    <Layer minHeight="60lvh" x=".2" y=".6">
         <Textblock lines="{[
             {indent:0, text:`By keeping my playlist on shuffle,`},
             {indent:2, text:`I reasoned,`},
