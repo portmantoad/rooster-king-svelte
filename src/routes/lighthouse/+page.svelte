@@ -6,7 +6,6 @@
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
   import { isMuted } from '$lib/stores.js';
-  import { onMount } from 'svelte';
   
   let paused = true;
   let bgTrackVolume = 1;
@@ -15,25 +14,17 @@
   }
 
   let bgAudio;
-  let vid1;
-  let vid2;
-  let vid3;
-
-  onMount(() => {
-    vid1 && vid1.setAttribute("autoplay", `true`);
-    // vid2 && vid2.setAttribute("autoplay", `true`);
-    // vid3 && vid3.setAttribute("autoplay", `true`);
-  })
 
   isMuted.subscribe((muted) => {
     if (!muted) {
       bgAudio && bgAudio.play();
     }
   })
+
+  
 </script>
 
-
-<audio bind:this={bgAudio} hidden src="/img/lighthouse/luna.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio bind:this={bgAudio} hidden src="/img/lighthouse/luna.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
 
 <!-- <audio hidden src="/img/lighthouse/wander.wav" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
 
@@ -57,7 +48,7 @@
           <style type="text/css">
             @keyframes intro__panorama {
               0% {
-                max-height: 90lvh;
+                max-height: calc(100svh - 4rem);
               }
               100% {
                 max-height: 75lvh;
@@ -92,7 +83,9 @@
       </Layer>
       
       <Layer minHeight='100vh' x='.8' y='.2' style="mix-blend-mode: multiply;">
-        <video style="width: calc(55lvh * 800/496); max-width: 100%;" src="/img/lighthouse/title3.mp4" autoplay bind:this={vid1} muted loop></video>
+        <!-- <video style="width: calc(55lvh * 800/496); max-width: 100%;" src="/img/lighthouse/title3.mp4" autoplay bind:muted={mutedVideosAreMuted} playsinline loop></video> -->
+
+        {@html '<video muted autoplay loop defaultmuted playsinline src="/img/lighthouse/title3.mp4" style="width: calc(55lvh * 800/496); max-width: 100%;"/>'}
       </Layer> 
 
       <LayerWrap>
@@ -134,7 +127,7 @@
             ]}" />
           </Layer>
           <Layer overlap colStart="5" colEnd="13" mColStart="1" mColEnd="14" class="anim fade" style="--parallax-speed:1.5;">
-            <video class="whalevid__video" style="width: 100vw; max-width: 100%;" src="/img/lighthouse/luna.mp4" bind:this={vid2} autoplay muted loop></video>
+            <video class="whalevid__video" style="width: 100vw; max-width: 100%;" src="/img/lighthouse/luna.mp4" autoplay muted loop></video>
           </Layer>
         </LayerWrap>
 
@@ -268,7 +261,7 @@
 
   <SectionWrap rootMargin="0%" class="endvid">
     <Layer fixed class="endvid__bg fade" style="z-index: -500;">
-      <video  src="/img/lighthouse/sunset-small.mp4" autoplay bind:this={vid3} muted loop style="
+      <video  src="/img/lighthouse/sunset-small.mp4" autoplay muted loop style="
           width: 100vw;
           height:100lvh;
           object-fit: cover; 

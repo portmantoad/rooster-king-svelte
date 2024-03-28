@@ -23,6 +23,7 @@
         const progress = Math.min(Math.max(scrollY / totalScroll, 0),1);
 
         if (progress === 1) {
+            noiseLevel = 0;
             noiseVol = 0;
             laughVol = 0;
         } else{
@@ -106,7 +107,7 @@
   </style>
 <!-- <div class="noizz" style={`--fps:20; --width:2rem; opacity:calc( 0.75 + 0.5 * ${noiseLevel})`}></div> -->
 <!-- <div class="noizz" style={`--fps:24; --width:47px; opacity:calc( 0.5 + 0.5 * ${noiseLevel})`}></div> -->
-<div class="noizz" style={`--fps:36; --width:6rem; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseLevel}; ${!noiseLevel ? 'display:none;' : ''}`}></div>
+<div class="noizz" style={`--fps:36; --width:3rem; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseLevel}; ${!noiseLevel ? 'display:none;' : ''}`}></div>
 
 <SectionWrap>
     <Layer fixed class="anim" style="
