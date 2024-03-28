@@ -14,7 +14,8 @@
 		{route: '/dog-bed', name:'4. Dog Bed'},
 		{route: '/funnel', name:'5. Funnel'},
 		{route: '/factory', name:'6. The Factory That Produces Factories'},
-		{route: '/sky', name:'7. Sky Writing'}
+		{route: '/sky', name:'7. Sky Writing'},
+		{route: '/about', name:'/// about'}
 	];
 </script>
 

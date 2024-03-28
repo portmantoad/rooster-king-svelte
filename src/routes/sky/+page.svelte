@@ -3,7 +3,6 @@
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
-  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
   import { isMuted } from '$lib/stores.js';
   
@@ -120,7 +119,7 @@
     <Layer fixed colStart="2" colEnd="13" class="fade" style=" --fade-duration:2s; z-index:100">
         <img src="/img/sky/sky.jpg" style="width:100vw; height:80lvh; object-fit: cover;">
     </Layer>
-    <Layer minHeight="50lvh" y="1" x=".25">
+    <Layer minHeight="50lvh" x=".2" y="1">
         <Textblock lines="{[
             {indent:0, text:`I listened to audiobooks`},
             {indent:1, text:`stewing in the heat of the summer`},
@@ -128,9 +127,15 @@
         ]}" />
     </Layer>
 
-    <Layer minHeight="50lvh" y="0.1" x=".35" style="position:relative; z-index: 999;">
+    <Layer minHeight="50lvh" y="0.1" x=".75" style="position:relative; z-index: 999;">
         <audio controls src="/img/sky/greatunknown.m4a" bind:paused ></audio>
     </Layer>
+
+    <Layer fixed class="fade" y=".85" x=".9" style="z-index: 1000; filter: blur(.05em) contrast(2); mix-blend-mode: color-burn;">
+        <div style="font-size: 1rem; font-family: american typewriter, monospace; background: #fff; font-style: italic;">the end.</div>
+    </Layer>
+
+    <NextPage title="About" link="/credits" />
 </LayerWrap>
 </LayerWrap>
 </LayerWrap>
