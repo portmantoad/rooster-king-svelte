@@ -12,9 +12,17 @@
     bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
   }
 
+  let bgAudio;
+
+  isMuted.subscribe((muted) => {
+    if (!muted) {
+      bgAudio && bgAudio.play();
+    }
+  })
+
 </script>
 
-  <audio hidden src="/img/sky/shuffle.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+  <audio hidden bind:this={bgAudio} src="/img/sky/shuffle.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
 
 <SectionWrap>
 

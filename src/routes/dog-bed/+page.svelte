@@ -14,9 +14,17 @@
     bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
   }
 
+  let bgAudio;
+
+  isMuted.subscribe((muted) => {
+    if (!muted) {
+      bgAudio && bgAudio.play();
+    }
+  })
+
 </script>
 
-  <audio hidden src="/img/dog-bed/ruinedideals.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+  <audio hidden bind:this={bgAudio} src="/img/dog-bed/ruinedideals.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
 <SectionWrap>
     <Layer fixed class="fade" style=" --fade-duration: 1s;">
         <img src="/img/dog-bed/morning.gif" style="

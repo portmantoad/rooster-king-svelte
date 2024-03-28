@@ -6,11 +6,18 @@
   import NextPage from '$lib/components/NextPage.svelte';
   import { isMuted } from '$lib/stores.js';
   
-  let paused = true;
   let bgTrackVolume = 1;
   $ : { 
-    bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
+    bgTrackVolume = $isMuted ? 0 : 1;
   }
+
+  let bgAudio;
+
+  isMuted.subscribe((muted) => {
+    if (!muted) {
+      bgAudio && bgAudio.play();
+    }
+  })
 
 </script>
 <style type="text/css">
@@ -101,7 +108,7 @@
 </style>
 <div class="bg"></div>
 
-  <audio hidden src="/img/crowflies.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
+  <audio bind:this={bgAudio} hidden src="/img/crowflies.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
 
 <SectionWrap>
 

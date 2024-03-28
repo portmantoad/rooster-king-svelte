@@ -5,7 +5,7 @@
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js'
+  import { isMuted } from '$lib/stores.js';
   
 
   let paused = true;
@@ -13,12 +13,20 @@
   $ : { 
     bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
   }
+
+    let bgAudio;
+    let bgAudio2;
+
+  isMuted.subscribe((muted) => {
+    if (!muted) {
+      bgAudio && bgAudio.play();
+      bgAudio2 && bgAudio2.play();
+    }
+  })
 </script>
 
-<div style="position: fixed; bottom:0; right:0; background:#fff; z-index: 1000;">{$isMuted}</div>
-<audio hidden bind:volume={bgTrackVolume} src="/img/cherrycoke/hastings.mp3" style="position: fixed; right: 0; z-index: 10000; width:7rem;" autoplay loop></audio>
-
-<audio hidden src="/img/cherrycoke/comfort.mp3" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio hidden bind:this={bgAudio} bind:volume={bgTrackVolume} src="/img/cherrycoke/hastings.mp3" autoplay loop></audio>
+<audio hidden bind:this={bgAudio2} bind:volume={bgTrackVolume} src="/img/cherrycoke/comfort.mp3" autoplay loop></audio>
 
 <SectionWrap rootMargin="0%">
 

@@ -7,40 +7,56 @@
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
   import { isMuted } from '$lib/stores.js';
-  let audioRef
-
-  onMount(async () => {
-    audioRef.preservesPitch = false;
-  });
 
     let speed = 1;
+    let noiseLevel = 0;
     let noiseVol = 0;
-    let laughVol = 0;
+    let laughVol = 1;
     let paused = true;
 
   let scrollY = 0;
+  let mounted = false;
 
   $: {
-    const totalScroll =document.documentElement.scrollHeight - window.innerHeight;
-    const progress = Math.min(Math.max(scrollY / totalScroll, 0),1);
-    speed = Math.max(1 - progress, 0.1);
-    if (progress === 1) {
-        noiseVol = 0;
-        laughVol = 0;
-    } else{
-        noiseVol = (!$isMuted && paused) ? (Math.min(Math.max((progress - .5) * 2, 0), 1)) : 0;
-        laughVol = (!$isMuted && paused) ? (1 - noiseVol) : 0;
+    if (mounted) {
+        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = Math.min(Math.max(scrollY / totalScroll, 0),1);
+
+        if (progress === 1) {
+            noiseVol = 0;
+            laughVol = 0;
+        } else{
+            noiseLevel = Math.min(Math.max((progress - .5) * 2, 0), 1)
+            noiseVol = (!$isMuted && paused) ? noiseLevel : 0;
+            laughVol = (!$isMuted && paused) ? (1 - noiseVol) : 0;
+        }
     }
-    
   }
+
+  let bgAudio;
+  let bgAudio2;
+  let bgAudio3;
+
+  isMuted.subscribe((muted) => {
+    if (!muted) {
+      bgAudio && bgAudio.play();
+      bgAudio2 && bgAudio2.play();
+      bgAudio3 && bgAudio3.play();
+    }
+  })
+
+  onMount(async () => {
+    bgAudio.preservesPitch = false;
+    mounted = true;
+  });
 
 </script>
 
 <svelte:window bind:scrollY />
 
-<audio hidden bind:volume={laughVol} bind:this={audioRef} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
-<audio hidden bind:volume={laughVol} src="/img/factory/clown.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
-<audio hidden bind:volume={noiseVol} src="/img/factory/static.mp3" style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio>
+<audio hidden bind:this={bgAudio} bind:volume={laughVol} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" autoplay loop></audio>
+<audio hidden bind:this={bgAudio2} bind:volume={laughVol} src="/img/factory/clown.mp3" autoplay loop></audio>
+<audio hidden bind:this={bgAudio3} bind:volume={noiseVol} src="/img/factory/static.mp3" autoplay loop></audio>
 
 
     <style type="text/css">
@@ -88,9 +104,9 @@
       100% { transform: scaleY(1.1); }
     }
   </style>
-<!-- <div class="noizz" style={`--fps:20; --width:2rem; opacity:calc( 0.75 + 0.5 * ${noiseVol})`}></div> -->
-<!-- <div class="noizz" style={`--fps:24; --width:47px; opacity:calc( 0.5 + 0.5 * ${noiseVol})`}></div> -->
-<div class="noizz" style={`--fps:36; --width:6rem; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseVol}; ${!noiseVol ? 'display:none;' : ''}`}></div>
+<!-- <div class="noizz" style={`--fps:20; --width:2rem; opacity:calc( 0.75 + 0.5 * ${noiseLevel})`}></div> -->
+<!-- <div class="noizz" style={`--fps:24; --width:47px; opacity:calc( 0.5 + 0.5 * ${noiseLevel})`}></div> -->
+<div class="noizz" style={`--fps:36; --width:6rem; image-rendering: pixelated; mix-blend-mode: hard-light; opacity:${noiseLevel}; ${!noiseLevel ? 'display:none;' : ''}`}></div>
 
 <SectionWrap>
     <Layer fixed class="anim" style="

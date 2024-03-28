@@ -1,7 +1,26 @@
 <script type="text/javascript">
   import Layer from '$lib/components/Layer.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
+
+  import { isMuted } from '$lib/stores.js';
+  let bgAudio;
+
+  isMuted.subscribe((muted) => {
+    if (!muted) {
+      bgAudio && bgAudio.play();
+    }
+  })
+
+  let bgTrackVolume = 1;
+  $ : { 
+    bgTrackVolume = $isMuted ? 0 : 1;
+  }
+  
+
 </script>
+
+<audio bind:this={bgAudio} bind:volume={bgTrackVolume} hidden src="/img/crowflies.mp3" autoplay loop></audio>
+
 	<style type="text/css">
 		
     body, html{
@@ -111,7 +130,7 @@
     text-indent: -.7em;
     font-size: max(3.2vw, 22px);
     letter-spacing: 1em;
-    font-family: american typewriter;
+    font-family: american typewriter, monospace;
     animation: 3s linear fadein both;
     color: #b7955f;
     animation: 10s linear infinite alternate hueshift, 5s title__blurin both;

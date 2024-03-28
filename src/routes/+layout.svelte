@@ -17,6 +17,16 @@
 		{route: '/sky', name:'7. Sky Writing'},
 		{route: '/about', name:'/// about'}
 	];
+
+	let mutedStateActivelySet = false;
+	let canaryIsNotPlaying = true;
+
+	$ : {
+		if (!mutedStateActivelySet) {
+			$isMuted = canaryIsNotPlaying;
+		}
+	}
+	
 </script>
 
 
@@ -82,7 +92,13 @@ nav a.active{ text-decoration:underline; }
 	<div in:fade={{ duration: 900, delay: 400 }} out:fade={{ duration: 200 }}>
 		<slot {isMuted} />
 	</div>
+	<video src="/img/lighthouse/title3.mp4" autoplay loop class="canary" bind:paused={canaryIsNotPlaying} style="display: none;"></video>
 {/key}
+
+
+
+<div style="position: fixed; bottom:0; right:0; background:#fff; z-index: 1000;">{canaryIsNotPlaying}</div>
+
 
 
 		
