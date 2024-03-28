@@ -11,14 +11,6 @@
     bgTrackVolume = $isMuted ? 0 : 1;
   }
 
-  let bgAudio;
-
-  isMuted.subscribe((muted) => {
-    if (!muted) {
-      bgAudio && bgAudio.play();
-    }
-  })
-
 </script>
 <style type="text/css">
     .bg{
@@ -108,7 +100,7 @@
 </style>
 <div class="bg"></div>
 
-  <audio bind:this={bgAudio} hidden src="/img/crowflies.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
+  <audio class="autoplay" hidden src="/img/crowflies.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
 
 <SectionWrap>
 

@@ -16,11 +16,13 @@
 
   let scrollY = 0;
   let mounted = false;
+  let holdmusic;
 
   $: {
     if (mounted) {
         const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
         const progress = Math.min(Math.max(scrollY / totalScroll, 0),1);
+        speed = Math.max(1 - progress, 0.1);
 
         if (progress === 1) {
             noiseLevel = 0;
@@ -34,20 +36,8 @@
     }
   }
 
-  let bgAudio;
-  let bgAudio2;
-  let bgAudio3;
-
-  isMuted.subscribe((muted) => {
-    if (!muted) {
-      bgAudio && bgAudio.play();
-      bgAudio2 && bgAudio2.play();
-      bgAudio3 && bgAudio3.play();
-    }
-  })
-
   onMount(async () => {
-    bgAudio.preservesPitch = false;
+    holdmusic.preservesPitch = false;
     mounted = true;
   });
 
@@ -55,9 +45,9 @@
 
 <svelte:window bind:scrollY />
 
-<audio hidden bind:this={bgAudio} bind:volume={laughVol} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" autoplay loop></audio>
-<audio hidden bind:this={bgAudio2} bind:volume={laughVol} src="/img/factory/clown.mp3" autoplay loop></audio>
-<audio hidden bind:this={bgAudio3} bind:volume={noiseVol} src="/img/factory/static.mp3" autoplay loop></audio>
+<audio hidden bind:this={holdmusic} class="autoplay" bind:volume={laughVol} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" autoplay loop></audio>
+<audio hidden class="autoplay" bind:volume={laughVol} src="/img/factory/clown.mp3" autoplay loop></audio>
+<audio hidden class="autoplay" bind:volume={noiseVol} src="/img/factory/static.mp3" autoplay loop></audio>
 
 
     <style type="text/css">

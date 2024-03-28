@@ -15,15 +15,6 @@
     trainVolume = bgTrackVolume * .25;
   }
 
-  let bgAudio;
-  let bgAudio2;
-
-  isMuted.subscribe((muted) => {
-    if (!muted) {
-      bgAudio && bgAudio.play();
-      bgAudio2 && bgAudio2.play();
-    }
-  })
 </script>
 
 <style type="text/css">
@@ -52,9 +43,9 @@
 
 
 
-<audio hidden bind:this={bgAudio} src="/img/train/forwardmarch.m4a" bind:volume={bgTrackVolume} autoplay loop></audio>
+<audio hidden class="autoplay" src="/img/train/forwardmarch.m4a" bind:volume={bgTrackVolume} autoplay loop></audio>
 
-<audio hidden bind:this={bgAudio2} bind:volume={trainVolume} src="/img/train/skytrain.mp3" autoplay loop></audio>
+<audio hidden class="autoplay" bind:volume={trainVolume} src="/img/train/skytrain.mp3" autoplay loop></audio>
 
 
 <SectionWrap class="intro" rootMargin="0%">

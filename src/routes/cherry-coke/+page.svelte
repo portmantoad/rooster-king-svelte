@@ -14,19 +14,10 @@
     bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
   }
 
-    let bgAudio;
-    let bgAudio2;
-
-  isMuted.subscribe((muted) => {
-    if (!muted) {
-      bgAudio && bgAudio.play();
-      bgAudio2 && bgAudio2.play();
-    }
-  })
 </script>
 
-<audio hidden bind:this={bgAudio} bind:volume={bgTrackVolume} src="/img/cherrycoke/hastings.mp3" autoplay loop></audio>
-<audio hidden bind:this={bgAudio2} bind:volume={bgTrackVolume} src="/img/cherrycoke/comfort.mp3" autoplay loop></audio>
+<audio hidden class="autoplay" bind:volume={bgTrackVolume} src="/img/cherrycoke/hastings.mp3" autoplay loop></audio>
+<audio hidden class="autoplay" bind:volume={bgTrackVolume} src="/img/cherrycoke/comfort.mp3" autoplay loop></audio>
 
 <SectionWrap rootMargin="0%">
 
@@ -201,7 +192,7 @@
         object-position: 27% 50%;  
         object-fit: cover; 
          " src="/img/cherrycoke/plane_dark.jpg" /> -->
-      <video muted="muted" autoplay loop style="
+      <video class="autoplay" muted="muted" autoplay loop style="
         width: 100vw;
         height: 100lvh;
         object-fit: cover;
