@@ -278,14 +278,14 @@
 
 <SectionWrap>
 <Layer fixed colStart="1" colEnd="10" class="fade" style=" --fade-duration:2s; mix-blend-mode: screen;">
-    <img src="/img/factory/spin.gif" style="width:100vw; height: 100lvh; object-fit:cover;"/>
+    <img src="/img/factory/spin.webp" style="width:100vw; height: 100lvh; object-fit:cover;"/>
 </Layer>
 
 
 
 <LayerWrap>
     <Layer overlap colStart="3" colEnd="6" mColStart="2" mColEnd="10">
-        <img src="/img/factory/bunny.gif" style="width:100vw;"/>
+        <img src="/img/factory/bunny.webp" style="width:100vw;"/>
     </Layer>
     <Layer minHeight="50lvh">
         <Textblock lines="{[
