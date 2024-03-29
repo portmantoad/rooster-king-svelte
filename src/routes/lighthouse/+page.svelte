@@ -7,6 +7,7 @@
   import NextPage from '$lib/components/NextPage.svelte';
   import BgTrack from '$lib/components/BgTrack.svelte';
   import Video from '$lib/components/Video.svelte';
+  import Image from '$lib/components/Image.svelte';
 
   
 </script>
@@ -42,29 +43,37 @@
               }
             }
           </style>
-          <img class="intro__sky anim" src="/img/lighthouse/sky_dithering.png" style="
-            position:absolute;
-            image-rendering: pixelated; 
-            bottom:0; 
-            height:90lvh;
-            right:0;
-            --timeline:--section;
-            --transform-x-end:4lvh;
+          <Image 
+            class="intro__sky anim" 
+            src="/img/lighthouse/sky_dithering.png" 
+            height="90lvh"
+            width="calc(100vw + 4lvh)"
+            fit="unset"
+            style="
+              position:absolute;
+              image-rendering: pixelated; 
+              bottom:0; 
+              right:0;
+              --timeline:--section;
+              --transform-x-end:4lvh;
           " />
-          <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" style="
-            position:absolute;
-            height: calc(50lvh + 20vw);
-            width: auto;
-            max-width: calc(100vw + 5lvh);
-            left:0;
-            bottom:0;
-            object-fit: cover;
-            object-position: 5% 50%;
-            mix-blend-mode: multiply;
-            --timeline:--section;
-            --transform-x-end:-5lvh;
-            --transform-y-end:2lvh;
-            --transform-scale-end:1.05;
+          <Image 
+            class="intro__lighthouse anim" 
+            src="/img/lighthouse/lighthouse_bw.png" 
+            height="calc(50lvh + 20vw)"
+            x="5%"
+            y="50%"
+            style="
+              position:absolute;
+              width: auto;
+              max-width: calc(100vw + 5lvh);
+              left:0;
+              bottom:0;
+              mix-blend-mode: multiply;
+              --timeline:--section;
+              --transform-x-end:-5lvh;
+              --transform-y-end:2lvh;
+              --transform-scale-end:1.05;
           " />  
         </div>
       </Layer>
@@ -76,15 +85,18 @@
       </Layer> 
 
       <LayerWrap>
-        <img class="intro__glitch anim fade" src="/img/lighthouse/wavesglitch.jpg" />
+        <Image 
+          class="intro__glitch anim fade" 
+          src="/img/lighthouse/wavesglitch.jpg"
+          x="top"
+          y="left"
+           />
         <style type="text/css">
           .intro__glitch{
             position:absolute;
             z-index: -1;
             width:80vw;
             height: calc(100% + 40lvh);
-            object-fit: cover;
-            object-position: top left;
             right:0;
             top:-40lvh;
             mix-blend-mode: multiply;
@@ -127,17 +139,17 @@
         </Layer>
 
         <Layer x=".9" class="anim" style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;">
-          <img src="/img/lighthouse/fujifilm.webp">
+          <Image src="/img/lighthouse/fujifilm.webp" />
         </Layer>
 
       </LayerWrap>
   </SectionWrap>
 
-  <SectionWrap class="pixelwaves" style="
-    background: url('/img/lighthouse/pixelsort_waves.png'); 
-    background-size: cover;
-  " >
-      <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" style="
+  <SectionWrap class="pixelwaves" >
+    <Layer overlap>
+      <Image src="/img/lighthouse/pixelsort_waves.png" width="100vw" height="100%" />
+    </Layer>
+      <Image class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" style="
        position: absolute;
        top: 0;
        left: 50%;
@@ -160,7 +172,7 @@
           ]}" />
         </Layer>
         <Layer overlap colStart="6" colEnd="14">
-          <img class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" style="
+          <Image class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" style="
             image-rendering: pixelated; 
             display: block;
             transform: translateY(calc(40lvh - 18%));
@@ -175,12 +187,7 @@
 
   <SectionWrap rootMargin="-50% 0% -10% 0%" class="darkroom">
     <Layer fixed class="darkroom__bg anim fade" style="
-        height: 110lvh;
         z-index: -100;
-        background-position: bottom left;
-        background-image: url('/img/lighthouse/darktexture.jpg'); 
-        background-size: 100% auto;
-
         --timeline: --section;
         --transform-y-end: -10lvh;
         --transform-scale-end: 1.1;
@@ -190,7 +197,9 @@
         --filter-ease: cubic-bezier(0.100, -0.005, 0.015, 0.985);
 
         --fade-duration: 3s;
-      " />
+      ">
+        <Image src="/img/lighthouse/darktexture.jpg" width="100vw" height="110lvh" x="left" y="bottom" />
+      </Layer>
 
     <Layer minHeight="80lvh" x=".3">
         <Textblock lines="{[
@@ -203,13 +212,13 @@
     </Layer>
 
     <LayerWrap toggleVis class="boys">
-      <Layer overlap colStart="1" colEnd="8">
-        <img class="boys__image anim" src="/img/lighthouse/boys.jpg" style="
+      <Layer class="boys__image anim" overlap colStart="1" colEnd="8" style="
           mix-blend-mode: plus-lighter;
           --transform-scale-end:1.1;
           --transform-ease: ease-out;
           --parallax-speed: 1.5;
-        " />
+        ">
+        <Image src="/img/lighthouse/boys.jpg" />
       </Layer>
       <Layer minHeight="80lvh" x=".8">
         <Textblock class="boys__text" lines="{[
@@ -229,11 +238,10 @@
           --filter-range: entry;
           --filter-ease: ease-in;
       ">
-        <img src="/img/lighthouse/highway.gif" style="
-          width: 100vw;
-          height:100lvh;
-          object-fit: cover;
-        " />
+        <Image src="/img/lighthouse/highway.gif" 
+          width='100vw'
+          height='100lvh'
+         />
       </Layer>
 
       <Layer minHeight="100lvh" x=".5">
@@ -266,9 +274,7 @@
             --filter-ease: ease-in;
             --fade-duration: 1s;
         ">
-          <img class="anim" src="/img/lighthouse/moonwhale.jpg" style="
-            width: 100vw;
-          " />
+          <Image src="/img/lighthouse/moonwhale.jpg" />
       </Layer>
 
       <Layer minHeight="100lvh" x=".2">
