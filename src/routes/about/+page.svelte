@@ -44,6 +44,8 @@
     background-size: 2.8rem;
     filter: blur(0.038em) contrast(2.5) brightness(0.9);
     position: relative;
+    font-size: .825rem;
+    line-height: 1.25rem;
   }
 
   .clowntext a{

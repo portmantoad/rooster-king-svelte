@@ -48,7 +48,7 @@
 <audio hidden class="autoplay" bind:volume={trainVolume} src="/img/train/skytrain.mp3" autoplay loop></audio>
 
 
-<SectionWrap class="intro" rootMargin="0%">
+<SectionWrap class="intro" rootMargin="50%">
 <LayerWrap toggleVis>
   <Layer minHeight="100lvh" style=" mix-blend-mode: screen;" >
     <img src="/img/train/nightbus_contrasty.jpg" style="width:100vw; height:100lvh; object-fit:cover;" />
@@ -56,17 +56,20 @@
 
   <Layer fixed style="mix-blend-mode: screen; background: rgb(9 24 64); --fade-duration:2s;" />
 
-  <Layer fixed class="anim" style="--parallax-speed:1.6; z-index: 5; mix-blend-mode: lighten;">
+  <Layer fixed class="fade" style="z-index: 5; mix-blend-mode: lighten;      --fade-duration: 1s;
+">
     <img src="/img/train/paintey.png" style="width:100vw; height:100lvh; object-fit:cover;" />
   </Layer>
 
-  <Layer fixed x=".9" y=".9" class="anim" style="
+  <Layer fixed x=".9" y=".9" class="anim fade" style="
     background:#000;
     mix-blend-mode: color-dodge; 
-    --parallax-speed:1.3;
-    --filter-end: brightness(0);
+    --parallax-speed:1.1;
+    --filter-end: brightness(0.5);
     --filter-range: contain 0% cover 100%;
     z-index: 6;
+    max-width: unset;
+     --fade-duration: 1s;
   ">
 
   <pre class="traintitle">
@@ -111,12 +114,12 @@
     <img src="/img/train/library_bw.jpg" style="width:100vw; height:100lvh; object-fit:cover;" />
   </Layer>
 
-<LayerWrap>
-  <Layer y="0" overlap colStart="2" colEnd="8" class="anim" style="mix-blend-mode: hard-light; --parallax-speed:1.4;">
+<LayerWrap style="margin: 0 0 20lvh;">
+  <Layer y=".5" overlap colStart="2" colEnd="8" class="anim" style="mix-blend-mode: hard-light; --parallax-speed:1.4;">
     <img src="/img/train/potato.png" />
   </Layer>
 
-  <Layer x=".8" y=".3" minHeight="120lvh">
+  <Layer x=".7" y=".5" minHeight="120lvh">
     <Textblock lines="{[
       {indent:1, text:`I was 17 years old`},
       {indent:0, text:`I had a basement suite, bus pass`},
@@ -129,7 +132,7 @@
 </SectionWrap>
 
 <SectionWrap rootMargin="0%">
-    <img src="/img/train/painttracks_bg.png" style="
+    <img src="/img/train/painttracks.webp" style="
       position: absolute;
       min-height: 100lvh;
       min-width: 100vw;
@@ -137,17 +140,6 @@
       aspect-ratio: 1024 / 1156;
       top:50%;
       transform: translateY(-50%);
-      mix-blend-mode: screen;
-    " />
-    <img src="/img/train/painttracks.jpg" style="
-      position: absolute;
-      min-height: 100lvh;
-      min-width: 100vw;
-      object-fit: cover;
-      aspect-ratio: 1024 / 1156;
-      top:50%;
-      transform: translateY(-50%);
-      mix-blend-mode: multiply;
     " />
 
   <Layer minHeight="100lvh" class="anim" style="--parallax-speed:1.2;">
@@ -170,7 +162,12 @@
     --filter-range: exit;
     --filter-ease:ease-in;
     ">
-    <img src="/img/train/blurtrees.JPG" style="width: 100vw; height: 150lvh; object-fit: cover; object-position: top;" />
+    <img src="/img/train/blurtrees.JPG" style="
+      width: 100vw; 
+      height: calc(100lvh + 50lvh * var(--scroll-anim-toggle));
+      object-fit: cover; 
+      object-position: top;
+    " />
   </Layer>
 
   <Layer minHeight="110lvh" x=".8">
@@ -230,7 +227,7 @@
     --transform-y-end:-100lvh;
     --range:cover 0% cover 60%;
     ">
-    <img src="/img/train/sunset.jpg" style="width: 100vw; height:175lvh; object-fit:cover;" />
+    <img src="/img/train/sunset.jpg" style="width: 100vw; height: calc(125lvh + 50lvh * var(--scroll-anim-toggle)); object-fit:cover;" />
   </Layer>
 
 <!--   <Layer fixed class="anim" y="1" style="
@@ -254,7 +251,7 @@
     <img src="/img/train/raven.png" style="width:100vw" />
   </Layer>
 
-  <Layer fixed x="0" y=".8" class="anim" style="
+  <Layer fixed x="0" y=".8" class="anim fade" style="
     mix-blend-mode: multiply; 
     --transform-x-start:-100%;
     --transform-x-end:150vw;

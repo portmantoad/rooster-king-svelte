@@ -261,7 +261,7 @@
       "></video>
     </Layer>
 
-    <LayerWrap class="moonwhale">
+    <LayerWrap toggleVis class="moonwhale">
       <Layer fixed class="anim fade" colStart="3" style="
           mix-blend-mode: plus-lighter;
           --parallax-speed:1.2;

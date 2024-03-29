@@ -60,8 +60,16 @@
     margin:0;
   }
 
+html{
+  --scroll-anim-toggle: 0;
+}
 
 @supports (animation-range: cover) {
+
+html{
+  --scroll-anim-toggle: 1;
+}
+
   .anim{
   --range: cover;
   --ease: linear;

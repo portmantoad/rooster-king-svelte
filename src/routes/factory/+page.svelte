@@ -356,21 +356,10 @@
 </LayerWrap>
 
 <LayerWrap toggleVis rootMargin="100%">
-    <Layer fixed class="anim" style="
+    <Layer fixed class="anim" style={`
         z-index:9; 
-        background: #fff; 
-        --filter-start:brightness(0); 
-        --range:entry; 
-        mix-blend-mode: screen;
-    "></Layer>
-    <Layer fixed class="anim" style="
-        z-index:9; 
-        background: #fff; 
-        --filter-end:brightness(0); 
-        --range:entry; 
-        mix-blend-mode: multiply;
-        opacity: .5;
-    "></Layer>
+        background: rgba(127,127,127, ${noiseLevel}); 
+    `}></Layer>
 
     <Layer minHeight="100lvh">
         <Textblock lines="{[
@@ -385,13 +374,11 @@
     </Layer>
 
 <LayerWrap>
-    
-<!--     <Layer minHeight="100lvh" style="position:relative; z-index:900; mix-blend-mode: hard-light;">
-    <video class="video--withcontrols" bind:paused style="width: calc(min(80vw, 100lvh/480*757 - 2rem))" src="/img/dog-bed/candle.mp4" controls></video>
-  </Layer> -->
+
+    <Layer overlap style="background: rgb(127,127,127);"></Layer>
 
 
-    <Layer minHeight="100lvh" style="position:relative; z-index:900;">
+    <Layer minHeight="100lvh" style="position:relative; z-index:900; ba">
         <iframe style="aspect-ratio: 560 / 315; width: min(100vw, calc(90lvh/315*560));" src="https://www.youtube.com/embed/RAfHYaXmZEs?si=BndGvzg0KqJvyr5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </Layer>
 

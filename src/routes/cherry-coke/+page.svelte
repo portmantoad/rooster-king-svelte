@@ -101,13 +101,12 @@
 </LayerWrap>
 
 <Layer colStart="7" class="anim" style="
-  mix-blend-mode: plus-lighter; 
-  --parallax-speed: 1.5;
+  --parallax-speed: 1.2;
 ">
     <img style="
       width:100vw; 
       max-width:100%; 
-    " src="/img/cherrycoke/clubhouse_masked.jpg" />
+    " src="/img/cherrycoke/clubhouse.webp" />
 </Layer>
 
 <Layer minHeight="170lvh" y=".4">
@@ -159,7 +158,7 @@
   ">    
       <img style="
         width: 100vw; 
-        height: 120lvh;
+        height: calc(100lvh + 20lvh * var(--scroll-anim-toggle));
         object-position: 40% 50%;  
         object-fit: cover; 
          " src="/img/cherrycoke/orpheum.jpg" />
