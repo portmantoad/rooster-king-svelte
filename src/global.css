@@ -9,8 +9,8 @@
       max-width: 100vw;
       --line-height: 1.5;
       line-height: var(--line-height);
-      overflow-x: hidden;
-      overflow-y: scroll;
+/*      overflow-x: hidden;
+      overflow-y: visible;*/
       font-family: system-ui, sans-serif;
     }
 

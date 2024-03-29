@@ -40,12 +40,12 @@ nav{
 	top:0;
 	left:0;
 	font-size: 12px;
-	padding:0rem .5rem;
+	padding:.5rem;
 	line-height: 1rem;
 	z-index: 2000;
 }
 
-nav ul{display: inline-flex;}
+nav ul{display: inline-flex; margin:0;}
 
 nav li{ display: block; margin-right: .5rem;}
 
