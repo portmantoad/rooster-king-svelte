@@ -120,10 +120,6 @@ nav a.active{ text-decoration:underline; }
 
 }
 
-
-
-
-
 .muted{
 	background: #000; 
 	color: #fff;
@@ -189,7 +185,7 @@ nav a.active{ text-decoration:underline; }
 </div>
 
 {#key data.pathname}
-	<div in:fade={{ duration: 900, delay: 400 }} out:fade={{ duration: 200 }}>
+	<div in:fade={{ duration: 900, delay: 400 }} out:fade={{ duration: 200 }} style="overflow-x: clip;">
 		<slot />
 	</div>
 	<ScrollNag></ScrollNag>
