@@ -128,7 +128,9 @@
             --timeline:--section;
         ">
             <img src="/img/factory/cowboy.jpg" style="
-                width: 100%;
+                min-width: 100vw;
+                min-height: 85lvh;
+                object-fit: cover;
                 position: absolute;
                 top:50%;
                 left:0;
@@ -137,7 +139,7 @@
         </div>
     </Layer>
 
-    <Layer fixed colStart="6" colEnd="9" class="anim" style="
+    <Layer fixed colStart="6" colEnd="9" mColStart="4" mColEnd="11"  class="anim" style="
         mix-blend-mode: plus-lighter;
         --range: contain 0% cover 50%;
         --transform-y-end: -75lvh;
@@ -168,7 +170,7 @@
             <img src="/img/factory/meatplate.jpg" style="width: 100vw;"/>
         </Layer>
 
-        <Layer overlap colStart="3" colEnd="7" class="anim" style="
+        <Layer overlap colStart="3" colEnd="7" mColEnd="7" class="anim" style="
             --parallax-speed:1.6; 
             z-index: -9; 
         ">
@@ -210,15 +212,15 @@
     </Layer>
 
     <LayerWrap>
-        <Layer overlap y="1" colStart="9" colEnd="13" style=" mix-blend-mode: exclusion;">
+        <Layer overlap y="1" colStart="9" colEnd="13" mColStart="6" style=" mix-blend-mode: hard-light;">
             <img src="/img/factory/bloodegg2.jpg" style="width:100vw;"/>
         </Layer>
 
-        <Layer overlap y="0.3" colStart="6" colEnd="10" class="anim" style="--parallax-speed:1.2">
+        <Layer overlap y="0.3" colStart="6" colEnd="10" mColStart="4" mColEnd="13" class="anim" style="--parallax-speed:1.2">
             <img src="/img/factory/bloodegg.jpg" style="width:100vw;"/>
         </Layer>
 
-        <Layer minHeight="50lvh" x=".3">
+        <Layer minHeight="100lvh" x=".3">
             <Textblock lines="{[
                 {indent:0, text:`I realized love is a precious thing`},
                 {indent:1, text:`It is simple and good`},
@@ -253,16 +255,16 @@
         </Layer>
     </LayerWrap>
 <LayerWrap toggleVis style="margin-top:-50lvh;">
-    <Layer overlap colStart="2" colEnd="10" class="anim" style="
+    <Layer overlap colStart="2" colEnd="10" mColEnd="10" class="anim" style="
         --parallax-speed:1.25;
         mix-blend-mode: exclusion;
     ">
         <img src="/img/factory/messbed.jpg" style="width:100vw; height:80lvh; object-fit:cover;"/> 
     </Layer>
-    <Layer overlap colStart="7" colEnd="14" style=" mix-blend-mode: hard-light;">
+    <Layer overlap colStart="7" colEnd="14" y=".6" style=" mix-blend-mode: hard-light;">
         <img src="/img/factory/poem-1.jpg" style="width:100vw"/>
     </Layer>
-    <Layer minHeight="100lvh" x=".2">
+    <Layer minHeight="100lvh" x=".2" y=".4" >
         <Textblock lines="{[
             {indent:0, text:`I wrote poems on my phone`},
             {indent:0, text:`with deeply encrypted meanings`},
@@ -282,7 +284,7 @@
 
 
 <LayerWrap>
-    <Layer overlap colStart="3" colEnd="6">
+    <Layer overlap colStart="3" colEnd="6" mColStart="2" mColEnd="10">
         <img src="/img/factory/bunny.gif" style="width:100vw;"/>
     </Layer>
     <Layer minHeight="50lvh">

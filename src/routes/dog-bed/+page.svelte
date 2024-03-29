@@ -35,7 +35,7 @@
         " />
     </Layer>
     
-    <Layer overlap colStart="11" colEnd="13" style="rotate: 9deg;">
+    <Layer overlap colStart="11" mColStart="8" colEnd="13" style="rotate: 9deg;">
         <img src="/img/dog-bed/swatch.jpg" style="
             width: 100vw;
         " />
@@ -60,7 +60,7 @@
 <LayerWrap>
     <Layer overlap class="anim fade" style="--parallax-speed:1.25; margin-top: -50lvh;" x="1">
         <img src="/img/dog-bed/collage-4.webp" style="
-            height:100lvh;
+            height:min(100lvh, 150vw);
             object-fit: cover;
         " />
     </Layer>
@@ -131,9 +131,10 @@
                 width: 100vw; 
                 height: 120lvh; 
                 object-fit: cover;
+                object-position: 25% 50%;
             " />
         </Layer>
-        <Layer overlap colStart="2" colEnd="7" class="anim" style="--parallax-speed: 1.25">
+        <Layer overlap colStart="2" colEnd="7" mColStart="2" mColEnd="10" class="anim" style="--parallax-speed: 1.25">
             <img src="/img/dog-bed/doggy.jpg" style="width:100vw" />
         </Layer>
         <Layer minHeight="50lvh" x=".5">

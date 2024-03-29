@@ -108,7 +108,7 @@
     </Layer>
 
     <LayerWrap>
-        <Layer overlap colStart="8" colEnd="13" class="anim" style="--parallax-speed: 1.2;">
+        <Layer overlap colStart="8" mColStart="4" colEnd="13" class="anim" style="--parallax-speed: 1.2;">
             <img src="/img/funnel/hand.jpg" style="width:100vw;">
         </Layer>
         <Layer minHeight="50lvh" x=".3">

@@ -35,8 +35,8 @@
 
 
    .clowntext{
-    max-width: 40rem; 
-    width: 100vw;
+    max-width: 100%; 
+    width: 40rem;
     background:#fff; 
     padding: 9vw; 
     font-family: 'ibm plex mono', 'american typewriter', monospace;
@@ -104,7 +104,7 @@
 
 <SectionWrap>
 
-<Layer minHeight="100lvh">
+<Layer minHeight="100lvh" mColStart="2" mColEnd="13">
     <div class="clowntext">
     <h1>Thanks for reading!</h1>
 

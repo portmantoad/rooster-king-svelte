@@ -137,13 +137,13 @@
     {indent:0, text:`We decided to move into a shared room at the hostel to save money`},
   ]}" />
 </Layer>
-  <Layer overlap colStart="10" class="anim" style="
+  <Layer overlap colStart="10" mColStart="8" class="anim" style="
     --transform-y-end: -50lvh;
   ">
       <img style="
         width:100%; 
         height:150lvh;
-        object-position: 35% 50%;  
+        object-position: 48% 50%;  
         object-fit: cover; 
          " src="/img/cherrycoke/hostel.jpg" />
   </Layer>
@@ -196,6 +196,7 @@
         width: 100vw;
         height: 100lvh;
         object-fit: cover;
+        object-position: 0 50%;
       "><source src="/img/cherrycoke/nightstreaks_silent.mp4" type="video/mp4" /></video>
   </Layer>
 
@@ -207,7 +208,7 @@
   ]}" />
 </Layer>
 
-<Layer minHeight="100lvh" style="mix-blend-mode: color-dodge;">
+<Layer minHeight="100lvh">
   <audio controls src="/img/cherrycoke/seaglass.m4a" bind:paused ></audio>  
 </Layer>
 <!-- <Layer colStart="2" colEnd="13">
