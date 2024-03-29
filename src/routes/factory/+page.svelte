@@ -6,13 +6,14 @@
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js';
+  import BgTrack from '$lib/components/BgTrack.svelte';
 
     let speed = 1;
     let noiseLevel = 0;
     let noiseVol = 0;
     let laughVol = 1;
-    let paused = true;
+    let noiseMuted = 0;
+    let laughMuted = 1;
 
   let scrollY = 0;
   let mounted = false;
@@ -30,9 +31,12 @@
             laughVol = 0;
         } else{
             noiseLevel = Math.min(Math.max((progress - .5) * 2, 0), 1)
-            noiseVol = (!$isMuted && paused) ? noiseLevel : 0;
-            laughVol = (!$isMuted && paused) ? (1 - noiseVol) : 0;
+            noiseVol = noiseLevel;
+            laughVol = (1 - noiseVol);
         }
+
+        noiseMuted = (noiseVol === 0) ? true : false;
+        laughMuted = (laughVol === 0) ? true : false;
     }
   }
 
@@ -45,9 +49,9 @@
 
 <svelte:window bind:scrollY />
 
-<audio hidden bind:this={holdmusic} class="autoplay" bind:volume={laughVol} bind:playbackRate={speed} src="/img/factory/holdmusic.mp3" autoplay loop></audio>
-<audio hidden class="autoplay" bind:volume={laughVol} src="/img/factory/clown.mp3" autoplay loop></audio>
-<audio hidden class="autoplay" bind:volume={noiseVol} src="/img/factory/static.mp3" autoplay loop></audio>
+<BgTrack bind:audioRef={holdmusic} volume={laughVol} muted={laughMuted} playbackRate={speed} src="/img/factory/holdmusic.mp3" />
+<BgTrack volume={laughVol} muted={laughMuted} src="/img/factory/clown.mp3" />
+<BgTrack volume={noiseVol} muted={noiseMuted} src="/img/factory/static.mp3" />
 
 
     <style type="text/css">

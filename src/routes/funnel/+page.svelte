@@ -5,18 +5,12 @@
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js';
-  
-
-  let paused = true;
-  let bgTrackVolume = 1;
-  $ : { 
-    bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
-  }
+  import BgTrack from '$lib/components/BgTrack.svelte';
+  import { mediaPaused } from '$lib/stores.js';
 
 </script>
 
-  <audio hidden class="autoplay" src="/img/funnel/liquiddreams.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
+  <BgTrack src="/img/funnel/liquiddreams.mp3" />
 
 <SectionWrap rootMargin="20%">
 
@@ -230,7 +224,7 @@ essentially drowned in corn.
       <video class="autoplay" muted autoplay loop style="width: 100vw; height: 100lvh; object-fit: cover;" src="/img/funnel/VHS2.mp4"></video>
 </Layer>
 <Layer minHeight="100lvh">
-    <audio controls src="/img/funnel/universalhypomania.mp3" bind:paused ></audio>
+    <audio controls src="/img/funnel/universalhypomania.mp3" bind:paused={$mediaPaused} ></audio>
 </Layer>
 
 <NextPage title="6. The Factory That Produces Factories" link="/factory" />

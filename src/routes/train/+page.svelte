@@ -5,16 +5,8 @@
   import Layer from '$lib/components/Layer.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js';
-  
-  let paused = true;
-  let bgTrackVolume = 1;
-  let trainVolume = .25;
-  $ : { 
-    bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
-    trainVolume = bgTrackVolume * .25;
-  }
-
+  import BgTrack from '$lib/components/BgTrack.svelte';
+  import Video from '$lib/components/Video.svelte';
 </script>
 
 <style type="text/css">
@@ -43,9 +35,9 @@
 
 
 
-<audio hidden class="autoplay" src="/img/train/forwardmarch.m4a" bind:volume={bgTrackVolume} autoplay loop></audio>
+<BgTrack src="/img/train/forwardmarch.m4a" />
 
-<audio hidden class="autoplay" bind:volume={trainVolume} src="/img/train/skytrain.mp3" autoplay loop></audio>
+<BgTrack volume={.25} src="/img/train/skytrain.mp3" />
 
 
 <SectionWrap class="intro" rootMargin="50%">
@@ -281,7 +273,7 @@
   </Layer>
 
   <Layer minHeight="100lvh" style="mix-blend-mode: plus-lighter;">
-    <video class="video--withcontrols" bind:paused style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" src="/img/train/bananabread_compressed.mp4" controls></video>
+    <Video src="/img/train/bananabread_compressed.mp4" />
   </Layer><!-- 
   <Layer colStart="2" colEnd="13">
 

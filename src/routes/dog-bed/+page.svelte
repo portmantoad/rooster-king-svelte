@@ -3,21 +3,14 @@
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
-  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js';
-  
-
-  let paused = true;
-  let bgTrackVolume = 1;
-  $ : { 
-    bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
-  }
-
+  import BgTrack from '$lib/components/BgTrack.svelte';
+  import Video from '$lib/components/Video.svelte';
 
 </script>
 
-  <audio hidden class="autoplay" src="/img/dog-bed/ruinedideals.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
+  <BgTrack src="/img/dog-bed/ruinedideals.mp3" />
+
 <SectionWrap>
     <Layer fixed class="fade" style=" --fade-duration: 1s;">
         <img src="/img/dog-bed/morning.gif" style="
@@ -208,7 +201,7 @@
     
 
     <Layer minHeight="100lvh" style="mix-blend-mode: exclusion;">
-    <video class="video--withcontrols" bind:paused style="width:calc(min(100vw - 2rem, 100lvh/202*360*.75 - 4rem)) " src="/img/dog-bed/candle.mp4" controls></video>
+    <Video src="/img/dog-bed/candle.mp4" />
   </Layer>
   </LayerWrap>
 

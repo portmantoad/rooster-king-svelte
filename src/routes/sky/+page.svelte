@@ -4,17 +4,12 @@
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js';
-  
-  let paused = true;
-  let bgTrackVolume = 1;
-  $ : { 
-    bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
-  }
+  import BgTrack from '$lib/components/BgTrack.svelte';
+  import { mediaPaused } from '$lib/stores.js';
 
 </script>
 
-  <audio hidden class="autoplay" src="/img/sky/shuffle.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
+  <BgTrack src="/img/sky/shuffle.mp3" />
 
 <SectionWrap>
 
@@ -128,7 +123,7 @@
     </Layer>
 
     <Layer minHeight="50lvh" y="0.1" x=".75" style="position:relative; z-index: 999;">
-        <audio controls src="/img/sky/greatunknown.m4a" bind:paused ></audio>
+        <audio controls src="/img/sky/greatunknown.m4a" bind:paused={$mediaPaused} ></audio>
     </Layer>
 
     <Layer fixed class="fade" y=".85" x=".9" style="z-index: 1000; filter: blur(.05em) contrast(2); mix-blend-mode: color-burn;">

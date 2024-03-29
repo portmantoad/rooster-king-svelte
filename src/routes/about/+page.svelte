@@ -4,20 +4,15 @@
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js';
-  
-  let bgTrackVolume = 1;
-  $ : { 
-    bgTrackVolume = $isMuted ? 0 : 1;
-  }
+  import BgTrack from '$lib/components/BgTrack.svelte';
 
 </script>
 <style type="text/css">
     .bg{
-      position: absolute;
-      width:100%;
-    height: 100%;
-    top: 0; left:0; bottom:0; right:0;
+      position: fixed;
+      width:100vw;
+    height: 100lvh;
+    inset: 0;
     --frames:20;
     --fps: 16;
     background: url('/img/title/out_mid.jpg');
@@ -38,7 +33,7 @@
     max-width: 100%; 
     width: 40rem;
     background:#fff; 
-    padding: 9vw; 
+    padding: 10lvh 9vw; 
     font-family: 'ibm plex mono', 'american typewriter', monospace;
     background-image: url("/img/bluenoise.png"); 
     background-size: 2.8rem;
@@ -46,6 +41,7 @@
     position: relative;
     font-size: .825rem;
     line-height: 1.25rem;
+    rotate:.35deg;
   }
 
   .clowntext a{
@@ -99,10 +95,27 @@
     opacity: 0.4;
   }
 
+  .signature{
+    width:12rem;
+    filter: brightness(.5) contrast(1.5);
+    
+  }
+
+  .signature__name{
+    width:15rem;
+    max-width: 100%;
+    --dotsize: 3px;
+    padding-top:calc((2rem - var(--dotsize)) / 2);
+    margin-top: -2.5rem;
+    position: relative;
+    border-top: var(--dotsize) dotted rgba(0,0,0,0.7);
+
+  }
+
 </style>
 <div class="bg"></div>
 
-  <audio class="autoplay" hidden src="/img/crowflies.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
+  <BgTrack src="/img/crowflies.mp3" />
 
 <SectionWrap>
 
@@ -110,15 +123,16 @@
     <div class="clowntext">
     <h1>Thanks for reading!</h1>
 
-    <p>I would have a credits page but I mostly did everything with the notable exception of the background tracks on pages 3,4, & 5 which were supplied by the talented Justin [tk]</p>
+    <p>I would have a credits page but I mostly did everything with the notable exception of the background tracks on pages 3,4, & 5 which were supplied by the talented <a href="https://soundcloud.com/mordecaimusician">Justin Donaldson</a></p>
 
-    <p>This is somewhat emberassing to admit but parts of this project have been in the works for over a decade now, and I am so grateful to be in a position to finally share it</p>
+    <p>This is somewhat embarassing to admit but parts of this project have been in the works for over a decade now, and I am so grateful to be in a position to finally share it</p>
 
     <p>If you'd like to hear about other projects or read my essays please sign up to my substack <a href="https://arcove.substack.com/">here</a></p>
 
-    <p> wish you all the best</p>
+    <p>Wishing you all the best</p>
 
-    <p>Drew Schorno</p>
+    <img class="signature" src="/img/signature.jpg">
+    <p class="signature__name">Drew Schorno</p>
     </div>
 </Layer>
 </SectionWrap>

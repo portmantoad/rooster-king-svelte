@@ -5,18 +5,13 @@
   import Textblock from '$lib/components/Textblock.svelte';
   import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js';
-  
-  let paused = true;
-  let bgTrackVolume = 1;
-  $ : { 
-    bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
-  }
+  import BgTrack from '$lib/components/BgTrack.svelte';
+  import Video from '$lib/components/Video.svelte';
 
   
 </script>
 
-<audio class="autoplay" hidden src="/img/lighthouse/luna.mp3" bind:volume={bgTrackVolume} autoplay loop></audio>
+<BgTrack src="/img/lighthouse/luna.mp3" />
 
 <!-- <audio hidden src="/img/lighthouse/wander.wav" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
 
@@ -286,7 +281,7 @@
     
 
     <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
-      <video class="video--withcontrols" bind:paused style="width: calc(min(100vw, 100lvh/480*757*.75 - 2rem))" controls src="/img/lighthouse/something_lyrics.mp4"></video>
+      <Video src="/img/lighthouse/something_lyrics.mp4" />
 
     </Layer>
 

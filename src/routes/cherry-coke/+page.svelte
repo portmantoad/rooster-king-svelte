@@ -3,21 +3,14 @@
   import LayerWrap from '$lib/components/LayerWrap.svelte';
   import Layer from '$lib/components/Layer.svelte';
   import Textblock from '$lib/components/Textblock.svelte';
-  import Clowntales from '$lib/components/Clowntales.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-  import { isMuted } from '$lib/stores.js';
-  
-
-  let paused = true;
-  let bgTrackVolume = 1;
-  $ : { 
-    bgTrackVolume = (!$isMuted && paused) ? 1 : 0;
-  }
+  import BgTrack from '$lib/components/BgTrack.svelte';
+  import { mediaPaused } from '$lib/stores.js';
 
 </script>
 
-<audio hidden class="autoplay" bind:volume={bgTrackVolume} src="/img/cherrycoke/hastings.mp3" autoplay loop></audio>
-<audio hidden class="autoplay" bind:volume={bgTrackVolume} src="/img/cherrycoke/comfort.mp3" autoplay loop></audio>
+<BgTrack src="/img/cherrycoke/hastings.mp3" />
+<BgTrack src="/img/cherrycoke/comfort.mp3"  />
 
 <SectionWrap rootMargin="0%">
 
@@ -208,7 +201,7 @@
 </Layer>
 
 <Layer minHeight="100lvh">
-  <audio controls src="/img/cherrycoke/seaglass.m4a" bind:paused ></audio>  
+  <audio controls src="/img/cherrycoke/seaglass.m4a" bind:paused={$mediaPaused} ></audio>  
 </Layer>
 <!-- <Layer colStart="2" colEnd="13">
 
