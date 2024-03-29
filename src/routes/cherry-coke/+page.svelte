@@ -54,7 +54,7 @@
   <img src="/img/cherrycoke/reciept.png" style="height:min(80lvh, calc(1445/1207 * 95vw));">
 </Layer>
 
-<Layer y=".6" x=".7" overlap class="anim" style="
+<Layer y=".9" x=".7" overlap class="anim" style="
   --parallax-speed: 1.5;
 ">      
       <img style="
