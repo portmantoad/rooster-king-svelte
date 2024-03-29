@@ -72,7 +72,9 @@ nav a.active{ text-decoration:underline; }
 
 	}
 
-	nav li{margin: .5rem 0 0}
+	nav li{margin: .5rem 0 0; width: 100%;}
+
+	nav li a{display: block;}
 
 	nav{
 		width:12rem;
@@ -200,6 +202,7 @@ nav a.active{ text-decoration:underline; }
 	const vids = document.querySelectorAll(".autoplay");
     vids.forEach((vid) => {
       vid.setAttribute("autoplay", "true");
+      vid.play();
     });
     $isMuted = false;
     clickModal = false;
