@@ -13,7 +13,7 @@
 .traintitle{
     color: #fffdc1;
     padding: 1em;
-    min-width: 80em;
+    min-width: 90em;
     font-size: min(.9vw, calc(13px + .1vw));
     --timeunit: 1ms;
     --strength: .1em;
