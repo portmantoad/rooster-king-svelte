@@ -16,14 +16,14 @@
 <Layer fixed class="anim" style="--transform-y-end:-5lvh; z-index: -100;">
     <img src="/img/sky/night.jpg" style="width:100vw; height:105lvh; object-fit: cover;">
 </Layer>
-<Layer minHeight="150lvh" x=".3">
+<Layer minHeight="100lvh" x=".3">
     <Textblock lines="{[
         {indent:0, text:`It took me months to think clearly again`},
         {indent:1, text:`unable to read words on a page or make jokes`},
     ]}" />
 </Layer>
 
-<Layer minHeight="150lvh" x=".7">
+<Layer minHeight="100lvh" x=".7">
     <Textblock lines="{[
         {indent:0, text:`living in the shame of my cryptic status updates`},
     ]}" />
@@ -34,7 +34,7 @@
         <img src="/img/sky/fire.jpg" style="width:100vw; ">
     </Layer>
 
-<Layer minHeight="150lvh">
+<Layer minHeight="100lvh">
     <Textblock lines="{[
         {indent:0, text:`The doctor told me it would take years to regain myself`},
         {indent:1, text:`that some may be lost forever`},
@@ -45,7 +45,7 @@
     <Layer fixed class="anim fade" colStart="2" colEnd="10" y=".4" style="--parallax-speed:1.1; --fade-duration:2s; mix-blend-mode: lighten;">
         <img src="/img/sky/fog.jpg" style="width:100vw; ">
     </Layer>
-    <Layer minHeight="150lvh">
+    <Layer minHeight="100lvh" x=".3">
         <Textblock lines="{[
             {indent:0, text:`I started going on walks on a path near my house`},
             {indent:1, text:`One well-marked trail, in a small loop`},

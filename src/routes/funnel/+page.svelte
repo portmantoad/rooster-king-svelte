@@ -15,7 +15,7 @@
 <SectionWrap rootMargin="20%">
 
     <Layer fixed class="anim" style="--transform-y-end:-20lvh; z-index:-200;">
-        <img src="/img/funnel/spaceneedle.jpg" style="width:100vw; height:120lvh; object-fit:cover; object-position: top right;" />
+        <img src="/img/funnel/spaceneedle.jpg" style="width:100vw; height:120lvh; object-fit:cover; object-position: 75% 0%;" />
     </Layer>
 
     <Layer fixed x=".95" y=".66" class="anim" style="--parallax-speed:1.05; z-index:500;">
@@ -46,7 +46,7 @@
         ]}" /> -->
     </Layer>
 
-    <LayerWrap toggleVis rootMargin="0% 0% -20% 0%">
+    <LayerWrap toggleVis rootMargin="0% 0% -50% 0%">
         <Layer fixed class="anim" style="--transform-y-end:-20lvh; z-index:-100;">
             <!-- <img src="/img/funnel/guns.jpg" style="width:100vw; height:100lvh; image-rendering:pixelated;"> -->
             <img src="/img/funnel/street.jpg" style="width:100vw; height:120lvh; z-index:-150; object-fit: cover;">
