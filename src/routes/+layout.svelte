@@ -80,17 +80,19 @@ nav a.active{ text-decoration:underline; }
 	nav li:first-of-type{
 		border-top: 1px dotted currentColor;
 		padding-top: .5rem;
+		margin-top: 1rem;
 	}
 
 	nav li:last-of-type{
 		border-top: 1px dotted currentColor;
 		padding-top: .5rem;
+		margin-top: 1rem;
 
 	}
 
-	nav li{margin: .5rem 0 0; width: 100%;}
+	nav li{padding: .5rem 0 0; width: 100%;}
 
-	nav li a{display: block;}
+	nav li a{display: block; padding:.5rem 0;}
 
 	nav{
 		width:12rem;
