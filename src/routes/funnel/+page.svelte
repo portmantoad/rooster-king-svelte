@@ -22,7 +22,7 @@
         <img src="/img/funnel/dollar.gif" style="width:5rem; image-rendering: pixelated; object-fit:cover; translate: -94% -46%;" />
     </Layer>
 
-    <Layer fixed x=".4" y=".2" class="anim" style="--parallax-speed:1.05; mix-blend-mode: multiply;">
+    <Layer fixed x=".5" y=".2" class="anim" style="--parallax-speed:1.05; mix-blend-mode: multiply;">
         <img src="/img/funnel/funnel.webp" style="width:80lvh;" />
     </Layer>
 
@@ -35,8 +35,8 @@
         " />
     </Layer>
 
-    <Layer minHeight="100lvh" colStart="3" colEnd="8" y=".2">
-        <img src="/img/funnel/text.webp" style="width:100vw; position:relative;" />
+    <Layer minHeight="100lvh" y=".2" x=".1">
+        <img src="/img/funnel/text.webp" style="width:min(60vh, 90vw); position:relative;" />
         <!-- <Textblock lines="{[
             {indent:0, text:`We were trying to build an engine`},
             {indent:0, text:`I applied the same logic to my life.`},

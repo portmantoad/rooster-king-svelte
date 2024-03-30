@@ -1,5 +1,7 @@
 <script type="text/javascript">
       import { isMuted, mediaPaused } from '$lib/stores.js';
+      import { onMount } from 'svelte';
+
 
       export let src;
       export let volume = 1;
@@ -25,6 +27,12 @@
                   audioRef && audioRef.play();
             }
       }
+
+      onMount(async () => {
+          if (!combinedMutedState){
+            audioRef && audioRef.play();
+          }
+      });
 </script>
 
 
