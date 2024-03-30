@@ -4,6 +4,7 @@
       export let src;
       export let volume = 1;
       export let muted = false;
+      export let minRatio = .75;
 
       let videoRef;
       let duration;
@@ -23,6 +24,12 @@
       });
 </script>
 
+<style type="text/css">
+      video{
+            max-width: 100%;
+            object-fit: cover;
+      }
+</style>
 
 <video 
       bind:this={videoRef} 
@@ -40,11 +47,11 @@
       bind:muted
       bind:videoWidth
       bind:videoHeight
-      style={`
-      aspect-ratio: ${videoWidth} / ${videoHeight};
-      width: calc(min(100vw, 75lvh/${videoHeight}*${videoWidth}));
-      max-width: 100%;
-
+      style={
+      // `aspect-ratio: ${videoWidth} / ${videoHeight};`
+      `width: calc(75lvh/${videoHeight}*${videoWidth});
+      height: 75lvh;
+      max-height: calc(100vw * ${minRatio});
       `} 
       src={src} 
       controls>

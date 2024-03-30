@@ -201,7 +201,7 @@
     
 
     <Layer minHeight="100lvh" style="mix-blend-mode: exclusion;">
-    <Video src="/img/dog-bed/candle.mp4" />
+    <Video src="/img/dog-bed/candle.mp4" minRatio=".8" />
   </Layer>
   </LayerWrap>
 
