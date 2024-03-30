@@ -7,6 +7,10 @@
   import NextPage from '$lib/components/NextPage.svelte';
   import BgTrack from '$lib/components/BgTrack.svelte';
   import { mediaPaused } from '$lib/stores.js';
+  import { onDestroy } from 'svelte';
+      onDestroy(() => {
+            $mediaPaused = true;
+      });
 
 </script>
 
