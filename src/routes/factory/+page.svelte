@@ -25,7 +25,7 @@
         const progress = Math.min(Math.max(scrollY / totalScroll, 0),1);
         speed = Math.max(1 - progress, 0.1);
 
-        if (progress === 1) {
+        if (progress > 0.98) {
             noiseLevel = 0;
             noiseVol = 0;
             laughVol = 0;
@@ -49,9 +49,9 @@
 
 <svelte:window bind:scrollY />
 
-<BgTrack bind:audioRef={holdmusic} volume={laughVol} muted={laughMuted} playbackRate={speed} src="/img/factory/holdmusic.mp3" />
-<BgTrack volume={laughVol} muted={laughMuted} src="/img/factory/clown.mp3" />
-<BgTrack volume={noiseVol} muted={noiseMuted} src="/img/factory/static.mp3" />
+<BgTrack bind:audioRef={holdmusic} volume={laughVol} muted={laughMuted} playbackRate={speed} src="/img/factory/holdmusic" />
+<BgTrack volume={laughVol} muted={laughMuted} src="/img/factory/clown" />
+<BgTrack volume={noiseVol} muted={noiseMuted} src="/img/factory/static" />
 
 
     <style type="text/css">
@@ -114,7 +114,7 @@
                 max-height: 85lvh;
               }
               100% {
-                max-height: 0lvh;
+                max-height: 40lvh;
               }
             }
           </style>
@@ -255,7 +255,10 @@
             <img src="/img/factory/scribbles-2.jpg" style="width:100vw; min-height:50lvh; object-fit:cover; object-position: top;"/>
         </Layer>
         <Layer overlap x=".5" style=" mix-blend-mode:difference;">
-            <audio controls src="/img/factory/trump.wav" ></audio>
+              <audio controls >
+                  <source src="/img/factory/trump.opus" type="audio/ogg; codecs=opus" />
+                  <source src="/img/factory/trump.mp3" type="audio/mpeg" />
+              </audio>  
         </Layer>
     </LayerWrap>
 <LayerWrap toggleVis style="margin-top:-50lvh;">
@@ -377,13 +380,13 @@
         ]}" />
     </Layer>
 
-<LayerWrap>
+<LayerWrap toggleVis>
 
-    <Layer overlap style="background: rgb(127,127,127);"></Layer>
+    <Layer fixed style="background: rgb(255,255,255);"></Layer>
 
 
     <Layer minHeight="100lvh" style="position:relative; z-index:900; ba">
-        <iframe style="aspect-ratio: 560 / 315; width: min(100vw, calc(90lvh/315*560));" src="https://www.youtube.com/embed/RAfHYaXmZEs?si=BndGvzg0KqJvyr5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe style="aspect-ratio: 560 / 315; width: min(100vw, calc(75lvh/315*560));" src="https://www.youtube.com/embed/RAfHYaXmZEs?si=BndGvzg0KqJvyr5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </Layer>
 
     <NextPage title="7. Sky Writing" link="/sky" />

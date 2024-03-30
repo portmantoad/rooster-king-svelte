@@ -1,25 +1,12 @@
 <script type="text/javascript">
   import Layer from '$lib/components/Layer.svelte';
   import NextPage from '$lib/components/NextPage.svelte';
-
-  import { isMuted } from '$lib/stores.js';
-  let bgAudio;
-
-  isMuted.subscribe((muted) => {
-    if (!muted) {
-      bgAudio && bgAudio.play();
-    }
-  })
-
-  let bgTrackVolume = 1;
-  $ : { 
-    bgTrackVolume = $isMuted ? 0 : 1;
-  }
+  import BgTrack from '$lib/components/BgTrack.svelte';
   
 
 </script>
 
-<audio bind:this={bgAudio} bind:volume={bgTrackVolume} hidden src="/img/crowflies.mp3" autoplay loop></audio>
+<BgTrack src="/img/crowflies" />
 
 	<style type="text/css">
 		
@@ -187,15 +174,12 @@ text-align: center;
     left: 0;
 "></div> -->
 	<img class="face" src="/img/title/face_optim.jpg">
-	<!-- <img class="scribble" src="/img/title/scribble.png"> -->
-	<!-- <img class="eye" src="/img/title/eye.png"> -->
 	<div class="eye_anim"></div>
 	<div class="cover autolayout" style="--left:.5fr; width:calc(43% - 5vw); overflow: hidden;">
     <div class="eye_anim__2"></div>
   </div>
   <Layer overlap x=".9" y=".6" style="mix-blend-mode: hard-light;">
   	<h1 class="title">Rooster <br />King</h1>
-  	<!-- <span class="subtitle">CLICK ANYWHERE TO BEGIN</span> -->
   </Layer> 
 
-  <NextPage title="1. The Lighthouse" link="/lighthouse" />
+  <NextPage title="1. The Lighthouse" link="/lighthouse" on:click />

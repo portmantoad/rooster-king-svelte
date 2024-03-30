@@ -35,14 +35,14 @@
 
 
 
-<BgTrack src="/img/train/forwardmarch.m4a" />
+<BgTrack src="/img/train/forwardmarch" />
 
-<BgTrack volume={.25} src="/img/train/skytrain.m4a" />
+<BgTrack src="/img/train/skytrain" />
 
 
 <SectionWrap class="intro" rootMargin="50%">
 <LayerWrap toggleVis>
-  <Layer minHeight="100lvh" style=" mix-blend-mode: screen;" >
+  <Layer minHeight="100lvh" style="position:relative;" >
     <img src="/img/train/nightbus_contrasty.jpg" style="width:100vw; height:100lvh; object-fit:cover;" />
   </Layer>
 

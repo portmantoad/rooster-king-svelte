@@ -9,7 +9,7 @@
 
 </script>
 
-  <BgTrack src="/img/sky/shuffle.mp3" />
+  <BgTrack src="/img/sky/shuffle" />
 
 <SectionWrap>
 
@@ -123,7 +123,10 @@
     </Layer>
 
     <Layer minHeight="50lvh" y="0.1" x=".75" style="position:relative; z-index: 999;">
-        <audio controls src="/img/sky/greatunknown.m4a" bind:paused={$mediaPaused} ></audio>
+        <audio controls bind:paused={$mediaPaused} >
+            <source src="/img/sky/greatunknown.opus" type="audio/ogg; codecs=opus" />
+            <source src="/img/sky/greatunknown.mp3" type="audio/mpeg" />
+        </audio>  
     </Layer>
 
     <Layer fixed class="fade" y=".85" x=".9" style="z-index: 1000; filter: blur(.05em) contrast(2); mix-blend-mode: color-burn;">

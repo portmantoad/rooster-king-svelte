@@ -11,9 +11,7 @@
   
 </script>
 
-<BgTrack src="/img/lighthouse/luna.mp3" />
-
-<!-- <audio hidden src="/img/lighthouse/wander.wav" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
+<BgTrack src="/img/lighthouse/luna" />
 
 
 <SectionWrap class="intro">

@@ -9,7 +9,7 @@
 
 </script>
 
-  <BgTrack src="/img/dog-bed/ruinedideals.mp3" />
+  <BgTrack src="/img/dog-bed/ruinedideals" />
 
 <SectionWrap>
     <Layer fixed class="fade" style=" --fade-duration: 1s;">

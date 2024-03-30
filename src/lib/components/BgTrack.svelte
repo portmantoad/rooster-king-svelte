@@ -1,5 +1,6 @@
 <script type="text/javascript">
       import { isMuted, mediaPaused } from '$lib/stores.js';
+
       export let src;
       export let volume = 1;
       export let muted = false;
@@ -14,8 +15,6 @@
       export let readyState;
       export let currentTime;
       export let playbackRate;
-
-      
 
       let combinedMutedState = muted;
 
@@ -33,7 +32,6 @@
       bind:this={audioRef} 
       class="autoplay" 
       hidden 
-      src={src} 
       bind:volume={volume} 
       bind:muted={combinedMutedState} 
       bind:duration
@@ -47,4 +45,9 @@
       bind:playbackRate
       autoplay 
       loop
-></audio>
+>
+        <source src={`${src}.opus`} type="audio/ogg; codecs=opus" />
+        <!-- <source src={`${src}.ogg`} type="audio/ogg; codecs=vorbis" /> -->
+        <source src={`${src}.m4a`} type="audio/mp4" />
+        <source src={`${src}.mp3`} type="audio/mpeg" />
+</audio>

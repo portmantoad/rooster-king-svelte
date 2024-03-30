@@ -115,7 +115,7 @@
 </style>
 <div class="bg"></div>
 
-  <BgTrack src="/img/crowflies.mp3" />
+  <BgTrack src="/img/crowflies" />
 
 <SectionWrap>
 

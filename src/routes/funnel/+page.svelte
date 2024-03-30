@@ -10,7 +10,7 @@
 
 </script>
 
-  <BgTrack src="/img/funnel/liquiddreams.mp3" />
+  <BgTrack src="/img/funnel/liquiddreams" />
 
 <SectionWrap rootMargin="20%">
 
@@ -219,12 +219,15 @@ essentially drowned in corn.
 </Layer>
 
 <LayerWrap>
-    <Layer overlap style="background: rgb(89 0 115); mix-blend-mode:color-dodge;"></Layer>
-<Layer overlap style="mix-blend-mode: plus-lighter;">
+    <Layer overlap style="background: rgba(89, 0, 115, 0.1);"></Layer>
+<Layer overlap style="mix-blend-mode: plus-lighter; background: rgb(89 0 115);">
       <video class="autoplay" muted autoplay loop style="width: 100vw; height: 100lvh; object-fit: cover;" src="/img/funnel/VHS2.mp4"></video>
 </Layer>
 <Layer minHeight="100lvh">
-    <audio controls src="/img/funnel/universalhypomania.mp3" bind:paused={$mediaPaused} ></audio>
+  <audio controls bind:paused={$mediaPaused} >
+      <source src="/img/funnel/universalhypomania.opus" type="audio/ogg; codecs=opus" />
+      <source src="/img/funnel/universalhypomania.mp3" type="audio/mpeg" />
+  </audio>  
 </Layer>
 
 <NextPage title="6. The Factory That Produces Factories" link="/factory" />

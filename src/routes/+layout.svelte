@@ -19,11 +19,11 @@
 	let clickModal = (data.pathname == '/') ? false : true;
 
 	let mutedStateActivelySet = false;
-	let canaryHasPlayed = false;
+	let canaryPaused = true;
 
 	$ : {
 		if (!mutedStateActivelySet) {
-			$isMuted = !canaryHasPlayed;
+			$isMuted = canaryPaused;
 		}
 	}
 	$isMuted = true;
@@ -191,9 +191,7 @@ nav a.active{ text-decoration:underline; }
 		<slot />
 	</div>
 	<ScrollNag></ScrollNag>
-	{#if !canaryHasPlayed}
-		<video src="/img/lighthouse/title3.mp4" autoplay loop class="canary" on:play={()=>{canaryHasPlayed = true;}} style="display: none;"></video>
-	{/if}
+	<video src="/img/lighthouse/title3.mp4" autoplay loop class="canary" bind:paused={canaryPaused} style="display: none;"></video>
 {/key}
 
 

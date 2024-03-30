@@ -9,8 +9,8 @@
 
 </script>
 
-<BgTrack src="/img/cherrycoke/hastings.m4a" />
-<BgTrack src="/img/cherrycoke/comfort.mp3"  />
+<BgTrack src="/img/cherrycoke/hastings" />
+<BgTrack src="/img/cherrycoke/comfort"  />
 
 <SectionWrap rootMargin="0%">
 
@@ -119,26 +119,27 @@
       <img style="
           width:100vw; 
           max-width: 100%;
-          height:200lvh;
+          height:calc(150lvh + 50lvh * var(--scroll-anim-toggle));
           object-position: 35% 50%;  
           object-fit: cover; 
            " src="/img/cherrycoke/signs_crop.jpg" />
+  </Layer>
+  <Layer overlap colStart="10" mColStart="8" class="anim" style="
+    --transform-y-end: -50lvh;
+  ">
+      <img style="
+          width:100vw; 
+          max-width: 100%;
+        height:calc(125lvh + 25lvh * var(--scroll-anim-toggle));
+        object-position: 48% 50%;  
+        object-fit: cover; 
+         " src="/img/cherrycoke/hostel.jpg" />
   </Layer>
 <Layer minHeight="80lvh" colEnd="10">
   <Textblock lines="{[
     {indent:0, text:`We decided to move into a shared room at the hostel to save money`},
   ]}" />
 </Layer>
-  <Layer overlap colStart="10" mColStart="8" class="anim" style="
-    --transform-y-end: -50lvh;
-  ">
-      <img style="
-        width:100%; 
-        height:150lvh;
-        object-position: 48% 50%;  
-        object-fit: cover; 
-         " src="/img/cherrycoke/hostel.jpg" />
-  </Layer>
 </LayerWrap>
 </SectionWrap>
    
@@ -201,7 +202,10 @@
 </Layer>
 
 <Layer minHeight="100lvh">
-  <audio controls src="/img/cherrycoke/seaglass.m4a" bind:paused={$mediaPaused} ></audio>  
+  <audio controls bind:paused={$mediaPaused} >
+      <source src="/img/cherrycoke/seaglass.opus" type="audio/ogg; codecs=opus" />
+      <source src="/img/cherrycoke/seaglass.mp3" type="audio/mpeg" />
+  </audio>  
 </Layer>
 <!-- <Layer colStart="2" colEnd="13">
 
