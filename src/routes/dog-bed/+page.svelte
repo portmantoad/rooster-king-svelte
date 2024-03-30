@@ -13,7 +13,7 @@
 
 <SectionWrap>
     <Layer fixed class="fade" style=" --fade-duration: 1s;">
-        <img src="/img/dog-bed/morning.gif" style="
+        <img src="/img/dog-bed/morning.webp" style="
             width: 100vw; 
             height: 100lvh; 
             object-fit: cover;

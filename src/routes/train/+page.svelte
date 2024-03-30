@@ -50,7 +50,7 @@
 
   <Layer fixed class="fade" style="z-index: 5; mix-blend-mode: lighten;      --fade-duration: 1s;
 ">
-    <img src="/img/train/paintey.png" style="width:100vw; height:100lvh; object-fit:cover;" />
+    <img src="/img/train/paintey.webp" style="width:100vw; height:100lvh; object-fit:cover;" />
   </Layer>
 
   <Layer fixed x=".9" y=".9" class="anim fade" style="
@@ -108,7 +108,7 @@
 
 <LayerWrap style="margin: 0 0 20lvh;">
   <Layer y=".5" overlap colStart="2" colEnd="8" class="anim" style="mix-blend-mode: hard-light; --parallax-speed:1.4;">
-    <img src="/img/train/potato.png" />
+    <img src="/img/train/potato.webp" />
   </Layer>
 
   <Layer x=".7" y=".5" minHeight="120lvh">
@@ -188,7 +188,7 @@
           --y-frames:11;
           position: absolute;
           top:0; left:0; bottom:0; right: 0;
-          background-image: url('/img/train/glitch.png'); 
+          background-image: url('/img/train/glitch.webp'); 
           background-size: cover;
           animation: calc(var(--time)/13*var(--x-frames)) steps(var(--x-frames)) infinite glitch-x both, calc(var(--time)/17*var(--y-frames)) steps(var(--y-frames)) infinite glitch-y both;
         }  
@@ -240,11 +240,10 @@
     --transform-scale-end: 1.2; 
     --transform-x-end:10%;
   ">
-    <img src="/img/train/raven.png" style="width:100vw" />
+    <img src="/img/train/raven.webp" style="width:100vw" />
   </Layer>
 
   <Layer fixed x="0" y=".8" class="anim fade" style="
-    mix-blend-mode: multiply; 
     --transform-x-start:-100%;
     --transform-x-end:150vw;
     --transform-y-start: 50lvh;
@@ -254,7 +253,7 @@
     --fade-duration: 1s;
     --range: cover 0% cover 75%; 
   ">
-    <img src="/img/train/ganbird.jpg" />
+    <img src="/img/train/ganbird.webp" />
   </Layer>
 
   <Layer minHeight="100lvh" x=".3">

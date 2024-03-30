@@ -44,7 +44,7 @@
          " src="/img/cherrycoke/decollage.png" />
 </Layer>
 <Layer x=".25" y=".5" minHeight="100lvh" style="position: relative;">
-  <img src="/img/cherrycoke/reciept.png" style="height:min(80lvh, calc(1445/1207 * 95vw));">
+  <img src="/img/cherrycoke/reciept.webp" style="height:min(80lvh, calc(1445/1207 * 95vw));">
 </Layer>
 
 <Layer y=".9" x=".7" overlap class="anim" style="

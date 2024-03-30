@@ -23,7 +23,7 @@
     </Layer>
 
     <Layer fixed x=".4" y=".2" class="anim" style="--parallax-speed:1.05; mix-blend-mode: multiply;">
-        <img src="/img/funnel/funnel.png" style="width:80lvh;" />
+        <img src="/img/funnel/funnel.webp" style="width:80lvh;" />
     </Layer>
 
     <Layer fixed x="1" y="1" class="fade" style="--fade-duration:1s;">
