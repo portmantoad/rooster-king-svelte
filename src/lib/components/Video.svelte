@@ -1,5 +1,6 @@
 <script type="text/javascript">
       import { mediaPaused } from '$lib/stores.js';
+      import { onDestroy } from 'svelte';
       export let src;
       export let volume = 1;
       export let muted = false;
@@ -17,6 +18,9 @@
       let videoWidth;
       let videoHeight;
 
+      onDestroy(() => {
+            $mediaPaused = true;
+      });
 </script>
 
 
