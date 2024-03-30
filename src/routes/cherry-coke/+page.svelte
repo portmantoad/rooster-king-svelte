@@ -9,7 +9,7 @@
 
 </script>
 
-<BgTrack src="/img/cherrycoke/hastings.mp3" />
+<BgTrack src="/img/cherrycoke/hastings.m4a" />
 <BgTrack src="/img/cherrycoke/comfort.mp3"  />
 
 <SectionWrap rootMargin="0%">

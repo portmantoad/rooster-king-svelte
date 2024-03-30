@@ -37,7 +37,7 @@
 
 <BgTrack src="/img/train/forwardmarch.m4a" />
 
-<BgTrack volume={.25} src="/img/train/skytrain.mp3" />
+<BgTrack volume={.25} src="/img/train/skytrain.m4a" />
 
 
 <SectionWrap class="intro" rootMargin="50%">
