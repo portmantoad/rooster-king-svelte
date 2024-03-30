@@ -308,7 +308,7 @@
     <img src="/img/factory/Family Photos.jpg" style="width:100vw; height: 80lvh; object-fit:cover;"/>
 </Layer>
 
-<Layer overlap colStart="0" colEnd="7">
+<Layer overlap colStart="0" colEnd="7" class="anim" style="--parallax-speed:1.4;">
     <img src="/img/factory/poem-2.jpg" style="width:100vw; object-fit:cover;"/>
 </Layer>
 <Layer minHeight="50lvh">
@@ -352,7 +352,7 @@
         ]}" />
     </Layer>
 <LayerWrap>
-    <Layer overlap colStart="7" colEnd="14" style="mix-blend-mode: difference;">
+    <Layer overlap colStart="7" colEnd="14" y=".8" class="anim" style="--parallax-speed:1.4; mix-blend-mode: color-burn; z-index: 150;">
         <img src="/img/factory/poem-3.jpg" style="width:100vw;"/>
     </Layer>
     <Layer minHeight="100lvh" x=".2">
