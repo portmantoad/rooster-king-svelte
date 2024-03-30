@@ -14,9 +14,6 @@
 
 <BgTrack src="/img/lighthouse/luna.mp3" />
 
-<!-- <audio hidden src="/img/lighthouse/wander.wav" bind:volume={bgTrackVolume} style="position: fixed; right: 0; z-index: 10000;" autoplay loop></audio> -->
-
-
 <SectionWrap class="intro">
       <Layer fixed class="fade" style="z-index: -10; background: black; --fade-duration: 1s;">
         <div class="intro__panorama anim" style="
