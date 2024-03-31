@@ -278,7 +278,7 @@
     </LayerWrap>
     
 
-    <Layer minHeight="100lvh" style="transform:translateZ(-1px); mix-blend-mode: plus-lighter; pointer-events: all;">
+    <Layer minHeight="100lvh" style=" mix-blend-mode: plus-lighter; pointer-events: all;">
       <Video src="/img/lighthouse/something_lyrics.mp4" />
 
     </Layer>
