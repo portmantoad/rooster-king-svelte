@@ -207,7 +207,7 @@ nav a.active{ text-decoration:underline; }
 
 {#key data.pathname}
 	<div 
-		in:fade={{ duration: 0, delay: 400 }} 
+		in:fade={{ duration: 900, delay: 200 }} 
 		out:fade={{ duration: 200 }} 
 		style="overflow-x: clip;" 
 		on:click={() => {playVidsDelayed(400);}}

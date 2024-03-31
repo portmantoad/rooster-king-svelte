@@ -16,7 +16,7 @@
       export let ended;
       export let readyState;
       export let currentTime;
-      export let playbackRate;
+      export let playbackRate = 1;
 
       let combinedMutedState = muted;
 
