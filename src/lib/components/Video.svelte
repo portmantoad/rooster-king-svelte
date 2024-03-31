@@ -37,7 +37,7 @@
 
       video:not(.paused){
             position: fixed;
-            top:50%;
+            top:50lvh;
             left:50%;
             translate: -50% -50%;
       }
@@ -111,7 +111,6 @@
       `} 
       src={src}
       controls
-      controlsList="nodownload nofullscreen noremoteplayback"
 >
       
       </video>
