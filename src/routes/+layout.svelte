@@ -48,6 +48,18 @@
 
 </script>
 
+<svelte:head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DDJB7B7GPW"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-DDJB7B7GPW');
+	</script>
+</svelte:head>
+
 
 <style type="text/css">
 
