@@ -5,8 +5,9 @@
 	import { isMuted } from '$lib/stores.js';
     import ScrollNag from '$lib/components/ScrollNag.svelte';
     import { onMount } from 'svelte';
-
-
+  	import { MetaTags } from 'svelte-meta-tags';
+  	import ogImage from '/img/og-image.jpg';
+  	import twitterImage from '/img/twitter-image.jpg';
 
 	let pages = [
 		{route: '/lighthouse', name:'1. Lighthouse'},
@@ -48,6 +49,7 @@
 
 </script>
 
+
 <svelte:head>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DDJB7B7GPW"></script>
@@ -59,6 +61,33 @@
 	  gtag('config', 'G-DDJB7B7GPW');
 	</script>
 </svelte:head>
+
+<MetaTags
+  title="Rooster King"
+  description="A multimedia collage zine type of thing, a memoir with songs."
+  canonical="https://roosterking.drewschorno.com"
+  openGraph={{
+    url: 'https://roosterking.drewschorno.com',
+    title: 'Rooster King',
+    description: 'A multimedia collage zine type of thing, a memoir with songs.',
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: 'Rooster King'
+      }
+    ]
+  }}
+  twitter={{
+    handle: '@dschorno',
+    cardType: 'summary_large_image',
+    title: 'Rooster King',
+    description: 'A multimedia collage zine type of thing, a memoir with songs.',
+    image: twitterImage,
+    imageAlt: 'Rooster King'
+  }}
+/>
 
 
 <style type="text/css">
