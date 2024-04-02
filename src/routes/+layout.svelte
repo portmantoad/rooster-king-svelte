@@ -5,9 +5,6 @@
 	import { isMuted } from '$lib/stores.js';
     import ScrollNag from '$lib/components/ScrollNag.svelte';
     import { onMount } from 'svelte';
-  	import { MetaTags } from 'svelte-meta-tags';
-  	import ogImage from '/img/og-image.jpg';
-  	import twitterImage from '/img/twitter-image.jpg';
 
 	let pages = [
 		{route: '/lighthouse', name:'1. Lighthouse'},
@@ -51,7 +48,6 @@
 
 
 <svelte:head>
-	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DDJB7B7GPW"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
@@ -60,35 +56,21 @@
 
 	  gtag('config', 'G-DDJB7B7GPW');
 	</script>
+
+	<meta name="twitter:card" content="summary_large_image">  
+	<meta name="twitter:creator" content="@dschorno"> 
+	<meta name="twitter:title" content="Rooster King"> 
+	<meta name="twitter:description" content="A multimedia collage zine type of thing, a memoir with songs."> 
+	<meta name="twitter:image" content="https://roosterking.drewschorno.com/img/twitter-image.jpg"> 
+	<meta name="twitter:image:alt" content="Rooster King">
+	<meta property="og:url" content="https://roosterking.drewschorno.com">  
+	<meta property="og:title" content="Rooster King"> 
+	<meta property="og:description" content="A multimedia collage zine type of thing, a memoir with songs."> 
+	<meta property="og:image" content="https://roosterking.drewschorno.com/img/og-image.jpg"> 
+	<meta property="og:image:alt" content="Rooster King"> 
+	<meta property="og:image:width" content="1200"> 
+	<meta property="og:image:height" content="630">      
 </svelte:head>
-
-<MetaTags
-  title="Rooster King"
-  description="A multimedia collage zine type of thing, a memoir with songs."
-  canonical="https://roosterking.drewschorno.com"
-  openGraph={{
-    url: 'https://roosterking.drewschorno.com',
-    title: 'Rooster King',
-    description: 'A multimedia collage zine type of thing, a memoir with songs.',
-    images: [
-      {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: 'Rooster King'
-      }
-    ]
-  }}
-  twitter={{
-    handle: '@dschorno',
-    cardType: 'summary_large_image',
-    title: 'Rooster King',
-    description: 'A multimedia collage zine type of thing, a memoir with songs.',
-    image: twitterImage,
-    imageAlt: 'Rooster King'
-  }}
-/>
-
 
 <style type="text/css">
 
