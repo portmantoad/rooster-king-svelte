@@ -189,7 +189,7 @@
         object-position: 27% 50%;  
         object-fit: cover; 
          " src="/img/cherrycoke/plane_dark.jpg" /> -->
-      <video class="autoplay" muted="muted" autoplay loop style="
+      <video class="autoplay" muted="muted" autoplay loop playsinline style="
         width: 100vw;
         height: 100lvh;
         object-fit: cover;

@@ -181,7 +181,7 @@
 
 <SectionWrap>
       <Layer fixed style="z-index: -100;">
-      <video class="autoplay" muted="muted" autoplay loop style="
+      <video class="autoplay" muted="muted" autoplay loop playsinline style="
         width: 100vw;
         height: 100lvh;
         object-fit: cover;
@@ -225,7 +225,7 @@ essentially drowned in corn.
 <LayerWrap>
     <Layer overlap style="background: rgba(89, 0, 115, 0.1);"></Layer>
 <Layer overlap style="mix-blend-mode: plus-lighter; background: rgb(89 0 115);">
-      <video class="autoplay" muted autoplay loop style="width: 100vw; height: 100lvh; object-fit: cover;" src="/img/funnel/VHS2.mp4"></video>
+      <video class="autoplay" muted autoplay loop playsinline style="width: 100vw; height: 100lvh; object-fit: cover;" src="/img/funnel/VHS2.mp4"></video>
 </Layer>
 <Layer minHeight="100lvh">
   <audio controls bind:paused={$mediaPaused} >

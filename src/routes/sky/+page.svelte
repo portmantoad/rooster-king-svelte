@@ -84,12 +84,12 @@
         {indent:0, text:`Eventually I convinced myself to go out just a little further`},
     ]}" />
 </Layer>
-<Layer fixed colStart="9" colEnd="14" mColStart="4" y=".2" class="fade" style="--fade-duration: 1s;"><video class="autoplay" autoplay muted volume="0" loop src="/img/sky/fasttrail.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
+<Layer fixed colStart="9" colEnd="14" mColStart="4" y=".2" class="fade" style="--fade-duration: 1s;"><video class="autoplay" autoplay muted playsinline volume="0" loop src="/img/sky/fasttrail.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
 
 
 <LayerWrap toggleVis>
 <Layer minHeight="100lvh"></Layer>
-<Layer fixed colStart="2" colEnd="8" mColEnd="12" y="0.2" class="fade anim" style="--parallax-speed:1.025;"><video class="autoplay" autoplay muted volume="0" loop src="/img/sky/biketire.mp4" style="width:100vw; max-width:100%; max-height:50lvh; object-fit:cover;"/></Layer>
+<Layer fixed colStart="2" colEnd="8" mColEnd="12" y="0.2" class="fade anim" style="--parallax-speed:1.025;"><video class="autoplay" autoplay muted playsinline volume="0" loop src="/img/sky/biketire.mp4" style="width:100vw; max-width:100%; max-height:50lvh; object-fit:cover;"/></Layer>
 
 <LayerWrap toggleVis>
 <Layer minHeight="100lvh">
@@ -99,17 +99,17 @@
         {indent:0, text:`slowly being reclaimed by moss`},
     ]}" />
 </Layer>
-<Layer fixed colStart="4" colEnd="10" mColStart="2" y="0.9" class="fade anim" style="--parallax-speed:1.05;"><video class="autoplay" autoplay muted volume="0" loop src="/img/sky/trashpath2.mp4" style="width:100vw; max-width:100%; height:40lvh; object-fit:cover;"/></Layer>
+<Layer fixed colStart="4" colEnd="10" mColStart="2" y="0.9" class="fade anim" style="--parallax-speed:1.05;"><video class="autoplay" autoplay muted playsinline volume="0" loop src="/img/sky/trashpath2.mp4" style="width:100vw; max-width:100%; height:40lvh; object-fit:cover;"/></Layer>
 
 
 <LayerWrap toggleVis>
 <Layer minHeight="100lvh"></Layer>
 <Layer fixed colStart="7" colEnd="14" mColStart="4" y=".7" class="fade anim" style="--parallax-speed:1.1; z-index: 10;"><div style="width: 100vw; max-width: 100%; background:#888; aspect-ratio: 1920 / 1080;"></div></Layer>
-<Layer fixed colStart="7" colEnd="14" mColStart="4" y=".7" class="fade anim" style="--parallax-speed:1.1; z-index: 110; mix-blend-mode: overlay;"><video class="autoplay" autoplay muted volume="0" loop src="/img/sky/clownfoliage.mp4" style="width:100vw; max-width:100%; object-fit:cover; display: block;"/></Layer>
+<Layer fixed colStart="7" colEnd="14" mColStart="4" y=".7" class="fade anim" style="--parallax-speed:1.1; z-index: 110; mix-blend-mode: overlay;"><video class="autoplay" autoplay muted playsinline volume="0" loop src="/img/sky/clownfoliage.mp4" style="width:100vw; max-width:100%; object-fit:cover; display: block;"/></Layer>
 
 <LayerWrap toggleVis>
 <Layer minHeight="100lvh"></Layer>
-<Layer fixed colStart="0" colEnd="4" mColEnd="8" y=".5" class="fade anim" style="--parallax-speed:1.12;"><video class="autoplay" autoplay muted volume="0" loop src="/img/sky/sky.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
+<Layer fixed colStart="0" colEnd="4" mColEnd="8" y=".5" class="fade anim" style="--parallax-speed:1.12;"><video class="autoplay" autoplay muted playsinline volume="0" loop src="/img/sky/sky.mp4" style="width:100vw; max-width:100%; object-fit:cover;"/></Layer>
 
 
 

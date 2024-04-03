@@ -33,6 +33,7 @@
 
 	const playVids = () => {
 		document.querySelectorAll(".autoplay").forEach((vid) => {
+	      vid.setAttribute("playsinline", "true");
 	      vid.setAttribute("autoplay", "true");
 	      vid.play();
 	    });
