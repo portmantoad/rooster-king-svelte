@@ -112,7 +112,7 @@
             ]}" />
           </Layer>
           <Layer overlap colStart="5" colEnd="13" mColStart="1" mColEnd="14" class="anim fade" style="--parallax-speed:1.5;">
-            <video class="autoplay whalevid__video" style="width: 100vw; max-width: 100%;" src="/img/lighthouse/luna.mp4" autoplay muted loop></video>
+            <video class="autoplay whalevid__video" style="width: 100vw; max-width: 100%;" src="/img/lighthouse/luna.mp4" autoplay muted loop playsinline></video>
           </Layer>
         </LayerWrap>
 
@@ -246,7 +246,7 @@
 
   <SectionWrap rootMargin="0%" class="endvid">
     <Layer fixed class="endvid__bg fade" style="z-index: -500;">
-      <video class="autoplay" src="/img/lighthouse/sunset-small.mp4" autoplay muted loop style="
+      <video class="autoplay" src="/img/lighthouse/sunset-small.mp4" autoplay muted loop playsinline style="
           width: 100vw;
           height:100lvh;
           object-fit: cover; 
