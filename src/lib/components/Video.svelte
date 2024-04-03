@@ -105,12 +105,13 @@
       class:paused={paused}
       style={
       // `aspect-ratio: ${videoWidth} / ${videoHeight};`
-      `width: calc(75lvh/${videoHeight}*${videoWidth});
-      height: 75lvh;
+      `width: calc((100lvh - 4rem)/${videoHeight}*${videoWidth});
+      height: calc(100lvh - 4rem);
       max-height: calc(100vw * ${minRatio});
       `} 
       src={src}
       controls
+      playsinline
 >
       
       </video>
