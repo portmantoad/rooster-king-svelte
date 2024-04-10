@@ -358,7 +358,7 @@
         ]}" />
     </Layer>
     <Layer minHeight="100lvh" class="anim" style="--parallax-speed:1.4; mix-blend-mode: color-burn; position:relative; z-index: 1000;">
-        <img src="/img/factory/poem-3_cropped.png" style="width:min(50vw, 100vw);"/>
+        <img src="/img/factory/poem-3_cropped.png" style="width:min(50vh, 100vw);"/>
     </Layer>
 
 <LayerWrap toggleVis rootMargin="100%">
