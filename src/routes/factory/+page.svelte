@@ -351,16 +351,15 @@
             {indent:0, text:`and only I was aware.`},
         ]}" />
     </Layer>
-<LayerWrap>
-    <Layer overlap colStart="7" colEnd="14" y=".8" class="anim" style="--parallax-speed:1.4; mix-blend-mode: color-burn; z-index: 150;">
-        <img src="/img/factory/poem-3.jpg" style="width:100vw;"/>
-    </Layer>
+
     <Layer minHeight="100lvh" x=".2">
         <Textblock lines="{[
             {indent:0, text:`He begged me to let the universe end.`},
         ]}" />
     </Layer>
-</LayerWrap>
+    <Layer minHeight="100lvh" class="anim" style="--parallax-speed:1.4; mix-blend-mode: color-burn; position:relative; z-index: 1000;">
+        <img src="/img/factory/poem-3_cropped.png" style="width:min(50vw, 100vw);"/>
+    </Layer>
 
 <LayerWrap toggleVis rootMargin="100%">
     <Layer fixed class="anim" style={`
