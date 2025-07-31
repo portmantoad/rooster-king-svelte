@@ -1,22 +1,24 @@
 <script type="text/javascript">
-  import SectionWrap from '$lib/components/SectionWrap.svelte';
-  import LayerWrap from '$lib/components/LayerWrap.svelte';
-  import Layer from '$lib/components/Layer.svelte';
-  import Textblock from '$lib/components/Textblock.svelte';
-  import Clowntales from '$lib/components/Clowntales.svelte';
-  import NextPage from '$lib/components/NextPage.svelte';
-  import BgTrack from '$lib/components/BgTrack.svelte';
-  import Video from '$lib/components/Video.svelte';
-
-  
+  import SectionWrap from "$lib/components/SectionWrap.svelte";
+  import LayerWrap from "$lib/components/LayerWrap.svelte";
+  import Layer from "$lib/components/Layer.svelte";
+  import Textblock from "$lib/components/Textblock.svelte";
+  import NextPage from "$lib/components/NextPage.svelte";
+  import BgTrack from "$lib/components/BgTrack.svelte";
+  import Video from "$lib/components/Video.svelte";
 </script>
 
 <BgTrack src="/img/lighthouse/luna" />
 
-
 <SectionWrap class="intro">
-      <Layer fixed class="fade" style="z-index: -10; background: black; --fade-duration: 1s;">
-        <div class="intro__panorama anim" style="
+  <Layer
+    fixed
+    class="fade"
+    style="z-index: -10; background: black; --fade-duration: 1s;"
+  >
+    <div
+      class="intro__panorama anim"
+      style="
           width: 100vw;
           background: #fff;
           overflow: hidden;
@@ -29,18 +31,22 @@
           --filter-ease: ease-out;
           --bonus-animation: ease-out intro__panorama both;
           --bonus-animation-range: contain 0% contain 30%;
-        ">
-          <style type="text/css">
-            @keyframes intro__panorama {
-              0% {
-                max-height: calc(100svh - 4rem);
-              }
-              100% {
-                max-height: 75lvh;
-              }
-            }
-          </style>
-          <img class="intro__sky anim" src="/img/lighthouse/sky_dithering.png" style="
+        "
+    >
+      <style type="text/css">
+        @keyframes intro__panorama {
+          0% {
+            max-height: calc(100svh - 4rem);
+          }
+          100% {
+            max-height: 75lvh;
+          }
+        }
+      </style>
+      <img
+        class="intro__sky anim"
+        src="/img/lighthouse/sky_dithering.png"
+        style="
             position:absolute;
             image-rendering: pixelated; 
             bottom:0; 
@@ -48,8 +54,12 @@
             right:0;
             --timeline:--section;
             --transform-x-end:4lvh;
-          " />
-          <img class="intro__lighthouse anim" src="/img/lighthouse/lighthouse_bw.png" style="
+          "
+      />
+      <img
+        class="intro__lighthouse anim"
+        src="/img/lighthouse/lighthouse_bw.png"
+        style="
             position:absolute;
             height: calc(50lvh + 20vw);
             width: auto;
@@ -63,79 +73,135 @@
             --transform-x-end:-5lvh;
             --transform-y-end:2lvh;
             --transform-scale-end:1.05;
-          " />  
-        </div>
+          "
+      />
+    </div>
+  </Layer>
+
+  <Layer minHeight="100vh" x=".8" y=".2" style="mix-blend-mode: multiply;">
+    <video
+      style="width: calc(55lvh * 800/496); max-width: 100%;"
+      src="/img/lighthouse/title3.mp4"
+      class="autoplay"
+      muted
+      autoplay
+      playsinline
+      loop
+    ></video>
+
+    <!-- {@html '<video muted autoplay loop defaultmuted playsinline src="/img/lighthouse/title3.mp4" style="width: calc(55lvh * 800/496); max-width: 100%;"/>'} -->
+  </Layer>
+
+  <LayerWrap>
+    <img
+      class="intro__glitch anim fade"
+      src="/img/lighthouse/wavesglitch.jpg"
+    />
+    <style type="text/css">
+      .intro__glitch {
+        position: absolute;
+        z-index: -1;
+        width: 80vw;
+        height: calc(100% + 40lvh);
+        object-fit: cover;
+        object-position: top left;
+        right: 0;
+        top: -40lvh;
+        mix-blend-mode: multiply;
+      }
+      @supports (animation-range: cover) {
+        .intro__glitch {
+          position: fixed;
+          top: 70lvh;
+          height: 130lvh;
+          --timeline: --section;
+          --transform-y-end: -100lvh;
+        }
+      }
+    </style>
+    <Layer minHeight="50lvh">
+      <Textblock
+        lines={[
+          {
+            indent: 0,
+            text: `He told the seller he needed to “try it on for size”`,
+          },
+          {
+            indent: 1,
+            text: `He borrowed a boat and brought six middle school boys out to camp`,
+          },
+        ]}
+      />
+    </Layer>
+    <LayerWrap toggleVis rootMargin="-30%">
+      <Layer minHeight="50lvh" colStart="2" colEnd="7">
+        <Textblock
+          class="whalevid__text"
+          lines={[
+            {
+              indent: 0,
+              text: `A killer whale named Luna kept swimming up to us`,
+            },
+            { indent: 1, text: `driving away the fish` },
+            { indent: 0, text: `he must have been lonely.` },
+          ]}
+        />
       </Layer>
-      
-      <Layer minHeight='100vh' x='.8' y='.2' style="mix-blend-mode: multiply;">
-        <video style="width: calc(55lvh * 800/496); max-width: 100%;" src="/img/lighthouse/title3.mp4" class="autoplay" muted autoplay playsinline loop></video>
+      <Layer
+        overlap
+        colStart="5"
+        colEnd="13"
+        mColStart="1"
+        mColEnd="14"
+        class="anim fade"
+        style="--parallax-speed:1.5;"
+      >
+        <video
+          class="autoplay whalevid__video"
+          style="width: 100vw; max-width: 100%;"
+          src="/img/lighthouse/luna.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+      </Layer>
+    </LayerWrap>
 
-        <!-- {@html '<video muted autoplay loop defaultmuted playsinline src="/img/lighthouse/title3.mp4" style="width: calc(55lvh * 800/496); max-width: 100%;"/>'} -->
-      </Layer> 
+    <Layer x=".7">
+      <Textblock
+        lines={[
+          {
+            indent: 0,
+            text: `I resisted pressing my hand against his thick slick skin`,
+          },
+          { indent: 1, text: `as a boat full of sightseers` },
+          { indent: -1, text: `snapped pictures of us on disposable cameras` },
+        ]}
+      />
+    </Layer>
 
-      <LayerWrap>
-        <img class="intro__glitch anim fade" src="/img/lighthouse/wavesglitch.jpg" />
-        <style type="text/css">
-          .intro__glitch{
-            position:absolute;
-            z-index: -1;
-            width:80vw;
-            height: calc(100% + 40lvh);
-            object-fit: cover;
-            object-position: top left;
-            right:0;
-            top:-40lvh;
-            mix-blend-mode: multiply;
-          }
-          @supports (animation-range: cover) {
-            .intro__glitch{
-              position:fixed;
-              top:70lvh;
-              height: 130lvh;
-              --timeline: --section;
-              --transform-y-end: -100lvh;
-            }
-          }
-        </style>
-        <Layer minHeight="50lvh">
-          <Textblock lines="{[
-            {indent:0, text:`He told the seller he needed to “try it on for size”`},
-            {indent:1, text:`He borrowed a boat and brought six middle school boys out to camp`},
-          ]}" />
-        </Layer>
-        <LayerWrap toggleVis rootMargin="-30%">
-          <Layer minHeight="50lvh" colStart="2" colEnd="7">
-            <Textblock class="whalevid__text" lines="{[
-              {indent:0, text:`A killer whale named Luna kept swimming up to us`},
-              {indent:1, text:`driving away the fish`},
-              {indent:0, text:`he must have been lonely.`},
-            ]}" />
-          </Layer>
-          <Layer overlap colStart="5" colEnd="13" mColStart="1" mColEnd="14" class="anim fade" style="--parallax-speed:1.5;">
-            <video class="autoplay whalevid__video" style="width: 100vw; max-width: 100%;" src="/img/lighthouse/luna.mp4" autoplay muted loop playsinline></video>
-          </Layer>
-        </LayerWrap>
+    <Layer
+      x=".9"
+      class="anim"
+      style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;"
+    >
+      <img src="/img/lighthouse/fujifilm.webp" />
+    </Layer>
+  </LayerWrap>
+</SectionWrap>
 
-        <Layer x=".7" >
-          <Textblock lines="{[
-            {indent:0, text:`I resisted pressing my hand against his thick slick skin`},
-            {indent:1, text:`as a boat full of sightseers`},
-            {indent:-1, text:`snapped pictures of us on disposable cameras`},
-          ]}" />
-        </Layer>
-
-        <Layer x=".9" class="anim" style="--transform-skew-start:-5deg; --transform-skew-end:5deg; --transform-rotate-end:10deg;  mix-blend-mode: color-burn;">
-          <img src="/img/lighthouse/fujifilm.webp">
-        </Layer>
-
-      </LayerWrap>
-  </SectionWrap>
-
-  <SectionWrap class="pixelwaves" style="
+<SectionWrap
+  class="pixelwaves"
+  style="
     background: url('/img/lighthouse/pixelsort_waves.png'); 
     background-size: cover;
-  " >
-      <img class="pixelwaves__orca anim" src="/img/lighthouse/orcawhale.webp" style="
+  "
+>
+  <img
+    class="pixelwaves__orca anim"
+    src="/img/lighthouse/orcawhale.webp"
+    style="
        position: absolute;
        top: 0;
        left: 50%;
@@ -147,18 +213,31 @@
        --transform-x-end: 30%;
        --parallax-speed: 1.05;
        --transform-scale-end:1.25;
-      " />
-      <LayerWrap>
-        <Layer minHeight="80lvh" x=".2">
-          <Textblock class="pixelwaves__text" lines="{[
-            {indent:0, text:`Only me and one other boy wanted to fish again the next day`},
-            {indent:0, text:`The others planned to collect sticks and explore.`},
-            {indent:1, text:`We left our friends in their tents `},
-            {indent:1, text:`and set out towards the lighthouse.`},
-          ]}" />
-        </Layer>
-        <Layer overlap colStart="6" colEnd="14">
-          <img class="pixelwaves__rpgisland anim" src="/img/lighthouse/rpg_island_trans.png" style="
+      "
+  />
+  <LayerWrap>
+    <Layer minHeight="80lvh" x=".2">
+      <Textblock
+        class="pixelwaves__text"
+        lines={[
+          {
+            indent: 0,
+            text: `Only me and one other boy wanted to fish again the next day`,
+          },
+          {
+            indent: 0,
+            text: `The others planned to collect sticks and explore.`,
+          },
+          { indent: 1, text: `We left our friends in their tents ` },
+          { indent: 1, text: `and set out towards the lighthouse.` },
+        ]}
+      />
+    </Layer>
+    <Layer overlap colStart="6" colEnd="14">
+      <img
+        class="pixelwaves__rpgisland anim"
+        src="/img/lighthouse/rpg_island_trans.png"
+        style="
             image-rendering: pixelated; 
             display: block;
             transform: translateY(calc(40lvh - 18%));
@@ -166,13 +245,17 @@
             --parallax-speed:1.1;
             --transform-skew-start:-2deg;
             --transform-skew-end:2deg;
-          " />
-        </Layer>
-      </LayerWrap>
-  </SectionWrap>
+          "
+      />
+    </Layer>
+  </LayerWrap>
+</SectionWrap>
 
-  <SectionWrap rootMargin="-50% 0% -10% 0%" class="darkroom">
-    <Layer fixed class="darkroom__bg anim fade" style="
+<SectionWrap rootMargin="-50% 0% -10% 0%" class="darkroom">
+  <Layer
+    fixed
+    class="darkroom__bg anim fade"
+    style="
         height: 110lvh;
         z-index: -100;
         background-position: bottom left;
@@ -188,74 +271,105 @@
         --filter-ease: cubic-bezier(0.100, -0.005, 0.015, 0.985);
 
         --fade-duration: 3s;
-      " />
+      "
+  />
 
-    <Layer minHeight="80lvh" x=".3">
-        <Textblock lines="{[
-          {indent:0, text:`Our chaperone slept alone on the floor below`},
-          {indent:0, text:`as we laid in sleeping bags side by side`},
-          {indent:1, text:`whispering, staring into each other`},
-          {indent:0, text:``},
-          {indent:0, text:`I wanted to kiss him.`},
-        ]}" />
-    </Layer>
+  <Layer minHeight="80lvh" x=".3">
+    <Textblock
+      lines={[
+        { indent: 0, text: `Our chaperone slept alone on the floor below` },
+        { indent: 0, text: `as we laid in sleeping bags side by side` },
+        { indent: 1, text: `whispering, staring into each other` },
+        { indent: 0, text: `` },
+        { indent: 0, text: `I wanted to kiss him.` },
+      ]}
+    />
+  </Layer>
 
-    <LayerWrap toggleVis class="boys">
-      <Layer overlap colStart="1" colEnd="8">
-        <img class="boys__image anim" src="/img/lighthouse/boys.jpg" style="
+  <LayerWrap toggleVis class="boys">
+    <Layer overlap colStart="1" colEnd="8">
+      <img
+        class="boys__image anim"
+        src="/img/lighthouse/boys.jpg"
+        style="
           mix-blend-mode: plus-lighter;
           --transform-scale-end:1.1;
           --transform-ease: ease-out;
           --parallax-speed: 1.5;
-        " />
-      </Layer>
-      <Layer minHeight="80lvh" x=".8">
-        <Textblock class="boys__text" lines="{[
-          {indent:0, text:`When I got up to use the bathroom`},
-          {indent:0, text:`I thought I saw a look flash across his face.`},
-          {indent:1, text:`When I returned he was asleep.`},
-        ]}" />
-      </Layer>
-    </LayerWrap>
+        "
+      />
+    </Layer>
+    <Layer minHeight="80lvh" x=".8">
+      <Textblock
+        class="boys__text"
+        lines={[
+          { indent: 0, text: `When I got up to use the bathroom` },
+          { indent: 0, text: `I thought I saw a look flash across his face.` },
+          { indent: 1, text: `When I returned he was asleep.` },
+        ]}
+      />
+    </Layer>
+  </LayerWrap>
 
-    <LayerWrap toggleVis rootMargin="-30% 0% -10% 0%" class="moonwhale">
-      <Layer fixed class="moonwhale__highway anim fade" style="
+  <LayerWrap toggleVis rootMargin="-30% 0% -10% 0%" class="moonwhale">
+    <Layer
+      fixed
+      class="moonwhale__highway anim fade"
+      style="
           mix-blend-mode: screen;
           --fade-duration: 1000ms;
           --parallax-speed:1.05;
           --filter-start:brightness(0);
           --filter-range: entry;
           --filter-ease: ease-in;
-      ">
-        <img src="/img/lighthouse/highway.gif" style="
+      "
+    >
+      <img
+        src="/img/lighthouse/highway.gif"
+        style="
           width: 100vw;
           height:100lvh;
           object-fit: cover;
-        " />
-      </Layer>
+        "
+      />
+    </Layer>
 
-      <Layer minHeight="100lvh" x=".5">
-          <Textblock class="moonwhale__text" lines="{[
-            {indent:0, text:`It wasn't until the ride home`},
-            {indent:1, text:`that I heard the family dog had been run over.`},
-          ]}" />
-      </Layer>
+    <Layer minHeight="100lvh" x=".5">
+      <Textblock
+        class="moonwhale__text"
+        lines={[
+          { indent: 0, text: `It wasn't until the ride home` },
+          { indent: 1, text: `that I heard the family dog had been run over.` },
+        ]}
+      />
+    </Layer>
+  </LayerWrap>
+</SectionWrap>
 
-    </LayerWrap>
-  </SectionWrap>
-
-  <SectionWrap rootMargin="0%" class="endvid">
-    <Layer fixed class="endvid__bg fade" style="z-index: -500;">
-      <video class="autoplay" src="/img/lighthouse/sunset-small.mp4" autoplay muted loop playsinline style="
+<SectionWrap rootMargin="0%" class="endvid">
+  <Layer fixed class="endvid__bg fade" style="z-index: -500;">
+    <video
+      class="autoplay"
+      src="/img/lighthouse/sunset-small.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      style="
           width: 100vw;
           height:100lvh;
           object-fit: cover; 
           display: block;
-      "></video>
-    </Layer>
+      "
+    ></video>
+  </Layer>
 
-    <LayerWrap toggleVis class="moonwhale">
-      <Layer fixed class="anim fade" colStart="3" style="
+  <LayerWrap toggleVis class="moonwhale">
+    <Layer
+      fixed
+      class="anim fade"
+      colStart="3"
+      style="
           mix-blend-mode: plus-lighter;
           --parallax-speed:1.2;
             --filter-start:brightness(0.5);
@@ -263,36 +377,48 @@
             --filter-range: exit;
             --filter-ease: ease-in;
             --fade-duration: 1s;
-        ">
-          <img class="anim" src="/img/lighthouse/moonwhale.jpg" style="
+        "
+    >
+      <img
+        class="anim"
+        src="/img/lighthouse/moonwhale.jpg"
+        style="
             width: 100vw;
-          " />
-      </Layer>
-
-      <Layer minHeight="100lvh" x=".2">
-          <Textblock class="moonwhale__text" lines="{[
-            {indent:0, text:`When I was in college I learned that Luna died too,`},
-            {indent:1, text:`caught in the motor of some other boat.`},
-          ]}" />
-      </Layer>
-    </LayerWrap>
-    
-
-    <Layer minHeight="100lvh" style=" mix-blend-mode: plus-lighter; pointer-events: all;">
-      <Video src="/img/lighthouse/something_lyrics.mp4" />
-
+          "
+      />
     </Layer>
 
-    <!-- <Layer colStart="2" colEnd="13"> -->
+    <Layer minHeight="100lvh" x=".2">
+      <Textblock
+        class="moonwhale__text"
+        lines={[
+          {
+            indent: 0,
+            text: `When I was in college I learned that Luna died too,`,
+          },
+          { indent: 1, text: `caught in the motor of some other boat.` },
+        ]}
+      />
+    </Layer>
+  </LayerWrap>
 
-<!-- Well, here I am. Back in this town where I grew up. Where I can walk past the house that was reclaimed by the bank after my parent's startup failed, and complain about how the new owners cut down fruit bearing trees in the driveway to make room for more parking. 
+  <Layer
+    minHeight="100lvh"
+    style=" mix-blend-mode: plus-lighter; pointer-events: all;"
+  >
+    <Video src="/img/lighthouse/something_lyrics.mp4" />
+  </Layer>
+
+  <!-- <Layer colStart="2" colEnd="13"> -->
+
+  <!-- Well, here I am. Back in this town where I grew up. Where I can walk past the house that was reclaimed by the bank after my parent's startup failed, and complain about how the new owners cut down fruit bearing trees in the driveway to make room for more parking. 
 
 This town is kind of a shithole, but it's… pretty. To pass itself off as a quaint seaside village, the businesses along the town’s main commercial strip are forced to follow strict bylaws that mandate the materials of their signs: even international chains like subway and scotiabank are a pastiche of a mom and pop store, spelled out in driftwood.
 
 Nobody with any sense or any options chooses to stay here but, for whatever it says about me, I somewhat frequently find myself returning. After I came back from Seattle in the summer of 2019, I spent my days writing gut-wrenchingly pathetic songs, and languidly moping around in various states of despair. 
 
 --- -->
-<!-- 
+  <!-- 
       <Clowntales md="{`# Clown talez part one
 
 I ran out of money and had to move back in with my mom again. 
@@ -334,5 +460,5 @@ Tyrell smirked. _You better get up there_
 </Layer>
  -->
 
-    <NextPage title="2. Train" link="/train" />
-  </SectionWrap>
+  <NextPage title="2. Train" link="/train" />
+</SectionWrap>

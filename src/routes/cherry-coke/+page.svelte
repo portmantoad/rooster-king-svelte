@@ -1,217 +1,341 @@
 <script type="text/javascript">
-  import SectionWrap from '$lib/components/SectionWrap.svelte';
-  import LayerWrap from '$lib/components/LayerWrap.svelte';
-  import Layer from '$lib/components/Layer.svelte';
-  import Textblock from '$lib/components/Textblock.svelte';
-  import NextPage from '$lib/components/NextPage.svelte';
-  import BgTrack from '$lib/components/BgTrack.svelte';
-  import { mediaPaused } from '$lib/stores.js';
-  import { onDestroy } from 'svelte';
-      onDestroy(() => {
-            $mediaPaused = true;
-      });
-
+  import SectionWrap from "$lib/components/SectionWrap.svelte";
+  import LayerWrap from "$lib/components/LayerWrap.svelte";
+  import Layer from "$lib/components/Layer.svelte";
+  import Textblock from "$lib/components/Textblock.svelte";
+  import NextPage from "$lib/components/NextPage.svelte";
+  import BgTrack from "$lib/components/BgTrack.svelte";
+  import { mediaPaused } from "$lib/stores.js";
+  import { onDestroy } from "svelte";
+  onDestroy(() => {
+    $mediaPaused = true;
+  });
 </script>
 
 <BgTrack src="/img/cherrycoke/hastings" />
-<BgTrack src="/img/cherrycoke/comfort"  />
+<BgTrack src="/img/cherrycoke/comfort" />
 
 <SectionWrap rootMargin="0%">
-
-<Layer fixed class="anim" style="
+  <Layer
+    fixed
+    class="anim"
+    style="
   --parallax-speed: 2;
-">
-      <img style="
+"
+  >
+    <img
+      style="
         width:100vw; 
         height:100lvh;
         object-position: 35% 50%;  
         object-fit: cover; 
-         " src="/img/cherrycoke/bus.jpg" />
-</Layer>
-<Layer fixed x="1" y="0.2" class="anim" style="
+         "
+      src="/img/cherrycoke/bus.jpg"
+    />
+  </Layer>
+  <Layer
+    fixed
+    x="1"
+    y="0.2"
+    class="anim"
+    style="
   mix-blend-mode: darken; 
 /*  --parallax-speed: 1;*/
-">
-      <img style="
+"
+  >
+    <img
+      style="
         width:12rem; 
         max-width: 50vw;
-         " src="/img/cherrycoke/coke.gif" />
-</Layer>
+         "
+      src="/img/cherrycoke/coke.gif"
+    />
+  </Layer>
 
-<Layer y="1" colEnd="7" fixed class="anim" style="
+  <Layer
+    y="1"
+    colEnd="7"
+    fixed
+    class="anim"
+    style="
 /*  --parallax-speed: 1.25;*/
   --fade-duration:2s;
   mix-blend-mode: hard-light;
-">
-      <img style="
+"
+  >
+    <img
+      style="
         width:100vw;
-         " src="/img/cherrycoke/decollage.png" />
-</Layer>
-<Layer x=".25" y=".5" minHeight="100lvh" style="position: relative;">
-  <img src="/img/cherrycoke/reciept.webp" style="height:min(80lvh, calc(1445/1207 * 95vw));">
-</Layer>
+         "
+      src="/img/cherrycoke/decollage.png"
+    />
+  </Layer>
+  <Layer x=".25" y=".5" minHeight="100lvh" style="position: relative;">
+    <img
+      src="/img/cherrycoke/reciept.webp"
+      style="height:min(80lvh, calc(1445/1207 * 95vw));"
+    />
+  </Layer>
 
-<Layer y=".9" x=".7" overlap class="anim" style="
+  <Layer
+    y=".9"
+    x=".7"
+    overlap
+    class="anim"
+    style="
   --parallax-speed: 1.5;
-">      
-      <img style="
+"
+  >
+    <img
+      style="
         width:10rem; 
         max-width: 50vw;
             image-rendering: pixelated;
-         " src="/img/cherrycoke/pizzaslice.gif" />
-</Layer>
+         "
+      src="/img/cherrycoke/pizzaslice.gif"
+    />
+  </Layer>
 </SectionWrap>
 <SectionWrap rootMargin="0%">
-
-<Layer fixed class="anim" style="
+  <Layer
+    fixed
+    class="anim"
+    style="
   --transform-y-end: -10lvh;
   z-index: -100;
-">
-  <img src="/img/cherrycoke/treea.jpg" style="
+"
+  >
+    <img
+      src="/img/cherrycoke/treea.jpg"
+      style="
     width: 100vw;
     height: 110lvh;
     object-fit: cover;
-  " />
-</Layer>
+  "
+    />
+  </Layer>
 
-<LayerWrap toggleVis rootMargin="0%">
-  <Layer fixed colEnd="10" class="fade anim" style="
+  <LayerWrap toggleVis rootMargin="0%">
+    <Layer
+      fixed
+      colEnd="10"
+      class="fade anim"
+      style="
     --transform-y-end: -50lvh;
     z-index: -80;
     --fade-duration:1s;
-  ">
-        <img style="
+  "
+    >
+      <img
+        style="
           width: 100vw;
           height: 150lvh;
           object-position: 40% 50%;
           object-fit: cover;
-          " src="/img/cherrycoke/store.jpg">
-  </Layer>
+          "
+        src="/img/cherrycoke/store.jpg"
+      />
+    </Layer>
 
-  <Layer x=".7" y=".7" minHeight="80lvh">
-    <Textblock lines="{[
-      {indent:0, text:`When I first met him, `},
-      {indent:1, text:`I hid myself in a stairwell and stared `},
-      {indent:1, text:`until he spotted me. `},
-    ]}" />
-  </Layer>
-</LayerWrap>
+    <Layer x=".7" y=".7" minHeight="80lvh">
+      <Textblock
+        lines={[
+          { indent: 0, text: `When I first met him, ` },
+          { indent: 1, text: `I hid myself in a stairwell and stared ` },
+          { indent: 1, text: `until he spotted me. ` },
+        ]}
+      />
+    </Layer>
+  </LayerWrap>
 
-<Layer colStart="7" class="anim" style="
+  <Layer
+    colStart="7"
+    class="anim"
+    style="
   --parallax-speed: 1.2;
-">
-    <img style="
+"
+  >
+    <img
+      style="
       width:100vw; 
       max-width:100%; 
-    " src="/img/cherrycoke/clubhouse.webp" />
-</Layer>
+    "
+      src="/img/cherrycoke/clubhouse.webp"
+    />
+  </Layer>
 
-<Layer minHeight="170lvh" y=".4">
-  <Textblock lines="{[
-    {indent:0, text:`He was a new transplant from a town of less than 100`},
-    {indent:1, text:`somewhere in Quebec, I think.`},
-    {indent:0, text:`He had gotten a job as a horse handler `},
-    {indent:1, text:`for a circus act that was in town.`},
-  ]}" />
-</Layer>
+  <Layer minHeight="170lvh" y=".4">
+    <Textblock
+      lines={[
+        {
+          indent: 0,
+          text: `He was a new transplant from a town of less than 100`,
+        },
+        { indent: 1, text: `somewhere in Quebec, I think.` },
+        { indent: 0, text: `He had gotten a job as a horse handler ` },
+        { indent: 1, text: `for a circus act that was in town.` },
+      ]}
+    />
+  </Layer>
 
-<LayerWrap>
-  <Layer overlap colEnd="10" class="anim" style="
+  <LayerWrap>
+    <Layer
+      overlap
+      colEnd="10"
+      class="anim"
+      style="
     mix-blend-mode: multiply; 
     --transform-y-end: -100lvh;
-  ">
-      <img style="
+  "
+    >
+      <img
+        style="
           width:100vw; 
           max-width: 100%;
           height:calc(150lvh + 50lvh * var(--scroll-anim-toggle));
           object-position: 35% 50%;  
           object-fit: cover; 
-           " src="/img/cherrycoke/signs_crop.jpg" />
-  </Layer>
-  <Layer overlap colStart="10" mColStart="8" class="anim" style="
+           "
+        src="/img/cherrycoke/signs_crop.jpg"
+      />
+    </Layer>
+    <Layer
+      overlap
+      colStart="10"
+      mColStart="8"
+      class="anim"
+      style="
     --transform-y-end: -50lvh;
-  ">
-      <img style="
+  "
+    >
+      <img
+        style="
           width:100vw; 
           max-width: 100%;
         height:calc(125lvh + 25lvh * var(--scroll-anim-toggle));
         object-position: 48% 50%;  
         object-fit: cover; 
-         " src="/img/cherrycoke/hostel.jpg" />
-  </Layer>
-<Layer minHeight="80lvh" colEnd="10">
-  <Textblock lines="{[
-    {indent:0, text:`We decided to move into a shared room at the hostel to save money`},
-  ]}" />
-</Layer>
-</LayerWrap>
+         "
+        src="/img/cherrycoke/hostel.jpg"
+      />
+    </Layer>
+    <Layer minHeight="80lvh" colEnd="10">
+      <Textblock
+        lines={[
+          {
+            indent: 0,
+            text: `We decided to move into a shared room at the hostel to save money`,
+          },
+        ]}
+      />
+    </Layer>
+  </LayerWrap>
 </SectionWrap>
-   
-<SectionWrap rootMargin="0%">   
-<Layer fixed class="anim fade" style="
+
+<SectionWrap rootMargin="0%">
+  <Layer
+    fixed
+    class="anim fade"
+    style="
   --transform-y-end: -20lvh;
   z-index: -100;
   --fade-duration: 1s;
 
-  ">    
-      <img style="
+  "
+  >
+    <img
+      style="
         width: 100vw; 
         height: calc(100lvh + 20lvh * var(--scroll-anim-toggle));
         object-position: 40% 50%;  
         object-fit: cover; 
-         " src="/img/cherrycoke/orpheum.jpg" />
-</Layer>
+         "
+      src="/img/cherrycoke/orpheum.jpg"
+    />
+  </Layer>
 
-<Layer minHeight="80lvh" x=".3">
-  <Textblock lines="{[
-    {indent:0, text:`A few months later the circus was moving to Calgary,`},
-    {indent:1, text:`he decided to go with them.`},
-  ]}" />
-</Layer>
+  <Layer minHeight="80lvh" x=".3">
+    <Textblock
+      lines={[
+        {
+          indent: 0,
+          text: `A few months later the circus was moving to Calgary,`,
+        },
+        { indent: 1, text: `he decided to go with them.` },
+      ]}
+    />
+  </Layer>
 
-<Layer minHeight="80lvh" x=".7">
-  <Textblock lines="{[
-    {indent:0, text:`I pretended nothing was happening all the way to the end.`},
-    {indent:1, text:`I walked him to the bus stop `},
-    {indent:1, text:`and gave him a final kiss goodbye.`},
-  ]}" />
-</Layer>
-
+  <Layer minHeight="80lvh" x=".7">
+    <Textblock
+      lines={[
+        {
+          indent: 0,
+          text: `I pretended nothing was happening all the way to the end.`,
+        },
+        { indent: 1, text: `I walked him to the bus stop ` },
+        { indent: 1, text: `and gave him a final kiss goodbye.` },
+      ]}
+    />
+  </Layer>
 </SectionWrap>
 <SectionWrap>
-  <Layer fixed class="fade" style="
+  <Layer
+    fixed
+    class="fade"
+    style="
     mix-blend-mode: plus-lighter;
     --fade-duration:1s;
-  ">
-      <!-- <img style="
+  "
+  >
+    <!-- <img style="
         width:100vw; 
         height:100lvh;
         object-position: 27% 50%;  
         object-fit: cover; 
          " src="/img/cherrycoke/plane_dark.jpg" /> -->
-      <video class="autoplay" muted="muted" autoplay loop playsinline style="
+    <video
+      class="autoplay"
+      muted="muted"
+      autoplay
+      loop
+      playsinline
+      style="
         width: 100vw;
         height: 100lvh;
         object-fit: cover;
         object-position: 0 50%;
-      "><source src="/img/cherrycoke/nightstreaks_silent.mp4" type="video/mp4" /></video>
+      "
+      ><source
+        src="/img/cherrycoke/nightstreaks_silent.mp4"
+        type="video/mp4"
+      /></video
+    >
   </Layer>
 
-<Layer minHeight="100lvh" x=".7">
-  <Textblock lines="{[
-    {indent:0, text:`I moved to a city that had Cherry Coke Zero in every corner store`},
-    {indent:1, text:`and I had enough money to buy it by the case.`},
-    {indent:1, text:`I quickly lost my taste for it.`},
-  ]}" />
-</Layer>
+  <Layer minHeight="100lvh" x=".7">
+    <Textblock
+      lines={[
+        {
+          indent: 0,
+          text: `I moved to a city that had Cherry Coke Zero in every corner store`,
+        },
+        { indent: 1, text: `and I had enough money to buy it by the case.` },
+        { indent: 1, text: `I quickly lost my taste for it.` },
+      ]}
+    />
+  </Layer>
 
-<Layer minHeight="100lvh">
-  <audio controls bind:paused={$mediaPaused} >
-      <source src="/img/cherrycoke/seaglass.opus" type="audio/ogg; codecs=opus" />
+  <Layer minHeight="100lvh">
+    <audio controls bind:paused={$mediaPaused}>
+      <source
+        src="/img/cherrycoke/seaglass.opus"
+        type="audio/ogg; codecs=opus"
+      />
       <source src="/img/cherrycoke/seaglass.mp3" type="audio/mpeg" />
-  </audio>  
-</Layer>
-<!-- <Layer colStart="2" colEnd="13">
+    </audio>
+  </Layer>
+  <!-- <Layer colStart="2" colEnd="13">
 
       <Clowntales md="{`# Clown talez part three
 
